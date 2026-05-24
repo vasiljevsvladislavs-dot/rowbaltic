@@ -10,9 +10,10 @@ import Footer from '@/components/sections/Footer'
 export default async function LangPage({
   params,
 }: {
-  params: Promise<{ lang: Lang }>
+  params: Promise<{ lang: string }>
 }) {
-  const { lang } = await params
+  const { lang: rawLang } = await params
+  const lang = ((['lv', 'en', 'lt', 'ee'] as const).includes(rawLang as Lang) ? rawLang : 'lv') as Lang
   const dict = getDictionary(lang)
 
   return (
