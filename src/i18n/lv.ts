@@ -8,7 +8,7 @@ const lv: Dict = {
   nav: {
     about: 'Par festivālu',
     festival: 'ROW BALTIC 2026',
-    competition: 'Konkurss',
+    competition: 'Konkursa nolikums',
     register: 'Reģistrācija',
   },
   hero: {

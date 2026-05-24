@@ -8,7 +8,7 @@ import type { PhotoCollageImage } from '@/types'
 interface PhotoCollageProps {
   images: PhotoCollageImage[]
   className?: string
-  variant?: 'overlap' | 'grid' | 'featured'
+  variant?: 'overlap' | 'grid' | 'featured' | 'masonry'
 }
 
 const ROTATIONS = [-3, 2, -1.5, 3, -2]
@@ -19,6 +19,7 @@ export default function PhotoCollage({
   variant = 'overlap',
 }: PhotoCollageProps) {
   const [hovered, setHovered] = useState<number | null>(null)
+  const [lightbox, setLightbox] = useState<number | null>(null)
 
   if (variant === 'featured' && images.length >= 3) {
     return (
@@ -85,6 +86,117 @@ export default function PhotoCollage({
                 sizes="(max-width: 768px) 50vw, 33vw"
               />
               <div className="absolute inset-0 bg-ink-900/20 group-hover:bg-ink-900/0 transition-colors duration-300" />
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  if (variant === 'masonry') {
+    // Build a 4-column desktop grid with varying row spans
+    // Pattern repeats: tall, normal, normal, tall, normal, tall, normal, normal ...
+    const tallIndexes = new Set([0, 3, 5, 8, 11])
+
+    return (
+      <div className={cn('w-full', className)}>
+        {/* Lightbox overlay */}
+        {lightbox !== null && (
+          <div
+            className="fixed inset-0 z-[9999] bg-ink-900/95 flex items-center justify-center p-4"
+            onClick={() => setLightbox(null)}
+          >
+            <div className="relative w-full max-w-4xl max-h-[90vh] aspect-[4/3]">
+              <Image
+                src={images[lightbox].src}
+                alt={images[lightbox].alt}
+                fill
+                className="object-contain"
+                sizes="90vw"
+              />
+            </div>
+            <button
+              className="absolute top-6 right-6 font-mono text-xs text-cream/60 hover:text-cream border border-cream/20 px-3 py-1.5 hover:border-cream/60 transition-all"
+              onClick={() => setLightbox(null)}
+            >
+              ✕ ESC
+            </button>
+            {lightbox > 0 && (
+              <button
+                className="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-cream/60 hover:text-cream text-2xl px-4 py-6"
+                onClick={(e) => { e.stopPropagation(); setLightbox(lightbox - 1) }}
+              >
+                ‹
+              </button>
+            )}
+            {lightbox < images.length - 1 && (
+              <button
+                className="absolute right-4 top-1/2 -translate-y-1/2 font-mono text-cream/60 hover:text-cream text-2xl px-4 py-6"
+                onClick={(e) => { e.stopPropagation(); setLightbox(lightbox + 1) }}
+              >
+                ›
+              </button>
+            )}
+            <span className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-[10px] text-cream/40 uppercase tracking-widest">
+              {lightbox + 1} / {images.length}
+            </span>
+          </div>
+        )}
+
+        {/* Desktop: CSS grid masonry-style */}
+        <div
+          className="hidden md:grid gap-2"
+          style={{
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gridAutoRows: '180px',
+          }}
+        >
+          {images.map((img, i) => {
+            const isTall = tallIndexes.has(i)
+            return (
+              <div
+                key={i}
+                className="relative overflow-hidden group cursor-pointer"
+                style={{ gridRow: isTall ? 'span 2' : 'span 1' }}
+                onClick={() => setLightbox(i)}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-all duration-500 group-hover:scale-105"
+                  sizes="25vw"
+                />
+                <div className="absolute inset-0 bg-ink-900/30 group-hover:bg-ink-900/0 transition-colors duration-300" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                  <span className="font-mono text-[9px] uppercase tracking-widest text-cream/60">
+                    ROW BALTIC
+                  </span>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Mobile: 2-col grid */}
+        <div className="md:hidden grid grid-cols-2 gap-1.5">
+          {images.map((img, i) => (
+            <div
+              key={i}
+              className={cn(
+                'relative overflow-hidden group cursor-pointer',
+                i === 0 ? 'col-span-2 h-56' : 'h-40'
+              )}
+              onClick={() => setLightbox(i)}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-ink-900/20" />
             </div>
           ))}
         </div>

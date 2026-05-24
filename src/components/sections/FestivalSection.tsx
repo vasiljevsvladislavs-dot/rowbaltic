@@ -4,11 +4,18 @@ import PhotoCollage from '@/components/ui/PhotoCollage'
 import type { Dict } from '@/i18n'
 
 const images = [
-  { src: '/collage/photo-3.jpg', alt: 'ROW BALTIC 2026 battle' },
-  { src: '/collage/photo-1.jpg', alt: 'Graffiti battle' },
-  { src: '/collage/photo-4.jpg', alt: 'Street art 2026' },
-  { src: '/collage/photo-2.jpg', alt: 'ROW BALTIC participants' },
-  { src: '/collage/photo-5.jpg', alt: 'Festival atmosphere' },
+  { src: '/collage2/photo-01.jpg', alt: 'ROW BALTIC festival' },
+  { src: '/collage2/photo-02.jpg', alt: 'Street art participants' },
+  { src: '/collage2/photo-03.jpg', alt: 'Graffiti work' },
+  { src: '/collage2/photo-04.jpg', alt: 'Festival atmosphere' },
+  { src: '/collage2/photo-05.jpg', alt: 'ROW BALTIC 2025' },
+  { src: '/collage2/photo-06.jpg', alt: 'Urban art Riga' },
+  { src: '/collage2/photo-07.jpg', alt: 'Street art festival' },
+  { src: '/collage2/photo-08.jpg', alt: 'ROW BALTIC artists' },
+  { src: '/collage2/photo-09.jpg', alt: 'Sarkandaugava festival' },
+  { src: '/collage2/photo-10.jpg', alt: 'ROW BALTIC graffiti' },
+  { src: '/collage2/photo-11.jpg', alt: 'Street art Riga' },
+  { src: '/collage2/photo-12.jpg', alt: 'ROW BALTIC 2025 battle' },
 ]
 
 interface Props {
@@ -92,7 +99,7 @@ export default function FestivalSection({ dict }: Props) {
           </div>
         </AnimateIn>
         <AnimateIn delay={150}>
-          <PhotoCollage images={images} variant="grid" />
+          <PhotoCollage images={images} variant="masonry" />
         </AnimateIn>
       </div>
     </section>
