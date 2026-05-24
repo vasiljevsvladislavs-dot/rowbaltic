@@ -21,8 +21,8 @@ const en: Dict = {
     deadline_label: 'Applications',
     deadline_value: 'until June 22',
     organize_label: 'Organised by:',
-    organize_value: 'Dainis Rudens · Mākslas birojs',
-    register_cta: 'Apply',
+    organize_value: 'Dainis Rudens · Ansis · Mākslas birojs',
+    register_cta: 'Apply for the Drawing Competition',
     marquee: 'ROW BALTIC 2026 ✦ STREET ART ✦ BATTLE ✦ RIGA ✦ SARKANDAUGAVA ✦',
   },
   about: {
@@ -77,8 +77,8 @@ const en: Dict = {
   },
   registration: {
     num: '04',
-    label: 'Registration',
-    heading: 'APPLY',
+    label: 'Drawing Competition Application',
+    heading: 'APPLY FOR THE DRAWING COMPETITION',
     p1: 'Fill in the application form and become part of ROW BALTIC 2026. Applications are open until 22 June 2026 at 23:59.',
     info: [
       { label: 'Date', value: 'August 22, 2026' },

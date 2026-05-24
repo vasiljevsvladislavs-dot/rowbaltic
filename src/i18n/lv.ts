@@ -21,8 +21,8 @@ const lv: Dict = {
     deadline_label: 'Pieteikšanās',
     deadline_value: 'līdz 22. jūnijam',
     organize_label: 'Organizē:',
-    organize_value: 'Dainis Rudens · Mākslas birojs',
-    register_cta: 'Pieteikties',
+    organize_value: 'Dainis Rudens · Ansis · Mākslas birojs',
+    register_cta: 'Pieteikties zīmēšanas konkursam',
     marquee: 'ROW BALTIC 2026 ✦ IELU MĀKSLA ✦ CĪŅA ✦ RĪGA ✦ SARKANDAUGAVA ✦',
   },
   about: {
@@ -77,8 +77,8 @@ const lv: Dict = {
   },
   registration: {
     num: '04',
-    label: 'Reģistrācija',
-    heading: 'PIETEIKTIES',
+    label: 'Pieteikšanās zīmēšanas konkursam',
+    heading: 'PIETEIKTIES ZĪMĒŠANAS KONKURSAM',
     p1: 'Aizpildi pieteikuma veidlapu un kļūsti par daļu no ROW BALTIC 2026. Pieteikšanās ir atvērta līdz 2026. gada 22. jūnijam plkst. 23:59.',
     info: [
       { label: 'Datums', value: '22. augusts, 2026' },

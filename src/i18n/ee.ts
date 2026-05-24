@@ -21,8 +21,8 @@ const ee: Dict = {
     deadline_label: 'Registreerimine',
     deadline_value: 'kuni 22. juunini',
     organize_label: 'Korraldab:',
-    organize_value: 'Dainis Rudens · Mākslas birojs',
-    register_cta: 'Registreeru',
+    organize_value: 'Dainis Rudens · Ansis · Mākslas birojs',
+    register_cta: 'Registreeru joonistuskonkursile',
     marquee: 'ROW BALTIC 2026 ✦ TÄNAVAKUNST ✦ LAHING ✦ RIIA ✦ SARKANDAUGAVA ✦',
   },
   about: {
@@ -77,8 +77,8 @@ const ee: Dict = {
   },
   registration: {
     num: '04',
-    label: 'Registreerimine',
-    heading: 'REGISTREERU',
+    label: 'Joonistuskonkursi registreerimine',
+    heading: 'REGISTREERU JOONISTUSKONKURSILE',
     p1: 'Täitke avalduse vorm ja saage ROW BALTIC 2026 osaks. Registreerimine on avatud kuni 22. juunini 2026 kell 23:59.',
     info: [
       { label: 'Kuupäev', value: '22. august 2026' },

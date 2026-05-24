@@ -8,13 +8,6 @@ import {
   type Lang,
 } from '@/lib/emailTemplates'
 
-// NOTE: Vercel serverless function body size limit is 4.5 MB by default.
-// For files up to 25 MB, configure `maxDuration` and use Vercel's larger
-// payload limit (available on Pro plan via vercel.json: "functions" config).
-// TODO: For production with many large files, consider a signed upload flow
-// where the client uploads directly to Google Drive or Vercel Blob Storage,
-// bypassing the serverless function entirely.
-
 const ALLOWED_MIME_TYPES = new Set([
   'application/pdf',
   'image/jpeg',
@@ -39,12 +32,33 @@ function getString(fd: FormData, key: string): string {
   return (fd.get(key) as string | null)?.trim() ?? ''
 }
 
+// Log which env vars are configured (without revealing values)
+function logEnvStatus() {
+  const vars = [
+    'GOOGLE_SERVICE_ACCOUNT_EMAIL',
+    'GOOGLE_PRIVATE_KEY',
+    'GOOGLE_SHEETS_ID',
+    'GOOGLE_DRIVE_PARENT_FOLDER_ID',
+    'SMTP_HOST',
+    'SMTP_PORT',
+    'SMTP_USER',
+    'SMTP_PASS',
+  ]
+  const missing = vars.filter((v) => !process.env[v])
+  if (missing.length > 0) {
+    console.warn('[register] Missing env vars:', missing.join(', '))
+  }
+}
+
 export async function POST(req: NextRequest) {
+  logEnvStatus()
+
   // ── Parse FormData ────────────────────────────────────────────────────────
   let formData: FormData
   try {
     formData = await req.formData()
-  } catch {
+  } catch (err) {
+    console.error('[register] Failed to parse FormData:', err)
     return NextResponse.json({ message: 'Invalid form data' }, { status: 400 })
   }
 
@@ -107,21 +121,31 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: errors.join('; ') }, { status: 422 })
   }
 
+  console.log(`[register] New submission: ${name} <${email}> lang=${language}`)
+
   // ── Upload files to Google Drive ──────────────────────────────────────────
   let fileLinks: string[] = []
-  if (files.length > 0 && process.env.GOOGLE_DRIVE_PARENT_FOLDER_ID) {
-    try {
-      const result = await uploadPortfolioFiles(name, files)
-      fileLinks = result.fileLinks
-    } catch (err) {
-      console.error('[Drive] upload error:', err)
-      // Non-fatal — continue without Drive links
+  if (files.length > 0) {
+    if (!process.env.GOOGLE_DRIVE_PARENT_FOLDER_ID) {
+      console.warn('[register] GOOGLE_DRIVE_PARENT_FOLDER_ID not set — skipping Drive upload')
+    } else {
+      try {
+        const result = await uploadPortfolioFiles(name, files)
+        fileLinks = result.fileLinks
+        console.log(`[register] Drive upload OK — ${fileLinks.length} file(s) for ${name}`)
+      } catch (err) {
+        console.error('[register] Drive upload failed:', err)
+        // Non-fatal — continue without Drive links
+      }
     }
   }
 
   // ── Save to Google Sheets ─────────────────────────────────────────────────
   const timestamp = new Date().toISOString()
-  if (process.env.GOOGLE_SHEETS_ID && process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL) {
+  let sheetsOk = false
+  if (!process.env.GOOGLE_SHEETS_ID || !process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL) {
+    console.warn('[register] Google Sheets env vars missing — GOOGLE_SHEETS_ID or GOOGLE_SERVICE_ACCOUNT_EMAIL not set')
+  } else {
     try {
       await appendRegistrationRow({
         timestamp,
@@ -139,13 +163,18 @@ export async function POST(req: NextRequest) {
         fileLinks: fileLinks.join('\n'),
         consent: consent ? 'Jā' : 'Nē',
       })
+      sheetsOk = true
+      console.log(`[register] Sheets row appended for ${name}`)
     } catch (err) {
-      console.error('[Sheets] error:', err)
+      console.error('[register] Sheets append failed:', err)
     }
   }
 
   // ── Send emails ───────────────────────────────────────────────────────────
-  if (process.env.SMTP_USER && process.env.SMTP_PASS) {
+  let emailsOk = false
+  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    console.warn('[register] SMTP env vars missing — SMTP_USER or SMTP_PASS not set, skipping email')
+  } else {
     const adminMail = getAdminNotificationEmail({
       timestamp, language, name, phone, email,
       portfolioLink, socialLink, platformSize, shirtSize,
@@ -157,11 +186,25 @@ export async function POST(req: NextRequest) {
       fileCount: fileLinks.length,
     })
 
-    await Promise.allSettled([
+    const [adminResult, confirmResult] = await Promise.allSettled([
       sendEmail({ to: ADMIN_EMAIL, ...adminMail }),
       sendEmail({ to: email, ...confirmMail }),
     ])
+
+    if (adminResult.status === 'rejected') {
+      console.error('[register] Admin email failed:', adminResult.reason)
+    } else {
+      console.log(`[register] Admin email sent to ${ADMIN_EMAIL}`)
+    }
+
+    if (confirmResult.status === 'rejected') {
+      console.error('[register] Confirmation email failed:', confirmResult.reason)
+    } else {
+      console.log(`[register] Confirmation email sent to ${email}`)
+      emailsOk = true
+    }
   }
 
+  console.log(`[register] Done — sheets=${sheetsOk} emails=${emailsOk}`)
   return NextResponse.json({ ok: true })
 }

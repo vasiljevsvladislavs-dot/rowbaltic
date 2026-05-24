@@ -65,8 +65,8 @@ export default function HeroSection({ dict, lang }: Props) {
           <LanguageSwitcher currentLang={lang} />
           <a
             href="#registracija"
-            className={`font-mono uppercase tracking-widest border border-cream/30 hover:bg-acid hover:text-ink-900 hover:border-acid transition-all duration-300 ${
-              scrolled ? 'text-[10px] px-4 py-2' : 'text-xs px-5 py-2.5'
+            className={`font-mono font-bold uppercase tracking-wider bg-acid text-ink-900 hover:bg-acid-dark transition-all duration-300 whitespace-nowrap ${
+              scrolled ? 'text-[9px] px-3 py-2' : 'text-[10px] px-5 py-2.5'
             }`}
           >
             {h.register_cta}
@@ -116,21 +116,14 @@ export default function HeroSection({ dict, lang }: Props) {
 
         {/* Subtitle row */}
         <div
-          className={`mt-6 flex flex-col md:flex-row md:items-end gap-4 md:gap-10 transition-all duration-700 delay-500 ${
+          className={`mt-6 flex items-center gap-3 transition-all duration-700 delay-500 ${
             loaded ? 'opacity-100' : 'opacity-0 translate-y-4'
           }`}
         >
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-px bg-acid" />
-            <span className="font-mono text-xs uppercase tracking-widest text-ink-300">
-              {h.festival_label}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-sm text-ink-500 uppercase tracking-widest">{h.theme_word}</span>
-            <span className="font-mono text-xs text-ink-600">{h.theme_label}</span>
-          </div>
+          <div className="w-8 h-px bg-acid" />
+          <span className="font-mono text-xs uppercase tracking-widest text-ink-300">
+            {h.festival_label}
+          </span>
         </div>
       </div>
 
@@ -148,15 +141,9 @@ export default function HeroSection({ dict, lang }: Props) {
             </div>
             <div className="w-px h-8 bg-ink-700" />
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-0.5">{h.deadline_label}</p>
-              <p className="font-mono text-xs text-acid">{h.deadline_value}</p>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-0.5">{h.organize_label}</p>
+              <p className="font-mono text-xs text-ink-200">{h.organize_value}</p>
             </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-ink-500">
-              {h.organize_label}
-            </span>
-            <span className="font-mono text-xs text-ink-300">{h.organize_value}</span>
           </div>
         </div>
       </div>

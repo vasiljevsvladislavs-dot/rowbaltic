@@ -9,7 +9,7 @@ export default function CompetitionSection({ dict }: Props) {
   const c = dict.competition
 
   return (
-    <section id="konkurss" className="section-pad bg-ink-900 border-t border-ink-800">
+    <section id="konkurss" className="section-pad border-t border-[#2a1a0a]" style={{ backgroundColor: '#18100a' }}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header */}
         <AnimateIn>

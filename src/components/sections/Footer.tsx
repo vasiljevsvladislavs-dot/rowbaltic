@@ -20,7 +20,7 @@ export default function Footer({ dict, lang }: Props) {
   ]
 
   return (
-    <footer className="bg-ink-900 border-t border-ink-800">
+    <footer className="border-t border-[#2a1a0a]" style={{ backgroundColor: '#18100a' }}>
       <MarqueeBar
         text="ROW BALTIC ✦ RIGA OPEN WALL ✦ IELU MĀKSLA ✦ 2026 ✦"
         className="opacity-40"

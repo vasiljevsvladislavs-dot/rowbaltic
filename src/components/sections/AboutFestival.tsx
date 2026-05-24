@@ -18,7 +18,7 @@ export default function AboutFestival({ dict }: Props) {
   const a = dict.about
 
   return (
-    <section id="par-festivalu" className="section-pad bg-ink-900 border-t border-ink-800">
+    <section id="par-festivalu" className="section-pad border-t border-[#2a1a0a]" style={{ backgroundColor: '#18100a' }}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section label */}
         <AnimateIn>
@@ -64,9 +64,9 @@ export default function AboutFestival({ dict }: Props) {
 
             {/* Stats */}
             <AnimateIn delay={500}>
-              <div className="mt-12 grid grid-cols-3 gap-px bg-ink-700">
+              <div className="mt-12 grid grid-cols-3 gap-px" style={{ backgroundColor: '#2a1a0a' }}>
                 {a.stats.map(({ num, label }) => (
-                  <div key={label} className="bg-ink-900 px-6 py-6">
+                  <div key={label} className="px-6 py-6" style={{ backgroundColor: '#18100a' }}>
                     <p className="font-display text-5xl text-acid mb-1">{num}</p>
                     <p className="font-mono text-[10px] uppercase tracking-widest text-ink-400">
                       {label}
