@@ -76,9 +76,8 @@ export default function RegistrationForm() {
           {/* Left: intro */}
           <div className="lg:col-span-4">
             <AnimateIn delay={100}>
-              <h2 className="font-display text-[clamp(3rem,6vw,5.5rem)] leading-none text-cream mb-8">
-                PIETEIK<br />
-                <span className="text-acid">TIES</span>
+              <h2 className="font-display text-[clamp(2rem,4.5vw,4.5rem)] leading-none text-cream mb-8 whitespace-nowrap">
+                PIETEIK<span className="text-acid">TIES</span>
               </h2>
             </AnimateIn>
             <AnimateIn delay={200}>
