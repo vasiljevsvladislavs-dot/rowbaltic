@@ -2,11 +2,16 @@
 
 import { useState } from 'react'
 import AnimateIn from '@/components/ui/AnimateIn'
+import type { Dict } from '@/i18n'
 
-const WALL_SIZES = ['2.7m × 4m (Standarts)', '2.7m × 8m (Dubultplatforma)', 'Cits izmērs']
 const SHIRT_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 
-export default function RegistrationForm() {
+interface Props {
+  dict: Dict
+}
+
+export default function RegistrationForm({ dict }: Props) {
+  const r = dict.registration
   const [isBaltic, setIsBaltic] = useState(false)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
@@ -25,13 +30,13 @@ export default function RegistrationForm() {
         body: formData,
       })
       const data = await res.json()
-      if (!res.ok) throw new Error(data.message || 'Kļūda nosūtot pieteikumu')
+      if (!res.ok) throw new Error(data.message || 'Error submitting application')
       setStatus('success')
       form.reset()
       setIsBaltic(false)
     } catch (err) {
       setStatus('error')
-      setErrorMsg(err instanceof Error ? err.message : 'Kļūda. Mēģiniet vēlreiz.')
+      setErrorMsg(err instanceof Error ? err.message : 'Error. Please try again.')
     }
   }
 
@@ -41,16 +46,15 @@ export default function RegistrationForm() {
         <div className="max-w-2xl mx-auto px-6 text-center">
           <div className="border border-acid/30 bg-acid/5 p-16">
             <div className="font-display text-7xl text-acid mb-6">✓</div>
-            <h3 className="font-display text-4xl text-cream mb-4">Pieteikums saņemts!</h3>
+            <h3 className="font-display text-4xl text-cream mb-4">{r.success_title}</h3>
             <p className="text-ink-300 font-mono text-sm">
-              Paldies! Jūsu pieteikums ir veiksmīgi iesniegts. Apstiprināto dalībnieku sarakstu
-              publicēsim 2026. gada 30. jūnijā.
+              {r.success_text}
             </p>
             <button
               onClick={() => setStatus('idle')}
               className="mt-8 font-mono text-xs uppercase tracking-widest text-acid border border-acid/40 px-6 py-3 hover:bg-acid hover:text-ink-900 transition-all"
             >
-              Iesniegt vēl vienu pieteikumu
+              {r.success_btn}
             </button>
           </div>
         </div>
@@ -64,10 +68,10 @@ export default function RegistrationForm() {
         {/* Header */}
         <AnimateIn>
           <div className="flex items-center gap-4 mb-6">
-            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-acid">04</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-acid">{r.num}</span>
             <div className="w-12 h-px bg-acid" />
             <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-ink-400">
-              Reģistrācija
+              {r.label}
             </span>
           </div>
         </AnimateIn>
@@ -82,20 +86,12 @@ export default function RegistrationForm() {
             </AnimateIn>
             <AnimateIn delay={200}>
               <p className="text-ink-300 leading-relaxed mb-8">
-                Aizpildi pieteikuma veidlapu un kļūsti par daļu no ROW BALTIC 2026. Pieteikšanās
-                ir atvērta līdz{' '}
-                <span className="text-acid">2026. gada 22. jūnijam plkst. 23:59</span>.
+                {r.p1}
               </p>
             </AnimateIn>
             <AnimateIn delay={300}>
               <div className="space-y-4 border-t border-ink-800 pt-8">
-                {[
-                  { label: 'Datums', value: '22. augusts, 2026' },
-                  { label: 'Vieta', value: 'Zāģeru iela, Sarkandaugava' },
-                  { label: 'Laiks', value: '10:00 – 17:00' },
-                  { label: 'Dalībnieki', value: '30 mākslinieki' },
-                  { label: 'Darba laukums', value: '2.7m × 4m' },
-                ].map(({ label, value }) => (
+                {r.info.map(({ label, value }) => (
                   <div key={label} className="flex justify-between items-baseline">
                     <span className="font-mono text-[10px] uppercase tracking-widest text-ink-500">
                       {label}
@@ -114,45 +110,45 @@ export default function RegistrationForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="form-label">
-                    Vārds / Pseidonīms *
+                    {r.f_nickname}
                   </label>
                   <input
                     name="nickname"
                     required
                     className="form-input"
-                    placeholder="Tavs vārds vai pseidonīms"
+                    placeholder={r.f_nickname_ph}
                   />
                 </div>
                 <div>
                   <label className="form-label">
-                    Kontakttālrunis *
+                    {r.f_phone}
                   </label>
                   <input
                     name="phone"
                     type="tel"
                     required
                     className="form-input"
-                    placeholder="+371 2X XXX XXX"
+                    placeholder={r.f_phone_ph}
                   />
                 </div>
               </div>
 
               {/* Row 2 */}
               <div>
-                <label className="form-label">E-pasts *</label>
+                <label className="form-label">{r.f_email}</label>
                 <input
                   name="email"
                   type="email"
                   required
                   className="form-input"
-                  placeholder="tavs@epasts.lv"
+                  placeholder={r.f_email_ph}
                 />
               </div>
 
               {/* Row 3 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="form-label">Portfolio saite</label>
+                  <label className="form-label">{r.f_portfolio_url}</label>
                   <input
                     name="portfolioUrl"
                     type="url"
@@ -161,7 +157,7 @@ export default function RegistrationForm() {
                   />
                 </div>
                 <div>
-                  <label className="form-label">Instagram / Facebook saite</label>
+                  <label className="form-label">{r.f_social_url}</label>
                   <input
                     name="socialUrl"
                     type="url"
@@ -173,7 +169,7 @@ export default function RegistrationForm() {
 
               {/* Portfolio file */}
               <div>
-                <label className="form-label">Portfolio fails (PDF vai ZIP, maks. 10MB)</label>
+                <label className="form-label">{r.f_file}</label>
                 <input
                   name="portfolioFile"
                   type="file"
@@ -190,10 +186,10 @@ export default function RegistrationForm() {
               {/* Row 4 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="form-label">Vēlamais platformas izmērs</label>
+                  <label className="form-label">{r.f_wall_size}</label>
                   <select name="wallSize" className="form-input">
-                    <option value="">Izvēlieties...</option>
-                    {WALL_SIZES.map((s) => (
+                    <option value="">{r.f_wall_default}</option>
+                    {r.wall_sizes.map((s) => (
                       <option key={s} value={s}>
                         {s}
                       </option>
@@ -201,9 +197,9 @@ export default function RegistrationForm() {
                   </select>
                 </div>
                 <div>
-                  <label className="form-label">Krekla izmērs *</label>
+                  <label className="form-label">{r.f_shirt}</label>
                   <select name="shirtSize" required className="form-input">
-                    <option value="">Izvēlieties...</option>
+                    <option value="">{r.f_shirt_default}</option>
                     {SHIRT_SIZES.map((s) => (
                       <option key={s} value={s}>
                         {s}
@@ -233,10 +229,10 @@ export default function RegistrationForm() {
                   </div>
                   <div>
                     <p className="font-mono text-xs uppercase tracking-widest text-cream group-hover:text-acid transition-colors">
-                      Es esmu Baltijas mākslinieks
+                      {r.f_baltic_label}
                     </p>
                     <p className="text-ink-400 text-xs mt-1">
-                      Latvija, Lietuva vai Igaunija — papildu informācija viesnīcas rezervācijai
+                      {r.f_baltic_desc}
                     </p>
                   </div>
                 </label>
@@ -245,21 +241,21 @@ export default function RegistrationForm() {
                 {isBaltic && (
                   <div className="mt-5 pt-5 border-t border-ink-700 grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="form-label">Vārds Uzvārds *</label>
+                      <label className="form-label">{r.f_fullname}</label>
                       <input
                         name="fullName"
                         required={isBaltic}
                         className="form-input"
-                        placeholder="Jānis Bērziņš"
+                        placeholder={r.f_fullname_ph}
                       />
                     </div>
                     <div>
-                      <label className="form-label">Personas kods *</label>
+                      <label className="form-label">{r.f_code}</label>
                       <input
                         name="personalCode"
                         required={isBaltic}
                         className="form-input"
-                        placeholder="XXXXXX-XXXXX"
+                        placeholder={r.f_code_ph}
                       />
                     </div>
                   </div>
@@ -284,9 +280,7 @@ export default function RegistrationForm() {
                     </div>
                   </div>
                   <p className="text-ink-400 text-xs leading-relaxed group-hover:text-ink-300 transition-colors">
-                    Apliecinu, ka esmu iepazinies ar konkursa nolikumu un piekrītu, ka festivāla
-                    laikā radītais darbs un tā dokumentācija var tikt izmantota publicitātes
-                    vajadzībām. *
+                    {r.f_consent}
                   </p>
                 </label>
               </div>
@@ -294,7 +288,7 @@ export default function RegistrationForm() {
               {/* Error */}
               {status === 'error' && (
                 <div className="border border-rust/40 bg-rust/5 px-4 py-3">
-                  <p className="font-mono text-xs text-rust">{errorMsg}</p>
+                  <p className="font-mono text-xs text-rust">{errorMsg || r.error_label}</p>
                 </div>
               )}
 
@@ -307,11 +301,11 @@ export default function RegistrationForm() {
                   disabled:opacity-50 disabled:cursor-not-allowed
                   transition-all duration-200 font-bold"
               >
-                {status === 'loading' ? 'Nosūta...' : 'Iesniegt pieteikumu →'}
+                {status === 'loading' ? r.f_submitting : r.f_submit}
               </button>
 
               <p className="text-ink-600 text-xs font-mono text-center">
-                Jautājumi: info@rowbaltic.com
+                {r.contact_label}
               </p>
             </form>
           </AnimateIn>

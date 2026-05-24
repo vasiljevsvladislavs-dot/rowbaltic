@@ -2,9 +2,17 @@
 
 import { useEffect, useState } from 'react'
 import MarqueeBar from '@/components/ui/MarqueeBar'
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
+import type { Dict, Lang } from '@/i18n'
 
-export default function HeroSection() {
+interface Props {
+  dict: Dict
+  lang: Lang
+}
+
+export default function HeroSection({ dict, lang }: Props) {
   const [loaded, setLoaded] = useState(false)
+  const h = dict.hero
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 100)
@@ -39,13 +47,14 @@ export default function HeroSection() {
           <span className="font-display text-2xl text-acid tracking-wider">ROW BALTIC</span>
         </div>
         <div
-          className={`transition-all duration-700 delay-200 ${loaded ? 'opacity-100' : 'opacity-0 translate-x-4'}`}
+          className={`flex items-center gap-6 transition-all duration-700 delay-200 ${loaded ? 'opacity-100' : 'opacity-0 translate-x-4'}`}
         >
+          <LanguageSwitcher currentLang={lang} />
           <a
             href="#registracija"
             className="text-xs font-mono uppercase tracking-widest border border-cream/30 px-5 py-2.5 hover:bg-acid hover:text-ink-900 hover:border-acid transition-all duration-300"
           >
-            Pieteikties
+            {h.register_cta}
           </a>
         </div>
       </nav>
@@ -57,7 +66,7 @@ export default function HeroSection() {
           className={`transition-all duration-700 delay-300 ${loaded ? 'opacity-100' : 'opacity-0 translate-y-4'}`}
         >
           <span className="inline-block font-mono text-xs uppercase tracking-[0.3em] text-acid border border-acid/40 px-3 py-1.5 mb-5">
-            Rīga · 22. augusts · 2026
+            {h.tag}
           </span>
         </div>
 
@@ -99,13 +108,13 @@ export default function HeroSection() {
           <div className="flex items-center gap-3">
             <div className="w-8 h-px bg-acid" />
             <span className="font-mono text-xs uppercase tracking-widest text-ink-300">
-              Ielu Mākslas Festivāls
+              {h.festival_label}
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="font-mono text-sm text-ink-500 uppercase tracking-widest">CĪŅA</span>
-            <span className="font-mono text-xs text-ink-600">— Festivāla tēma</span>
+            <span className="font-mono text-sm text-ink-500 uppercase tracking-widest">{h.theme_word}</span>
+            <span className="font-mono text-xs text-ink-600">{h.theme_label}</span>
           </div>
         </div>
       </div>
@@ -119,25 +128,25 @@ export default function HeroSection() {
         <div className="border-t border-ink-700 px-6 md:px-12 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <div className="flex items-center gap-6">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-0.5">Vieta</p>
-              <p className="font-mono text-xs text-cream">Sarkandaugava, Zāģeru iela</p>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-0.5">{h.vieta_label}</p>
+              <p className="font-mono text-xs text-cream">{h.vieta_value}</p>
             </div>
             <div className="w-px h-8 bg-ink-700" />
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-0.5">Pieteikšanās</p>
-              <p className="font-mono text-xs text-acid">līdz 22. jūnijam</p>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-0.5">{h.deadline_label}</p>
+              <p className="font-mono text-xs text-acid">{h.deadline_value}</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <span className="font-mono text-[10px] uppercase tracking-widest text-ink-500">
-              Organizē:
+              {h.organize_label}
             </span>
-            <span className="font-mono text-xs text-ink-300">Dainis Rudens · Mākslas birojs</span>
+            <span className="font-mono text-xs text-ink-300">{h.organize_value}</span>
           </div>
         </div>
       </div>
 
-      <MarqueeBar className="relative z-10" />
+      <MarqueeBar text={h.marquee} className="relative z-10" />
     </section>
   )
 }

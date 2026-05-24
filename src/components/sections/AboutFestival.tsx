@@ -1,25 +1,32 @@
 import AnimateIn from '@/components/ui/AnimateIn'
 import PhotoCollage from '@/components/ui/PhotoCollage'
+import type { Dict } from '@/i18n'
 
 const images = [
-  { src: '/collage/photo-1.jpg', alt: 'ROW BALTIC festivāls 2024' },
-  { src: '/collage/photo-2.jpg', alt: 'Ielu mākslas darbs' },
-  { src: '/collage/photo-3.jpg', alt: 'Grafiti māksla' },
-  { src: '/collage/photo-4.jpg', alt: 'Festivāla dalībnieki' },
-  { src: '/collage/photo-5.jpg', alt: 'Urbānā māksla Rīgā' },
+  { src: '/collage/photo-1.jpg', alt: 'ROW BALTIC festival' },
+  { src: '/collage/photo-2.jpg', alt: 'Street art work' },
+  { src: '/collage/photo-3.jpg', alt: 'Graffiti art' },
+  { src: '/collage/photo-4.jpg', alt: 'Festival participants' },
+  { src: '/collage/photo-5.jpg', alt: 'Urban art in Riga' },
 ]
 
-export default function AboutFestival() {
+interface Props {
+  dict: Dict
+}
+
+export default function AboutFestival({ dict }: Props) {
+  const a = dict.about
+
   return (
     <section id="par-festivalu" className="section-pad bg-ink-900 border-t border-ink-800">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section label */}
         <AnimateIn>
           <div className="flex items-center gap-4 mb-16">
-            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-acid">01</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-acid">{a.num}</span>
             <div className="w-12 h-px bg-acid" />
             <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-ink-400">
-              Par festivālu
+              {a.label}
             </span>
           </div>
         </AnimateIn>
@@ -29,35 +36,28 @@ export default function AboutFestival() {
           <div>
             <AnimateIn delay={100}>
               <h2 className="font-display text-[clamp(3.5rem,8vw,7rem)] leading-none text-cream mb-10">
-                IELU<br />
-                <span className="text-acid">MĀKSLAS</span><br />
-                FESTIVĀLS
+                {a.heading[0]}<br />
+                <span className="text-acid">{a.heading[1]}</span><br />
+                {a.heading[2]}
               </h2>
             </AnimateIn>
 
             <div className="space-y-6">
               <AnimateIn delay={200}>
                 <p className="text-ink-200 leading-relaxed text-base md:text-lg">
-                  Laipni lūgti Ielu mākslas festivālā{' '}
-                  <span className="text-acid font-medium">ROW BALTIC</span> (Riga Open Wall) —
-                  vienā no straujāk augošajiem ielu mākslas notikumiem Latvijā un Baltijā.
+                  {a.p1}
                 </p>
               </AnimateIn>
 
               <AnimateIn delay={300}>
                 <p className="text-ink-300 leading-relaxed">
-                  Festivāls ir vērienīgs turpinājums iniciatīvai, kas veiksmīgi attīstās jau kopš
-                  2022. gada, ik gadu pulcējot arvien plašāku auditoriju, māksliniekus un
-                  pilsētvides kultūras entuziastus.
+                  {a.p2}
                 </p>
               </AnimateIn>
 
               <AnimateIn delay={400}>
                 <p className="text-ink-300 leading-relaxed">
-                  ROW BALTIC pārvērš pilsētvidi par atvērtu mākslas galeriju, kur satiekas
-                  radošums, laikmetīga kultūra un urbānā enerģija. Mūsu mērķis ir attīstīt un
-                  popularizēt ielu mākslas kultūru, radot platformu starptautiskiem un vietējiem
-                  māksliniekiem.
+                  {a.p3}
                 </p>
               </AnimateIn>
             </div>
@@ -65,11 +65,7 @@ export default function AboutFestival() {
             {/* Stats */}
             <AnimateIn delay={500}>
               <div className="mt-12 grid grid-cols-3 gap-px bg-ink-700">
-                {[
-                  { num: '2022', label: 'Dibināts' },
-                  { num: '30+', label: 'Mākslinieki' },
-                  { num: '4.', label: 'Izdevums' },
-                ].map(({ num, label }) => (
+                {a.stats.map(({ num, label }) => (
                   <div key={label} className="bg-ink-900 px-6 py-6">
                     <p className="font-display text-5xl text-acid mb-1">{num}</p>
                     <p className="font-mono text-[10px] uppercase tracking-widest text-ink-400">

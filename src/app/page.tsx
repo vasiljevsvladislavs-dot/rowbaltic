@@ -1,19 +1,5 @@
-import HeroSection from '@/components/sections/HeroSection'
-import AboutFestival from '@/components/sections/AboutFestival'
-import FestivalSection from '@/components/sections/FestivalSection'
-import CompetitionSection from '@/components/sections/CompetitionSection'
-import RegistrationForm from '@/components/sections/RegistrationForm'
-import Footer from '@/components/sections/Footer'
+import { redirect } from 'next/navigation'
 
-export default function Home() {
-  return (
-    <main>
-      <HeroSection />
-      <AboutFestival />
-      <FestivalSection />
-      <CompetitionSection />
-      <RegistrationForm />
-      <Footer />
-    </main>
-  )
+export default function RootPage() {
+  redirect('/lv')
 }

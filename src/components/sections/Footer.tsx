@@ -1,13 +1,24 @@
 import MarqueeBar from '@/components/ui/MarqueeBar'
+import type { Dict, Lang } from '@/i18n'
+import { languages } from '@/i18n'
+import Link from 'next/link'
 
-const nav = [
-  { href: '#par-festivalu', label: 'Par festivālu' },
-  { href: '#row-baltic-2026', label: 'ROW BALTIC 2026' },
-  { href: '#konkurss', label: 'Konkurss' },
-  { href: '#registracija', label: 'Reģistrācija' },
-]
+interface Props {
+  dict: Dict
+  lang: Lang
+}
 
-export default function Footer() {
+export default function Footer({ dict, lang }: Props) {
+  const f = dict.footer
+  const nav = dict.nav
+
+  const navLinks = [
+    { href: '#par-festivalu', label: nav.about },
+    { href: '#row-baltic-2026', label: nav.festival },
+    { href: '#konkurss', label: nav.competition },
+    { href: '#registracija', label: nav.register },
+  ]
+
   return (
     <footer className="bg-ink-900 border-t border-ink-800">
       <MarqueeBar
@@ -24,18 +35,36 @@ export default function Footer() {
               <span className="text-acid">BALTIC</span>
             </h2>
             <p className="text-ink-400 text-sm leading-relaxed max-w-xs">
-              Riga Open Wall — ielu mākslas festivāls, kas pārvērš pilsētvidi par atvērtu mākslas
-              galeriju.
+              {f.tagline}
             </p>
+
+            {/* Language switcher in footer */}
+            <div className="flex items-center gap-2 mt-8">
+              {languages.map(({ code, label }, i) => (
+                <span key={code} className="flex items-center gap-2">
+                  {i > 0 && <span className="text-ink-700 text-[10px]">/</span>}
+                  <Link
+                    href={`/${code}`}
+                    className={`font-mono text-[10px] uppercase tracking-widest transition-colors ${
+                      lang === code
+                        ? 'text-acid'
+                        : 'text-ink-500 hover:text-ink-200'
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Nav */}
           <div className="md:col-span-3">
             <p className="font-mono text-[10px] uppercase tracking-widest text-ink-600 mb-6">
-              Navigācija
+              {f.nav_label}
             </p>
             <ul className="space-y-3">
-              {nav.map(({ href, label }) => (
+              {navLinks.map(({ href, label }) => (
                 <li key={href}>
                   <a
                     href={href}
@@ -51,11 +80,11 @@ export default function Footer() {
           {/* Info */}
           <div className="md:col-span-4">
             <p className="font-mono text-[10px] uppercase tracking-widest text-ink-600 mb-6">
-              Kontakti
+              {f.contact_label}
             </p>
             <div className="space-y-4">
               <div>
-                <p className="font-mono text-[10px] text-ink-500 mb-1">E-pasts</p>
+                <p className="font-mono text-[10px] text-ink-500 mb-1">{f.email_label}</p>
                 <a
                   href="mailto:info@rowbaltic.com"
                   className="font-mono text-sm text-acid hover:underline"
@@ -64,14 +93,14 @@ export default function Footer() {
                 </a>
               </div>
               <div>
-                <p className="font-mono text-[10px] text-ink-500 mb-1">Festivāls</p>
-                <p className="font-mono text-sm text-ink-200">22. augusts, 2026</p>
-                <p className="font-mono text-sm text-ink-400">Sarkandaugava, Rīga</p>
+                <p className="font-mono text-[10px] text-ink-500 mb-1">{f.festival_label}</p>
+                <p className="font-mono text-sm text-ink-200">{f.festival_date}</p>
+                <p className="font-mono text-sm text-ink-400">{f.festival_place}</p>
               </div>
               <div>
-                <p className="font-mono text-[10px] text-ink-500 mb-1">Organizators</p>
-                <p className="font-mono text-sm text-ink-200">Dainis Rudens</p>
-                <p className="font-mono text-sm text-ink-400">Biedrība &bdquo;Mākslas birojs&ldquo;</p>
+                <p className="font-mono text-[10px] text-ink-500 mb-1">{f.organizer_label}</p>
+                <p className="font-mono text-sm text-ink-200">{f.organizer_name}</p>
+                <p className="font-mono text-sm text-ink-400">{f.organizer_org}</p>
               </div>
             </div>
           </div>
@@ -80,10 +109,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-ink-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="font-mono text-[10px] text-ink-600 uppercase tracking-widest">
-            © 2026 ROW BALTIC. Visas tiesības aizsargātas.
+            {f.copyright}
           </p>
           <p className="font-mono text-[10px] text-ink-700 uppercase tracking-widest">
-            Rīgas valstspilsētas pašvaldības atbalsts
+            {f.support}
           </p>
         </div>
       </div>
