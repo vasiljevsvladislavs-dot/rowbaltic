@@ -24,8 +24,8 @@ const config: Config = {
           900: '#0f0f0f',
         },
         acid: {
-          DEFAULT: '#c8ff00',
-          dark: '#a3d400',
+          DEFAULT: '#FF8C42',
+          dark: '#E06820',
         },
         rust: {
           DEFAULT: '#ff4400',
