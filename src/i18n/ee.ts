@@ -97,7 +97,7 @@ const ee: Dict = {
     f_social_url: 'Instagram / Facebook link',
     f_file: 'Portfolio failid (PDF, JPG, PNG, WEBP, ZIP)',
     f_file_hint: 'Maks. 5 faili · 25 MB kumbki',
-    f_file_selected: (n: number) => `Valitud ${n} fail(i)`,
+    f_file_selected: 'Valitud {n} fail(i)',
     f_file_or: 'või sisestage link allpool',
     f_wall_size: 'Eelistatud seina suurus',
     f_wall_default: 'Valige...',

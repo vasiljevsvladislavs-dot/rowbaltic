@@ -97,7 +97,7 @@ const en: Dict = {
     f_social_url: 'Instagram / Facebook link',
     f_file: 'Portfolio files (PDF, JPG, PNG, WEBP, ZIP)',
     f_file_hint: 'Max 5 files · 25 MB each',
-    f_file_selected: (n: number) => `${n} file(s) selected`,
+    f_file_selected: '{n} file(s) selected',
     f_file_or: 'or enter a link below',
     f_wall_size: 'Preferred wall size',
     f_wall_default: 'Choose...',

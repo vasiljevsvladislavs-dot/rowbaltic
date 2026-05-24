@@ -97,7 +97,7 @@ const lt: Dict = {
     f_social_url: 'Instagram / Facebook nuoroda',
     f_file: 'Portfolio failai (PDF, JPG, PNG, WEBP, ZIP)',
     f_file_hint: 'Maks. 5 failai · 25 MB kiekvienas',
-    f_file_selected: (n: number) => `Pasirinkta ${n} failas(-ai)`,
+    f_file_selected: 'Pasirinkta {n} failas(-ai)',
     f_file_or: 'arba įveskite nuorodą žemiau',
     f_wall_size: 'Pageidaujamas sienos dydis',
     f_wall_default: 'Pasirinkite...',

@@ -157,7 +157,7 @@ export default function RegistrationForm({ dict, lang }: Props) {
                     className="font-mono text-xs uppercase tracking-widest border border-ink-600 px-5 py-2.5 text-ink-300 hover:border-acid hover:text-acid transition-all duration-200"
                   >
                     {selectedFiles.length > 0
-                      ? r.f_file_selected(selectedFiles.length)
+                      ? r.f_file_selected.replace('{n}', String(selectedFiles.length))
                       : r.f_file}
                   </button>
 
