@@ -43,7 +43,7 @@ const config: Config = {
         'fade-up': 'fadeUp 0.7s ease forwards',
         'fade-in': 'fadeIn 0.5s ease forwards',
         'slide-left': 'slideLeft 0.6s ease forwards',
-        'marquee': 'marquee 20s linear infinite',
+        'marquee': 'marquee 60s linear infinite',
         'grain': 'grain 0.5s steps(1) infinite',
       },
       keyframes: {

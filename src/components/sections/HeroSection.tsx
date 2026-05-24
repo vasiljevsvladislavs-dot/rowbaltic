@@ -12,11 +12,18 @@ interface Props {
 
 export default function HeroSection({ dict, lang }: Props) {
   const [loaded, setLoaded] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const h = dict.hero
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 100)
     return () => clearTimeout(t)
+  }, [])
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
@@ -39,12 +46,18 @@ export default function HeroSection({ dict, lang }: Props) {
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-acid/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-rust/10 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Nav */}
-      <nav className="relative z-10 flex items-center justify-between px-6 md:px-12 pt-6">
+      {/* Nav — sticky */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-300 ${
+        scrolled
+          ? 'bg-ink-900/95 backdrop-blur-sm border-b border-ink-800 px-6 md:px-12 py-3'
+          : 'px-6 md:px-12 pt-6 pb-0'
+      }`}>
         <div
           className={`transition-all duration-700 ${loaded ? 'opacity-100' : 'opacity-0 -translate-x-4'}`}
         >
-          <span className="font-display text-2xl text-acid tracking-wider">ROW BALTIC</span>
+          <span className={`font-display text-acid tracking-wider transition-all duration-300 ${scrolled ? 'text-lg' : 'text-2xl'}`}>
+            ROW BALTIC
+          </span>
         </div>
         <div
           className={`flex items-center gap-6 transition-all duration-700 delay-200 ${loaded ? 'opacity-100' : 'opacity-0 translate-x-4'}`}
@@ -52,7 +65,9 @@ export default function HeroSection({ dict, lang }: Props) {
           <LanguageSwitcher currentLang={lang} />
           <a
             href="#registracija"
-            className="text-xs font-mono uppercase tracking-widest border border-cream/30 px-5 py-2.5 hover:bg-acid hover:text-ink-900 hover:border-acid transition-all duration-300"
+            className={`font-mono uppercase tracking-widest border border-cream/30 hover:bg-acid hover:text-ink-900 hover:border-acid transition-all duration-300 ${
+              scrolled ? 'text-[10px] px-4 py-2' : 'text-xs px-5 py-2.5'
+            }`}
           >
             {h.register_cta}
           </a>
@@ -60,7 +75,7 @@ export default function HeroSection({ dict, lang }: Props) {
       </nav>
 
       {/* Main hero content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center px-6 md:px-12 py-4">
+      <div className="relative z-10 flex-1 flex flex-col justify-center px-6 md:px-12 py-4 pt-20">
         {/* Year tag */}
         <div
           className={`transition-all duration-700 delay-300 ${loaded ? 'opacity-100' : 'opacity-0 translate-y-4'}`}
