@@ -71,7 +71,7 @@ export default function Footer() {
               <div>
                 <p className="font-mono text-[10px] text-ink-500 mb-1">Organizators</p>
                 <p className="font-mono text-sm text-ink-200">Dainis Rudens</p>
-                <p className="font-mono text-sm text-ink-400">Biedrība „Mākslas birojs"</p>
+                <p className="font-mono text-sm text-ink-400">Biedrība &bdquo;Mākslas birojs&ldquo;</p>
               </div>
             </div>
           </div>

@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
-
 :root {
   --font-display: 'Bebas Neue', sans-serif;
   --font-body: 'Inter', sans-serif;

@@ -66,7 +66,7 @@ export default function CompetitionSection() {
               <p className="text-ink-300 leading-relaxed mb-10">
                 Konkursu organizē mākslinieks{' '}
                 <span className="text-cream">Dainis Rudens</span> sadarbībā ar biedrību{' '}
-                <span className="text-cream">„Mākslas birojs"</span> un Rīgas valstspilsētas
+                <span className="text-cream">&bdquo;Mākslas birojs&ldquo;</span> un Rīgas valstspilsētas
                 pašvaldību.
               </p>
             </AnimateIn>
