@@ -1,20 +1,31 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import AnimateIn from '@/components/ui/AnimateIn'
-import type { Dict } from '@/i18n'
+import type { Dict, Lang } from '@/i18n'
 
 const SHIRT_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
+const MAX_FILES = 5
+const MAX_SIZE_MB = 25
 
 interface Props {
   dict: Dict
+  lang: Lang
 }
 
-export default function RegistrationForm({ dict }: Props) {
+export default function RegistrationForm({ dict, lang }: Props) {
   const r = dict.registration
   const [isBaltic, setIsBaltic] = useState(false)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([])
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const files = Array.from(e.target.files ?? [])
+    const valid = files.filter((f) => f.size <= MAX_SIZE_MB * 1024 * 1024).slice(0, MAX_FILES)
+    setSelectedFiles(valid)
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -22,21 +33,28 @@ export default function RegistrationForm({ dict }: Props) {
     setErrorMsg('')
 
     const form = e.currentTarget
-    const formData = new FormData(form)
+    const fd = new FormData(form)
+
+    // Append language
+    fd.set('language', lang)
+
+    // Append files under correct field name
+    fd.delete('portfolioFiles')
+    for (const file of selectedFiles) {
+      fd.append('portfolioFiles', file)
+    }
 
     try {
-      const res = await fetch('/api/register', {
-        method: 'POST',
-        body: formData,
-      })
+      const res = await fetch('/api/register', { method: 'POST', body: fd })
       const data = await res.json()
-      if (!res.ok) throw new Error(data.message || 'Error submitting application')
+      if (!res.ok) throw new Error(data.message || r.error_label)
       setStatus('success')
       form.reset()
       setIsBaltic(false)
+      setSelectedFiles([])
     } catch (err) {
       setStatus('error')
-      setErrorMsg(err instanceof Error ? err.message : 'Error. Please try again.')
+      setErrorMsg(err instanceof Error ? err.message : r.error_label)
     }
   }
 
@@ -47,9 +65,7 @@ export default function RegistrationForm({ dict }: Props) {
           <div className="border border-acid/30 bg-acid/5 p-16">
             <div className="font-display text-7xl text-acid mb-6">✓</div>
             <h3 className="font-display text-4xl text-cream mb-4">{r.success_title}</h3>
-            <p className="text-ink-300 font-mono text-sm">
-              {r.success_text}
-            </p>
+            <p className="text-ink-300 font-mono text-sm">{r.success_text}</p>
             <button
               onClick={() => setStatus('idle')}
               className="mt-8 font-mono text-xs uppercase tracking-widest text-acid border border-acid/40 px-6 py-3 hover:bg-acid hover:text-ink-900 transition-all"
@@ -70,9 +86,7 @@ export default function RegistrationForm({ dict }: Props) {
           <div className="flex items-center gap-4 mb-6">
             <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-acid">{r.num}</span>
             <div className="w-12 h-px bg-acid" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-ink-400">
-              {r.label}
-            </span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-ink-400">{r.label}</span>
           </div>
         </AnimateIn>
 
@@ -85,17 +99,13 @@ export default function RegistrationForm({ dict }: Props) {
               </h2>
             </AnimateIn>
             <AnimateIn delay={200}>
-              <p className="text-ink-300 leading-relaxed mb-8">
-                {r.p1}
-              </p>
+              <p className="text-ink-300 leading-relaxed mb-8">{r.p1}</p>
             </AnimateIn>
             <AnimateIn delay={300}>
               <div className="space-y-4 border-t border-ink-800 pt-8">
                 {r.info.map(({ label, value }) => (
                   <div key={label} className="flex justify-between items-baseline">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-ink-500">
-                      {label}
-                    </span>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-ink-500">{label}</span>
                     <span className="font-mono text-xs text-ink-200">{value}</span>
                   </div>
                 ))}
@@ -106,93 +116,98 @@ export default function RegistrationForm({ dict }: Props) {
           {/* Right: form */}
           <AnimateIn direction="left" delay={150} className="lg:col-span-8">
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Row 1 */}
+
+              {/* Honeypot — hidden from real users */}
+              <input
+                name="honeypot"
+                type="text"
+                autoComplete="off"
+                tabIndex={-1}
+                aria-hidden="true"
+                style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0 }}
+              />
+
+              {/* Row 1: name + phone */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="form-label">
-                    {r.f_nickname}
-                  </label>
-                  <input
-                    name="nickname"
-                    required
-                    className="form-input"
-                    placeholder={r.f_nickname_ph}
-                  />
+                  <label className="form-label">{r.f_nickname}</label>
+                  <input name="name" required className="form-input" placeholder={r.f_nickname_ph} />
                 </div>
                 <div>
-                  <label className="form-label">
-                    {r.f_phone}
-                  </label>
-                  <input
-                    name="phone"
-                    type="tel"
-                    required
-                    className="form-input"
-                    placeholder={r.f_phone_ph}
-                  />
+                  <label className="form-label">{r.f_phone}</label>
+                  <input name="phone" type="tel" required className="form-input" placeholder={r.f_phone_ph} />
                 </div>
               </div>
 
-              {/* Row 2 */}
+              {/* Row 2: email */}
               <div>
                 <label className="form-label">{r.f_email}</label>
-                <input
-                  name="email"
-                  type="email"
-                  required
-                  className="form-input"
-                  placeholder={r.f_email_ph}
-                />
+                <input name="email" type="email" required className="form-input" placeholder={r.f_email_ph} />
               </div>
 
-              {/* Row 3 */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Portfolio upload */}
+              <div className="border border-ink-700 p-5 space-y-3">
                 <div>
-                  <label className="form-label">{r.f_portfolio_url}</label>
+                  <label className="form-label mb-1">{r.f_file}</label>
+                  <p className="font-mono text-[10px] text-ink-500 mb-3">{r.f_file_hint}</p>
+
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    className="font-mono text-xs uppercase tracking-widest border border-ink-600 px-5 py-2.5 text-ink-300 hover:border-acid hover:text-acid transition-all duration-200"
+                  >
+                    {selectedFiles.length > 0
+                      ? r.f_file_selected(selectedFiles.length)
+                      : r.f_file}
+                  </button>
+
                   <input
-                    name="portfolioUrl"
-                    type="url"
-                    className="form-input"
-                    placeholder="https://..."
+                    ref={fileInputRef}
+                    type="file"
+                    multiple
+                    accept=".pdf,.jpg,.jpeg,.png,.webp,.zip"
+                    onChange={handleFileChange}
+                    className="hidden"
                   />
+
+                  {/* File list */}
+                  {selectedFiles.length > 0 && (
+                    <ul className="mt-3 space-y-1">
+                      {selectedFiles.map((f, i) => (
+                        <li key={i} className="flex items-center justify-between">
+                          <span className="font-mono text-[11px] text-ink-300 truncate max-w-xs">{f.name}</span>
+                          <span className="font-mono text-[10px] text-ink-500 ml-3 shrink-0">
+                            {(f.size / 1024 / 1024).toFixed(1)} MB
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
+
+                {/* Portfolio link — alternative */}
                 <div>
-                  <label className="form-label">{r.f_social_url}</label>
-                  <input
-                    name="socialUrl"
-                    type="url"
-                    className="form-input"
-                    placeholder="https://instagram.com/..."
-                  />
+                  <label className="font-mono text-[10px] uppercase tracking-widest text-ink-500 block mb-1.5">
+                    {r.f_portfolio_url} <span className="normal-case text-ink-600">— {r.f_file_or}</span>
+                  </label>
+                  <input name="portfolioLink" type="url" className="form-input" placeholder="https://..." />
                 </div>
               </div>
 
-              {/* Portfolio file */}
+              {/* Social link */}
               <div>
-                <label className="form-label">{r.f_file}</label>
-                <input
-                  name="portfolioFile"
-                  type="file"
-                  accept=".pdf,.zip,.jpg,.jpeg,.png"
-                  className="w-full bg-ink-800 border border-ink-600 text-cream text-sm font-mono
-                    file:mr-4 file:py-2 file:px-4 file:border-0 file:text-xs file:font-mono
-                    file:uppercase file:tracking-widest file:bg-ink-700 file:text-ink-200
-                    hover:file:bg-acid hover:file:text-ink-900 file:cursor-pointer
-                    px-0 py-0 cursor-pointer focus:outline-none focus:border-acid
-                    transition-colors duration-200"
-                />
+                <label className="form-label">{r.f_social_url} *</label>
+                <input name="socialLink" type="url" required className="form-input" placeholder="https://instagram.com/..." />
               </div>
 
-              {/* Row 4 */}
+              {/* Wall size + shirt */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="form-label">{r.f_wall_size}</label>
-                  <select name="wallSize" className="form-input">
+                  <label className="form-label">{r.f_wall_size} *</label>
+                  <select name="platformSize" required className="form-input">
                     <option value="">{r.f_wall_default}</option>
                     {r.wall_sizes.map((s) => (
-                      <option key={s} value={s}>
-                        {s}
-                      </option>
+                      <option key={s} value={s}>{s}</option>
                     ))}
                   </select>
                 </div>
@@ -201,9 +216,7 @@ export default function RegistrationForm({ dict }: Props) {
                   <select name="shirtSize" required className="form-input">
                     <option value="">{r.f_shirt_default}</option>
                     {SHIRT_SIZES.map((s) => (
-                      <option key={s} value={s}>
-                        {s}
-                      </option>
+                      <option key={s} value={s}>{s}</option>
                     ))}
                   </select>
                 </div>
@@ -216,6 +229,7 @@ export default function RegistrationForm({ dict }: Props) {
                     <input
                       name="isBalticArtist"
                       type="checkbox"
+                      value="true"
                       checked={isBaltic}
                       onChange={(e) => setIsBaltic(e.target.checked)}
                       className="sr-only peer"
@@ -231,32 +245,19 @@ export default function RegistrationForm({ dict }: Props) {
                     <p className="font-mono text-xs uppercase tracking-widest text-cream group-hover:text-acid transition-colors">
                       {r.f_baltic_label}
                     </p>
-                    <p className="text-ink-400 text-xs mt-1">
-                      {r.f_baltic_desc}
-                    </p>
+                    <p className="text-ink-400 text-xs mt-1">{r.f_baltic_desc}</p>
                   </div>
                 </label>
 
-                {/* Conditional fields */}
                 {isBaltic && (
                   <div className="mt-5 pt-5 border-t border-ink-700 grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="form-label">{r.f_fullname}</label>
-                      <input
-                        name="fullName"
-                        required={isBaltic}
-                        className="form-input"
-                        placeholder={r.f_fullname_ph}
-                      />
+                      <input name="fullName" required={isBaltic} className="form-input" placeholder={r.f_fullname_ph} />
                     </div>
                     <div>
                       <label className="form-label">{r.f_code}</label>
-                      <input
-                        name="personalCode"
-                        required={isBaltic}
-                        className="form-input"
-                        placeholder={r.f_code_ph}
-                      />
+                      <input name="personalCode" required={isBaltic} className="form-input" placeholder={r.f_code_ph} />
                     </div>
                   </div>
                 )}
@@ -266,12 +267,7 @@ export default function RegistrationForm({ dict }: Props) {
               <div>
                 <label className="flex items-start gap-4 cursor-pointer group">
                   <div className="relative mt-0.5 shrink-0">
-                    <input
-                      name="consent"
-                      type="checkbox"
-                      required
-                      className="sr-only peer"
-                    />
+                    <input name="consent" type="checkbox" value="true" required className="sr-only peer" />
                     <div className="w-5 h-5 border border-ink-600 peer-checked:bg-acid peer-checked:border-acid transition-all" />
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 peer-checked:opacity-100">
                       <svg className="w-3 h-3 text-ink-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
@@ -304,9 +300,7 @@ export default function RegistrationForm({ dict }: Props) {
                 {status === 'loading' ? r.f_submitting : r.f_submit}
               </button>
 
-              <p className="text-ink-600 text-xs font-mono text-center">
-                {r.contact_label}
-              </p>
+              <p className="text-ink-600 text-xs font-mono text-center">{r.contact_label}</p>
             </form>
           </AnimateIn>
         </div>

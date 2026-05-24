@@ -22,7 +22,7 @@ export default async function LangPage({
       <AboutFestival dict={dict} />
       <FestivalSection dict={dict} />
       <CompetitionSection dict={dict} />
-      <RegistrationForm dict={dict} />
+      <RegistrationForm dict={dict} lang={lang} />
       <Footer dict={dict} lang={lang} />
     </main>
   )

@@ -96,6 +96,9 @@ export interface Dict {
     f_portfolio_url: string
     f_social_url: string
     f_file: string
+    f_file_hint: string
+    f_file_selected: (count: number) => string
+    f_file_or: string
     f_wall_size: string
     f_wall_default: string
     f_shirt: string
