@@ -311,7 +311,7 @@ export default function RegistrationForm() {
               </button>
 
               <p className="text-ink-600 text-xs font-mono text-center">
-                Jautājumi: rowbaltics@gmail.com
+                Jautājumi: info@rowbaltic.com
               </p>
             </form>
           </AnimateIn>

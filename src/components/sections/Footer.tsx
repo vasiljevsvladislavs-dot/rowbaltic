@@ -57,10 +57,10 @@ export default function Footer() {
               <div>
                 <p className="font-mono text-[10px] text-ink-500 mb-1">E-pasts</p>
                 <a
-                  href="mailto:rowbaltics@gmail.com"
+                  href="mailto:info@rowbaltic.com"
                   className="font-mono text-sm text-acid hover:underline"
                 >
-                  rowbaltics@gmail.com
+                  info@rowbaltic.com
                 </a>
               </div>
               <div>

@@ -145,10 +145,10 @@ export default function CompetitionSection() {
                     Kontakti
                   </p>
                   <a
-                    href="mailto:rowbaltics@gmail.com"
+                    href="mailto:info@rowbaltic.com"
                     className="font-mono text-sm text-acid hover:underline"
                   >
-                    rowbaltics@gmail.com
+                    info@rowbaltic.com
                   </a>
                 </div>
               </div>
