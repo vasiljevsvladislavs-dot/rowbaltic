@@ -1,27 +1,62 @@
 /**
  * Google service account auth helper.
  *
- * Node.js 18+ uses OpenSSL 3 which no longer supports PKCS#1 RSA keys
- * (-----BEGIN RSA PRIVATE KEY-----). Google service account JSON files
- * ship PKCS#1 keys. We convert to PKCS#8 at runtime so signing works.
+ * ERR_OSSL_UNSUPPORTED fix: Node.js 18 + OpenSSL 3 dropped support for
+ * PKCS#1 RSA private keys (-----BEGIN RSA PRIVATE KEY-----).
+ * We normalize the PEM and convert to PKCS#8 before handing it to googleapis.
  */
 import { createPrivateKey } from 'crypto'
 import { google } from 'googleapis'
 
-function toPkcs8(raw: string): string {
-  // Replace literal \n with real newlines (common Vercel env var issue)
-  const pem = raw.replace(/\\n/g, '\n')
+/** Fix literal \\n from Vercel env vars + strip stray whitespace. */
+function normalizePem(raw: string): string {
+  return raw
+    .replace(/\\n/g, '\n')   // JSON-escaped \n → real newline
+    .replace(/\r\n/g, '\n')  // Windows line endings
+    .replace(/ +\n/g, '\n')  // trailing spaces before newline
+    .trim()
+}
+
+/**
+ * Convert PKCS#1 (-----BEGIN RSA PRIVATE KEY-----) to PKCS#8
+ * (-----BEGIN PRIVATE KEY-----), which OpenSSL 3 fully supports.
+ * If the key is already PKCS#8, returns it unchanged.
+ */
+function ensurePkcs8(pem: string): string {
+  if (pem.includes('-----BEGIN PRIVATE KEY-----')) {
+    // Already PKCS#8 — nothing to do
+    return pem
+  }
+
+  if (pem.includes('-----BEGIN RSA PRIVATE KEY-----')) {
+    console.log('[googleAuth] PKCS#1 key detected — converting to PKCS#8')
+  } else {
+    console.warn('[googleAuth] Unrecognised key header — attempting PKCS#8 conversion anyway')
+  }
+
   try {
     const keyObj = createPrivateKey({ key: pem, format: 'pem' })
-    return keyObj.export({ type: 'pkcs8', format: 'pem' }) as string
-  } catch {
-    // Already PKCS#8, or conversion failed — return as-is
+    const pkcs8 = keyObj.export({ type: 'pkcs8', format: 'pem' }) as string
+    console.log('[googleAuth] PKCS#8 conversion OK')
+    return pkcs8
+  } catch (err) {
+    console.error('[googleAuth] PKCS#8 conversion failed — using raw key:', err instanceof Error ? err.message : err)
     return pem
   }
 }
 
 export function getGoogleAuth(scopes: string[]) {
-  const privateKey = toPkcs8(process.env.GOOGLE_PRIVATE_KEY ?? '')
+  const raw = process.env.GOOGLE_PRIVATE_KEY ?? ''
+
+  if (!raw) {
+    console.error('[googleAuth] GOOGLE_PRIVATE_KEY env var is empty!')
+  }
+  if (!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL) {
+    console.error('[googleAuth] GOOGLE_SERVICE_ACCOUNT_EMAIL env var is empty!')
+  }
+
+  const privateKey = ensurePkcs8(normalizePem(raw))
+
   return new google.auth.GoogleAuth({
     credentials: {
       client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
