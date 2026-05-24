@@ -94,10 +94,6 @@ export default function PhotoCollage({
   }
 
   if (variant === 'masonry') {
-    // Build a 4-column desktop grid with varying row spans
-    // Pattern repeats: tall, normal, normal, tall, normal, tall, normal, normal ...
-    const tallIndexes = new Set([0, 3, 5, 8, 11])
-
     return (
       <div className={cn('w-full', className)}>
         {/* Lightbox overlay */}
@@ -143,60 +139,22 @@ export default function PhotoCollage({
           </div>
         )}
 
-        {/* Desktop: CSS grid masonry-style */}
-        <div
-          className="hidden md:grid gap-2"
-          style={{
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gridAutoRows: '180px',
-          }}
-        >
-          {images.map((img, i) => {
-            const isTall = tallIndexes.has(i)
-            return (
-              <div
-                key={i}
-                className="relative overflow-hidden group cursor-pointer"
-                style={{ gridRow: isTall ? 'span 2' : 'span 1' }}
-                onClick={() => setLightbox(i)}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover transition-all duration-500 group-hover:scale-105"
-                  sizes="25vw"
-                />
-                <div className="absolute inset-0 bg-ink-900/30 group-hover:bg-ink-900/0 transition-colors duration-300" />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-cream/60">
-                    ROW BALTIC
-                  </span>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-
-        {/* Mobile: 2-col grid */}
-        <div className="md:hidden grid grid-cols-2 gap-1.5">
+        {/* Uniform grid — 4 cols desktop, 3 cols tablet, 2 cols mobile */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1.5">
           {images.map((img, i) => (
             <div
               key={i}
-              className={cn(
-                'relative overflow-hidden group cursor-pointer',
-                i === 0 ? 'col-span-2 h-56' : 'h-40'
-              )}
+              className="relative overflow-hidden group cursor-pointer aspect-[4/3]"
               onClick={() => setLightbox(i)}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
               />
-              <div className="absolute inset-0 bg-ink-900/20" />
+              <div className="absolute inset-0 bg-ink-900/30 group-hover:bg-ink-900/0 transition-colors duration-300" />
             </div>
           ))}
         </div>
