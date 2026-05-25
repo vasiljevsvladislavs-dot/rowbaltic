@@ -60,7 +60,7 @@ export default function HeroSection({ dict, lang }: Props) {
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
             className={`font-display text-acid tracking-wider transition-all duration-300 hover:opacity-80 ${scrolled ? 'text-lg' : 'text-2xl'}`}
           >
-            ROW BALTIC
+            ROW BALTICS
           </a>
         </div>
         <div
@@ -107,7 +107,7 @@ export default function HeroSection({ dict, lang }: Props) {
               loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
             }`}
           >
-            BALTIC
+            BALTICS
           </h1>
         </div>
         <div className="overflow-hidden -mt-2 md:-mt-3">

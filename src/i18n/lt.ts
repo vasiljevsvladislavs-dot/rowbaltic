@@ -2,12 +2,12 @@ import type { Dict } from './types'
 
 const lt: Dict = {
   meta: {
-    title: 'ROW BALTIC 2026 — Gatvės Meno Festivalis',
-    description: 'ROW BALTIC (Riga Open Wall) — vienas iš greičiausiai augančių gatvės meno renginių Latvijoje ir Baltijos šalyse. Festivalis 2026 m. tema „Kova".',
+    title: 'ROW BALTICS 2026 — Gatvės Meno Festivalis',
+    description: 'ROW BALTICS (Riga Open Wall) — vienas iš greičiausiai augančių gatvės meno renginių Latvijoje ir Baltijos šalyse. Festivalis 2026 m. tema „Kova".',
   },
   nav: {
     about: 'Apie festivalį',
-    festival: 'ROW BALTIC 2026',
+    festival: 'ROW BALTICS 2026',
     competition: 'Konkursas',
     register: 'Registracija',
   },
@@ -23,15 +23,15 @@ const lt: Dict = {
     organize_label: 'Organizuoja:',
     organize_value: 'Dainis Rudens · ansis · Mākslas birojs',
     register_cta: 'Registruotis piešimo konkursui',
-    marquee: 'ROW BALTIC 2026 ✦ GATVĖS MENAS ✦ KOVA ✦ RYGA ✦ SARKANDAUGAVA ✦',
+    marquee: 'ROW BALTICS 2026 ✦ GATVĖS MENAS ✦ KOVA ✦ RYGA ✦ SARKANDAUGAVA ✦',
   },
   about: {
     num: '01',
     label: 'Apie festivalį',
     heading: ['GATVĖS', 'MENO', 'FESTIVALIS'],
-    p1: 'Sveiki atvykę į Gatvės meno festivalį ROW BALTIC (Riga Open Wall) — vieną iš greičiausiai augančių gatvės meno renginių Latvijoje ir Baltijos šalyse.',
+    p1: 'Sveiki atvykę į Gatvės meno festivalį ROW BALTICS (Riga Open Wall) — vieną iš greičiausiai augančių gatvės meno renginių Latvijoje ir Baltijos šalyse.',
     p2: 'Festivalis yra ambicinga iniciatyvos, sėkmingai plėtojamos nuo 2022 m., tąsa — kasmet sulaukianti vis platesnės auditorijos, menininkų ir miesto kultūros entuziastų.',
-    p3: 'ROW BALTIC paverčia miesto aplinką atvira meno galerija, kurioje susitinka kūrybiškumas, šiuolaikinė kultūra ir urbanistinė energija.',
+    p3: 'ROW BALTICS paverčia miesto aplinką atvira meno galerija, kurioje susitinka kūrybiškumas, šiuolaikinė kultūra ir urbanistinė energija.',
     stats: [
       { num: '2022', label: 'Įkurtas' },
       { num: '30+', label: 'Menininkai' },
@@ -40,20 +40,20 @@ const lt: Dict = {
   },
   festival: {
     num: '02',
-    label: 'ROW BALTIC 2026',
-    support: 'Šiais metais ROW BALTIC žengė žingsnį toliau ir vyksta padedant Rygos miesto savivaldybei, kaip dalis platesnės Gatvės meno mėnesio programos.',
+    label: 'ROW BALTICS 2026',
+    support: 'Šiais metais ROW BALTICS žengė žingsnį toliau ir vyksta padedant Rygos miesto savivaldybei, kaip dalis platesnės Gatvės meno mėnesio programos.',
     theme_sublabel: 'kūrybinis varžymasis',
     p1: '2026 m. festivalio centrinis motyvas yra „kova" — svarbus gatvės meno ir hip-hop kultūros elementas.',
     p2: 'Tai ne agresija ar konfliktas, o kūrybingas, nesmurtinis varžymasis, kuriame gimsta naujos idėjos, stiliai ir raiškos formos.',
     p3: 'Grafičio ir gatvės meno kultūroje „battle" tradicija visada buvo būdas menininkams patvirtinti savo tapatybę ir užmegzti dialogą su miesto aplinka.',
     collage_heading: 'Ankstesni festivaliai',
-    marquee: 'KOVA ✦ BATTLE ✦ ROW BALTIC 2026 ✦ RUGPJŪČIO 22 ✦ SARKANDAUGAVA ✦ RYGA ✦',
+    marquee: 'KOVA ✦ BATTLE ✦ ROW BALTICS 2026 ✦ RUGPJŪČIO 22 ✦ SARKANDAUGAVA ✦ RYGA ✦',
   },
   competition: {
     num: '03',
     label: 'Piešimo konkursas',
     heading: ['NUOSTATAI', '2026'],
-    p1: 'Gatvės meno festivalis ROW BALTIC 2026 kviečia menininkus dalyvauti piešimo konkurse ir tapti vienos ryškiausių urbanistinės kultūros platformų Baltijos šalyse dalimi.',
+    p1: 'Gatvės meno festivalis ROW BALTICS 2026 kviečia menininkus dalyvauti piešimo konkurse ir tapti vienos ryškiausių urbanistinės kultūros platformų Baltijos šalyse dalimi.',
     p2: 'Konkursą organizuoja menininkas Dainis Rudens bendradarbiaujant su asociacija „Mākslas birojs" ir Rygos miesto savivaldybe.',
     theme_label: 'Konkurso tema',
     theme_desc: 'Dalyviai kviečiami laisvai interpretuoti temą, gerbdami aplinkinę aplinką ir visuomenę.',
@@ -79,7 +79,7 @@ const lt: Dict = {
     num: '04',
     label: 'Piešimo konkurso registracija',
     heading: 'REGISTRUOTIS PIEŠIMO KONKURSUI',
-    p1: 'Užpildykite paraiškos formą ir tapkite ROW BALTIC 2026 dalimi. Registracija atvira iki 2026 m. birželio 22 d. 23:59.',
+    p1: 'Užpildykite paraiškos formą ir tapkite ROW BALTICS 2026 dalimi. Registracija atvira iki 2026 m. birželio 22 d. 23:59.',
     info: [
       { label: 'Data', value: 'Rugpjūčio 22, 2026' },
       { label: 'Vieta', value: 'Zāģeru gatvė, Sarkandaugava' },
@@ -130,7 +130,7 @@ const lt: Dict = {
     organizer_label: 'Organizatorius',
     organizer_name: 'Dainis Rudens',
     organizer_org: 'Asociacija „Mākslas birojs"',
-    copyright: '© 2026 ROW BALTIC. Visos teisės saugomos.',
+    copyright: '© 2026 ROW BALTICS. Visos teisės saugomos.',
     support: 'Rygos miesto savivaldybės parama',
   },
 }

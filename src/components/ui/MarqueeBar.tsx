@@ -7,7 +7,7 @@ interface MarqueeBarProps {
 }
 
 export default function MarqueeBar({
-  text = 'ROW BALTIC 2026 ✦ IELU MĀKSLA ✦ CĪŅA ✦ RĪGA ✦ SARKANDAUGAVA ✦',
+  text = 'ROW BALTICS 2026 ✦ IELU MĀKSLA ✦ CĪŅA ✦ RĪGA ✦ SARKANDAUGAVA ✦',
   repeat = 4,
   className = '',
 }: MarqueeBarProps) {

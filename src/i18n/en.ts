@@ -2,12 +2,12 @@ import type { Dict } from './types'
 
 const en: Dict = {
   meta: {
-    title: 'ROW BALTIC 2026 — Street Art Festival',
-    description: 'ROW BALTIC (Riga Open Wall) — one of the fastest-growing street art events in Latvia and the Baltics. Festival 2026 with the theme "Battle".',
+    title: 'ROW BALTICS 2026 — Street Art Festival',
+    description: 'ROW BALTICS (Riga Open Wall) — one of the fastest-growing street art events in Latvia and the Baltics. Festival 2026 with the theme "Battle".',
   },
   nav: {
     about: 'About',
-    festival: 'ROW BALTIC 2026',
+    festival: 'ROW BALTICS 2026',
     competition: 'Competition',
     register: 'Register',
   },
@@ -23,15 +23,15 @@ const en: Dict = {
     organize_label: 'Organised by:',
     organize_value: 'Dainis Rudens · ansis · Mākslas birojs',
     register_cta: 'Apply for the Drawing Competition',
-    marquee: 'ROW BALTIC 2026 ✦ STREET ART ✦ BATTLE ✦ RIGA ✦ SARKANDAUGAVA ✦',
+    marquee: 'ROW BALTICS 2026 ✦ STREET ART ✦ BATTLE ✦ RIGA ✦ SARKANDAUGAVA ✦',
   },
   about: {
     num: '01',
     label: 'About the Festival',
     heading: ['STREET', 'ART', 'FESTIVAL'],
-    p1: 'Welcome to the Street Art Festival ROW BALTIC (Riga Open Wall) — one of the fastest-growing street art events in Latvia and the Baltics.',
+    p1: 'Welcome to the Street Art Festival ROW BALTICS (Riga Open Wall) — one of the fastest-growing street art events in Latvia and the Baltics.',
     p2: 'The festival is an ambitious continuation of an initiative that has been successfully developing since 2022, each year gathering an ever-wider audience of artists and urban culture enthusiasts.',
-    p3: 'ROW BALTIC transforms the urban environment into an open art gallery where creativity, contemporary culture and urban energy converge.',
+    p3: 'ROW BALTICS transforms the urban environment into an open art gallery where creativity, contemporary culture and urban energy converge.',
     stats: [
       { num: '2022', label: 'Founded' },
       { num: '30+', label: 'Artists' },
@@ -40,20 +40,20 @@ const en: Dict = {
   },
   festival: {
     num: '02',
-    label: 'ROW BALTIC 2026',
-    support: 'This year ROW BALTIC takes a step further and takes place with the support of the Riga City Municipality as part of the wider Street Art Month programme.',
+    label: 'ROW BALTICS 2026',
+    support: 'This year ROW BALTICS takes a step further and takes place with the support of the Riga City Municipality as part of the wider Street Art Month programme.',
     theme_sublabel: 'creative contest',
     p1: 'The central motif of the 2026 festival is "battle" — a significant element of street art and hip-hop culture.',
     p2: 'It is not aggression or conflict, but a creative, non-violent competition in which new ideas, styles and forms of expression are born.',
     p3: 'In graffiti and street art culture, the "battle" tradition has always been a way for artists to assert their identity and create a dialogue with the urban environment.',
     collage_heading: 'Previous Festivals',
-    marquee: 'BATTLE ✦ ROW BALTIC 2026 ✦ AUGUST 22 ✦ SARKANDAUGAVA ✦ RIGA ✦',
+    marquee: 'BATTLE ✦ ROW BALTICS 2026 ✦ AUGUST 22 ✦ SARKANDAUGAVA ✦ RIGA ✦',
   },
   competition: {
     num: '03',
     label: 'Drawing Competition',
     heading: ['RULES', '2026'],
-    p1: 'The Street Art Festival ROW BALTIC 2026 invites artists to participate in the drawing competition and become part of one of the most vibrant urban culture platforms in the Baltics.',
+    p1: 'The Street Art Festival ROW BALTICS 2026 invites artists to participate in the drawing competition and become part of one of the most vibrant urban culture platforms in the Baltics.',
     p2: 'The competition is organised by artist Dainis Rudens in collaboration with the association "Mākslas birojs" and the Riga City Municipality.',
     theme_label: 'Competition Theme',
     theme_desc: 'Participants are invited to interpret the theme freely, maintaining respect for the surrounding environment and society.',
@@ -79,7 +79,7 @@ const en: Dict = {
     num: '04',
     label: 'Drawing Competition Application',
     heading: 'APPLY FOR THE DRAWING COMPETITION',
-    p1: 'Fill in the application form and become part of ROW BALTIC 2026. Applications are open until 22 June 2026 at 23:59.',
+    p1: 'Fill in the application form and become part of ROW BALTICS 2026. Applications are open until 22 June 2026 at 23:59.',
     info: [
       { label: 'Date', value: 'August 22, 2026' },
       { label: 'Location', value: 'Zāģeru Street, Sarkandaugava' },
@@ -130,7 +130,7 @@ const en: Dict = {
     organizer_label: 'Organiser',
     organizer_name: 'Dainis Rudens',
     organizer_org: 'Association "Mākslas birojs"',
-    copyright: '© 2026 ROW BALTIC. All rights reserved.',
+    copyright: '© 2026 ROW BALTICS. All rights reserved.',
     support: 'Supported by the Riga City Municipality',
   },
 }

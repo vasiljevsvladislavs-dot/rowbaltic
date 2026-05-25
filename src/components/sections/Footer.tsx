@@ -14,7 +14,7 @@ export default function Footer({ dict, lang }: Props) {
   return (
     <footer className="border-t border-[#2a1a0a]" style={{ backgroundColor: '#18100a' }}>
       <MarqueeBar
-        text="ROW BALTIC ✦ RIGA OPEN WALL ✦ IELU MĀKSLA ✦ 2026 ✦"
+        text="ROW BALTICS ✦ RIGA OPEN WALL ✦ IELU MĀKSLA ✦ 2026 ✦"
         className="opacity-40"
       />
 
@@ -24,7 +24,7 @@ export default function Footer({ dict, lang }: Props) {
           <div className="md:col-span-5">
             <h2 className="font-display text-[clamp(3rem,8vw,7rem)] leading-none text-cream mb-6">
               ROW<br />
-              <span className="text-acid">BALTIC</span>
+              <span className="text-acid">BALTICS</span>
             </h2>
             <p className="text-ink-400 text-sm leading-relaxed max-w-xs">
               {f.tagline}

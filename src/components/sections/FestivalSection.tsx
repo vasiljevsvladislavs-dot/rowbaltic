@@ -4,14 +4,14 @@ import PhotoCollage from '@/components/ui/PhotoCollage'
 import type { Dict } from '@/i18n'
 
 const images = [
-  { src: '/collage2/photo-05.jpg', alt: 'ROW BALTIC 2025' },
+  { src: '/collage2/photo-05.jpg', alt: 'ROW BALTICS 2025' },
   { src: '/collage2/photo-06.jpg', alt: 'Urban art Riga' },
   { src: '/collage2/photo-07.jpg', alt: 'Street art festival' },
-  { src: '/collage2/photo-08.jpg', alt: 'ROW BALTIC artists' },
+  { src: '/collage2/photo-08.jpg', alt: 'ROW BALTICS artists' },
   { src: '/collage2/photo-09.jpg', alt: 'Sarkandaugava festival' },
-  { src: '/collage2/photo-10.jpg', alt: 'ROW BALTIC graffiti' },
+  { src: '/collage2/photo-10.jpg', alt: 'ROW BALTICS graffiti' },
   { src: '/collage2/photo-11.jpg', alt: 'Street art Riga' },
-  { src: '/collage2/photo-12.jpg', alt: 'ROW BALTIC 2025 battle' },
+  { src: '/collage2/photo-12.jpg', alt: 'ROW BALTICS 2025 battle' },
 ]
 
 interface Props {

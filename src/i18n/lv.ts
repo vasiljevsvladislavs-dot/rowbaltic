@@ -2,12 +2,12 @@ import type { Dict } from './types'
 
 const lv: Dict = {
   meta: {
-    title: 'ROW BALTIC 2026 — Ielu Mākslas Festivāls',
-    description: 'ROW BALTIC (Riga Open Wall) — viens no straujāk augošajiem ielu mākslas notikumiem Latvijā un Baltijā. Festivāls 2026. gadā ar tēmu "Cīņa".',
+    title: 'ROW BALTICS 2026 — Ielu Mākslas Festivāls',
+    description: 'ROW BALTICS (Riga Open Wall) — viens no straujāk augošajiem ielu mākslas notikumiem Latvijā un Baltijā. Festivāls 2026. gadā ar tēmu "Cīņa".',
   },
   nav: {
     about: 'Par festivālu',
-    festival: 'ROW BALTIC 2026',
+    festival: 'ROW BALTICS 2026',
     competition: 'Konkursa nolikums',
     register: 'Reģistrācija',
   },
@@ -23,15 +23,15 @@ const lv: Dict = {
     organize_label: 'Organizē:',
     organize_value: 'Dainis Rudens · ansis · Mākslas birojs',
     register_cta: 'Pieteikties zīmēšanas konkursam',
-    marquee: 'ROW BALTIC 2026 ✦ IELU MĀKSLA ✦ CĪŅA ✦ RĪGA ✦ SARKANDAUGAVA ✦',
+    marquee: 'ROW BALTICS 2026 ✦ IELU MĀKSLA ✦ CĪŅA ✦ RĪGA ✦ SARKANDAUGAVA ✦',
   },
   about: {
     num: '01',
     label: 'Par festivālu',
     heading: ['IELU', 'MĀKSLAS', 'FESTIVĀLS'],
-    p1: 'Laipni lūgti Ielu mākslas festivālā ROW BALTIC (Riga Open Wall) — vienā no straujāk augošajiem ielu mākslas notikumiem Latvijā un Baltijā.',
+    p1: 'Laipni lūgti Ielu mākslas festivālā ROW BALTICS (Riga Open Wall) — vienā no straujāk augošajiem ielu mākslas notikumiem Latvijā un Baltijā.',
     p2: 'Festivāls ir vērienīgs turpinājums iniciatīvai, kas veiksmīgi attīstās jau kopš 2022. gada, ik gadu pulcējot arvien plašāku auditoriju, māksliniekus un pilsētvides kultūras entuziastus.',
-    p3: 'ROW BALTIC pārvērš pilsētvidi par atvērtu mākslas galeriju, kur satiekas radošums, laikmetīga kultūra un urbānā enerģija.',
+    p3: 'ROW BALTICS pārvērš pilsētvidi par atvērtu mākslas galeriju, kur satiekas radošums, laikmetīga kultūra un urbānā enerģija.',
     stats: [
       { num: '2022', label: 'Dibināts' },
       { num: '30+', label: 'Mākslinieki' },
@@ -40,20 +40,20 @@ const lv: Dict = {
   },
   festival: {
     num: '02',
-    label: 'ROW BALTIC 2026',
-    support: 'Šogad ROW BALTIC sper soli tālāk un norisinās ar Rīgas valstspilsētas pašvaldības atbalstu kā daļa no plašās Ielu mākslas mēneša programmas.',
+    label: 'ROW BALTICS 2026',
+    support: 'Šogad ROW BALTICS sper soli tālāk un norisinās ar Rīgas valstspilsētas pašvaldības atbalstu kā daļa no plašās Ielu mākslas mēneša programmas.',
     theme_sublabel: 'radoša sacensība',
     p1: '2026. gada festivāla centrālais motīvs ir "cīņa" — nozīmīga ielu mākslas un hiphopa kultūras sastāvdaļa.',
     p2: 'Tā nav agresija vai konflikts, bet gan radoša, nevardarbīga sacensība, kurā dzimst jaunas idejas, stili un izteiksmes formas.',
     p3: 'Grafiti un ielu mākslas kultūrā "battle" tradīcija vienmēr bijusi veids, kā mākslinieki apliecina savu identitāti un veido dialogu ar pilsētvidi.',
     collage_heading: 'Iepriekšējie festivāli',
-    marquee: 'CĪŅA ✦ BATTLE ✦ ROW BALTIC 2026 ✦ 22. AUGUSTS ✦ SARKANDAUGAVA ✦ RĪGA ✦',
+    marquee: 'CĪŅA ✦ BATTLE ✦ ROW BALTICS 2026 ✦ 22. AUGUSTS ✦ SARKANDAUGAVA ✦ RĪGA ✦',
   },
   competition: {
     num: '03',
     label: 'Zīmēšanas konkurss',
     heading: ['NOLIKUMS', '2026'],
-    p1: 'Ielu mākslas festivāls ROW BALTIC 2026 aicina māksliniekus piedalīties zīmēšanas konkursā un kļūt par daļu no vienas no spilgtākajām urbānās kultūras platformām Baltijā.',
+    p1: 'Ielu mākslas festivāls ROW BALTICS 2026 aicina māksliniekus piedalīties zīmēšanas konkursā un kļūt par daļu no vienas no spilgtākajām urbānās kultūras platformām Baltijā.',
     p2: 'Konkursu organizē mākslinieks Dainis Rudens sadarbībā ar biedrību „Mākslas birojs" un Rīgas valstspilsētas pašvaldību.',
     theme_label: 'Konkursa tēma',
     theme_desc: 'Dalībnieki aicināti interpretēt tēmu brīvi, saglabājot cieņu pret apkārtējo vidi un sabiedrību.',
@@ -79,7 +79,7 @@ const lv: Dict = {
     num: '04',
     label: 'Pieteikšanās zīmēšanas konkursam',
     heading: 'PIETEIKTIES ZĪMĒŠANAS KONKURSAM',
-    p1: 'Aizpildi pieteikuma veidlapu un kļūsti par daļu no ROW BALTIC 2026. Pieteikšanās ir atvērta līdz 2026. gada 22. jūnijam plkst. 23:59.',
+    p1: 'Aizpildi pieteikuma veidlapu un kļūsti par daļu no ROW BALTICS 2026. Pieteikšanās ir atvērta līdz 2026. gada 22. jūnijam plkst. 23:59.',
     info: [
       { label: 'Datums', value: '22. augusts, 2026' },
       { label: 'Vieta', value: 'Zāģeru iela, Sarkandaugava' },
@@ -130,7 +130,7 @@ const lv: Dict = {
     organizer_label: 'Organizators',
     organizer_name: 'Dainis Rudens',
     organizer_org: 'Biedrība „Mākslas birojs"',
-    copyright: '© 2026 ROW BALTIC. Visas tiesības aizsargātas.',
+    copyright: '© 2026 ROW BALTICS. Visas tiesības aizsargātas.',
     support: 'Rīgas valstspilsētas pašvaldības atbalsts',
   },
 }

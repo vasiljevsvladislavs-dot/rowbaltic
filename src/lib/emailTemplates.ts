@@ -35,44 +35,44 @@ const confirmationContent: Record<Lang, {
   signature: string
 }> = {
   lv: {
-    subject: 'Jūsu pieteikums ROW BALTIC 2026 ir saņemts',
+    subject: 'Jūsu pieteikums ROW BALTICS 2026 ir saņemts',
     greeting: (name) => `Sveiki, ${name}!`,
     body: () =>
-      `Paldies, ka pieteicāties ielu mākslas festivāla <strong>ROW BALTIC 2026</strong> zīmēšanas konkursam!\n\nJūsu pieteikums ir veiksmīgi saņemts. Mūsu komanda to izskatīs un informēs jūs par rezultātiem.\n\nApstiprinātie dalībnieki tiks paziņoti <strong>2026. gada 30. jūnijā</strong>.`,
+      `Paldies, ka pieteicāties ielu mākslas festivāla <strong>ROW BALTICS 2026</strong> zīmēšanas konkursam!\n\nJūsu pieteikums ir veiksmīgi saņemts. Mūsu komanda to izskatīs un informēs jūs par rezultātiem.\n\nApstiprinātie dalībnieki tiks paziņoti <strong>2026. gada 30. jūnijā</strong>.`,
     filesNote: (count) =>
       `Mēs saņēmām jūsu portfolio — <strong>${count} fails(-i)</strong>. Paldies!`,
     contact: 'Ja jums ir jautājumi, rakstiet uz <a href="mailto:info@rowbaltics.com">info@rowbaltics.com</a>',
-    signature: 'Ar cieņu,<br><strong>ROW BALTIC komanda</strong>',
+    signature: 'Ar cieņu,<br><strong>ROW BALTICS komanda</strong>',
   },
   en: {
-    subject: 'Your ROW BALTIC 2026 application has been received',
+    subject: 'Your ROW BALTICS 2026 application has been received',
     greeting: (name) => `Hi ${name}!`,
     body: () =>
-      `Thank you for applying to the <strong>ROW BALTIC 2026</strong> street art festival drawing competition!\n\nYour application has been successfully received. Our team will review it and notify you of the results.\n\nConfirmed participants will be announced on <strong>30 June 2026</strong>.`,
+      `Thank you for applying to the <strong>ROW BALTICS 2026</strong> street art festival drawing competition!\n\nYour application has been successfully received. Our team will review it and notify you of the results.\n\nConfirmed participants will be announced on <strong>30 June 2026</strong>.`,
     filesNote: (count) =>
       `We have received your portfolio — <strong>${count} file(s)</strong>. Thank you!`,
     contact: 'If you have any questions, write to <a href="mailto:info@rowbaltics.com">info@rowbaltics.com</a>',
-    signature: 'Best regards,<br><strong>ROW BALTIC team</strong>',
+    signature: 'Best regards,<br><strong>ROW BALTICS team</strong>',
   },
   lt: {
-    subject: 'Jūsų paraiška ROW BALTIC 2026 gauta',
+    subject: 'Jūsų paraiška ROW BALTICS 2026 gauta',
     greeting: (name) => `Sveiki, ${name}!`,
     body: () =>
-      `Ačiū, kad pateikėte paraišką į <strong>ROW BALTIC 2026</strong> gatvės meno festivalio piešimo konkursą!\n\nJūsų paraiška sėkmingai gauta. Mūsų komanda ją peržiūrės ir informuos jus apie rezultatus.\n\nPatvirtinti dalyviai bus paskelbti <strong>2026 m. birželio 30 d.</strong>`,
+      `Ačiū, kad pateikėte paraišką į <strong>ROW BALTICS 2026</strong> gatvės meno festivalio piešimo konkursą!\n\nJūsų paraiška sėkmingai gauta. Mūsų komanda ją peržiūrės ir informuos jus apie rezultatus.\n\nPatvirtinti dalyviai bus paskelbti <strong>2026 m. birželio 30 d.</strong>`,
     filesNote: (count) =>
       `Gavome jūsų portfolio — <strong>${count} failas(-ai)</strong>. Ačiū!`,
     contact: 'Jei turite klausimų, rašykite el. paštu <a href="mailto:info@rowbaltics.com">info@rowbaltics.com</a>',
-    signature: 'Pagarbiai,<br><strong>ROW BALTIC komanda</strong>',
+    signature: 'Pagarbiai,<br><strong>ROW BALTICS komanda</strong>',
   },
   ee: {
-    subject: 'Teie ROW BALTIC 2026 avaldus on vastu võetud',
+    subject: 'Teie ROW BALTICS 2026 avaldus on vastu võetud',
     greeting: (name) => `Tere, ${name}!`,
     body: () =>
-      `Täname, et esitasite avalduse <strong>ROW BALTIC 2026</strong> tänavakunstifestivali joonistuskonkursile!\n\nTeie avaldus on edukalt vastu võetud. Meie meeskond vaatab selle läbi ja teavitab teid tulemustest.\n\nKinnitatud osalejad teatatakse <strong>30. juunil 2026</strong>.`,
+      `Täname, et esitasite avalduse <strong>ROW BALTICS 2026</strong> tänavakunstifestivali joonistuskonkursile!\n\nTeie avaldus on edukalt vastu võetud. Meie meeskond vaatab selle läbi ja teavitab teid tulemustest.\n\nKinnitatud osalejad teatatakse <strong>30. juunil 2026</strong>.`,
     filesNote: (count) =>
       `Saime kätte teie portfolio — <strong>${count} fail(i)</strong>. Täname!`,
     contact: 'Küsimuste korral kirjutage <a href="mailto:info@rowbaltics.com">info@rowbaltics.com</a>',
-    signature: 'Lugupidamisega,<br><strong>ROW BALTIC meeskond</strong>',
+    signature: 'Lugupidamisega,<br><strong>ROW BALTICS meeskond</strong>',
   },
 }
 
@@ -99,13 +99,13 @@ function wrapHtml(bodyHtml: string): string {
 <body>
 <div class="wrap">
   <div class="header">
-    <h1>ROW BALTIC</h1>
+    <h1>ROW BALTICS</h1>
     <p>Riga Open Wall · Street Art Festival · 2026</p>
   </div>
   <div class="body">
     ${bodyHtml}
   </div>
-  <div class="footer">© 2026 ROW BALTIC · info@rowbaltics.com · rowbaltics.com</div>
+  <div class="footer">© 2026 ROW BALTICS · info@rowbaltics.com · rowbaltics.com</div>
 </div>
 </body>
 </html>`
@@ -152,7 +152,7 @@ export function getParticipantConfirmationEmail(
 export function getAdminNotificationEmail(
   data: AdminData,
 ): { subject: string; text: string; html: string } {
-  const subject = `Jauns ROW BALTIC pieteikums — ${data.name}`
+  const subject = `Jauns ROW BALTICS pieteikums — ${data.name}`
 
   const fields: [string, string][] = [
     ['Laiks', data.timestamp],
@@ -197,7 +197,7 @@ export function getAdminNotificationEmail(
 
   return {
     subject,
-    text: `Jauns ROW BALTIC pieteikums\n\n${textRows}${fileText}\n\nDati saglabāti Google Sheets.`,
+    text: `Jauns ROW BALTICS pieteikums\n\n${textRows}${fileText}\n\nDati saglabāti Google Sheets.`,
     html: wrapHtml(htmlBody),
   }
 }

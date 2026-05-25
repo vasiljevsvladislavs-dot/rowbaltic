@@ -2,12 +2,12 @@ import type { Dict } from './types'
 
 const ee: Dict = {
   meta: {
-    title: 'ROW BALTIC 2026 — Tänavakunsti Festival',
-    description: 'ROW BALTIC (Riga Open Wall) — üks kiiremini kasvavaid tänavakunsti üritusi Lätis ja Baltikumis. Festival 2026 teemaga „Lahing".',
+    title: 'ROW BALTICS 2026 — Tänavakunsti Festival',
+    description: 'ROW BALTICS (Riga Open Wall) — üks kiiremini kasvavaid tänavakunsti üritusi Lätis ja Baltikumis. Festival 2026 teemaga „Lahing".',
   },
   nav: {
     about: 'Festivalist',
-    festival: 'ROW BALTIC 2026',
+    festival: 'ROW BALTICS 2026',
     competition: 'Konkurss',
     register: 'Registreerimine',
   },
@@ -23,15 +23,15 @@ const ee: Dict = {
     organize_label: 'Korraldab:',
     organize_value: 'Dainis Rudens · ansis · Mākslas birojs',
     register_cta: 'Registreeru joonistuskonkursile',
-    marquee: 'ROW BALTIC 2026 ✦ TÄNAVAKUNST ✦ LAHING ✦ RIIA ✦ SARKANDAUGAVA ✦',
+    marquee: 'ROW BALTICS 2026 ✦ TÄNAVAKUNST ✦ LAHING ✦ RIIA ✦ SARKANDAUGAVA ✦',
   },
   about: {
     num: '01',
     label: 'Festivalist',
     heading: ['TÄNAVA', 'KUNSTI', 'FESTIVAL'],
-    p1: 'Tere tulemast tänavakunsti festivali ROW BALTIC (Riga Open Wall) — ühte kiiremini kasvavaid tänavakunsti üritusi Lätis ja Baltikumis.',
+    p1: 'Tere tulemast tänavakunsti festivali ROW BALTICS (Riga Open Wall) — ühte kiiremini kasvavaid tänavakunsti üritusi Lätis ja Baltikumis.',
     p2: 'Festival on ambitsioonika jätk algatusele, mis on edukalt arenenud alates 2022. aastast, koondades aasta-aastalt üha laiemat publikut, kunstnikke ja linnakultuurientusiaste.',
-    p3: 'ROW BALTIC muudab linnakeskkonna avatud kunstigaleriiks, kus kohtuvad loovus, kaasaegne kultuur ja urbanistlik energia.',
+    p3: 'ROW BALTICS muudab linnakeskkonna avatud kunstigaleriiks, kus kohtuvad loovus, kaasaegne kultuur ja urbanistlik energia.',
     stats: [
       { num: '2022', label: 'Asutatud' },
       { num: '30+', label: 'Kunstnikud' },
@@ -40,20 +40,20 @@ const ee: Dict = {
   },
   festival: {
     num: '02',
-    label: 'ROW BALTIC 2026',
-    support: 'Sel aastal astub ROW BALTIC sammu edasi ning toimub Riia linna omavalitsuse toel osana laiemast tänavakunstikuu programmist.',
+    label: 'ROW BALTICS 2026',
+    support: 'Sel aastal astub ROW BALTICS sammu edasi ning toimub Riia linna omavalitsuse toel osana laiemast tänavakunstikuu programmist.',
     theme_sublabel: 'loov võistlus',
     p1: '2026. aasta festivali keskseks motiiviks on „lahing" — tänavakunsti ja hip-hop kultuuri oluline element.',
     p2: 'See ei ole agressioon ega konflikt, vaid loominguline, vägivallatu võistlus, kus sünnivad uued ideed, stiilid ja väljendusvormid.',
     p3: 'Grafiti ja tänavakunsti kultuuris on „battle" traditsioon alati olnud viis, kuidas kunstnikud kinnitavad oma identiteeti ja loovad dialoogi linnakeskkonnaga.',
     collage_heading: 'Eelmised festivalid',
-    marquee: 'LAHING ✦ BATTLE ✦ ROW BALTIC 2026 ✦ 22. AUGUST ✦ SARKANDAUGAVA ✦ RIIA ✦',
+    marquee: 'LAHING ✦ BATTLE ✦ ROW BALTICS 2026 ✦ 22. AUGUST ✦ SARKANDAUGAVA ✦ RIIA ✦',
   },
   competition: {
     num: '03',
     label: 'Joonistuskonkurss',
     heading: ['TINGIMUSED', '2026'],
-    p1: 'Tänavakunsti festival ROW BALTIC 2026 kutsub kunstnikke osalema joonistuskonkursil ja saama osaks ühest eredaimast linnakultuuri platvormist Baltikumis.',
+    p1: 'Tänavakunsti festival ROW BALTICS 2026 kutsub kunstnikke osalema joonistuskonkursil ja saama osaks ühest eredaimast linnakultuuri platvormist Baltikumis.',
     p2: 'Konkursi korraldab kunstnik Dainis Rudens koostöös ühinguga „Mākslas birojs" ja Riia linna omavalitsusega.',
     theme_label: 'Konkursi teema',
     theme_desc: 'Osalejad on kutsutud teemat vabalt tõlgendama, austades ümbritsevat keskkonda ja ühiskonda.',
@@ -79,7 +79,7 @@ const ee: Dict = {
     num: '04',
     label: 'Joonistuskonkursi registreerimine',
     heading: 'REGISTREERU JOONISTUSKONKURSILE',
-    p1: 'Täitke avalduse vorm ja saage ROW BALTIC 2026 osaks. Registreerimine on avatud kuni 22. juunini 2026 kell 23:59.',
+    p1: 'Täitke avalduse vorm ja saage ROW BALTICS 2026 osaks. Registreerimine on avatud kuni 22. juunini 2026 kell 23:59.',
     info: [
       { label: 'Kuupäev', value: '22. august 2026' },
       { label: 'Koht', value: 'Zāģeru tänav, Sarkandaugava' },
@@ -130,7 +130,7 @@ const ee: Dict = {
     organizer_label: 'Korraldaja',
     organizer_name: 'Dainis Rudens',
     organizer_org: 'Ühing „Mākslas birojs"',
-    copyright: '© 2026 ROW BALTIC. Kõik õigused kaitstud.',
+    copyright: '© 2026 ROW BALTICS. Kõik õigused kaitstud.',
     support: 'Riia linna omavalitsuse toetus',
   },
 }

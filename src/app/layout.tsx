@@ -23,24 +23,24 @@ const spaceMono = Space_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'ROW BALTIC 2026 — Ielu Mākslas Festivāls',
+  title: 'ROW BALTICS 2026 — Ielu Mākslas Festivāls',
   description:
-    'ROW BALTIC (Riga Open Wall) — viens no straujāk augošajiem ielu mākslas notikumiem Latvijā un Baltijā. Festivāls 2026. gadā ar tēmu "Cīņa".',
-  keywords: ['ROW BALTIC', 'ielu māksla', 'grafiti', 'festivāls', 'Rīga', 'Latvija', '2026'],
-  authors: [{ name: 'ROW BALTIC' }],
+    'ROW BALTICS (Riga Open Wall) — viens no straujāk augošajiem ielu mākslas notikumiem Latvijā un Baltijā. Festivāls 2026. gadā ar tēmu "Cīņa".',
+  keywords: ['ROW BALTICS', 'ielu māksla', 'grafiti', 'festivāls', 'Rīga', 'Latvija', '2026'],
+  authors: [{ name: 'ROW BALTICS' }],
   metadataBase: new URL('https://rowbaltics.com'),
   openGraph: {
-    title: 'ROW BALTIC 2026 — Ielu Mākslas Festivāls',
+    title: 'ROW BALTICS 2026 — Ielu Mākslas Festivāls',
     description:
       'Pieteikties zīmēšanas konkursam. Tēma: "Cīņa". 22. augusts, Sarkandaugava, Rīga.',
     url: 'https://rowbaltics.com',
-    siteName: 'ROW BALTIC',
+    siteName: 'ROW BALTICS',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'ROW BALTIC 2026',
+        alt: 'ROW BALTICS 2026',
       },
     ],
     locale: 'lv_LV',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ROW BALTIC 2026',
+    title: 'ROW BALTICS 2026',
     description: 'Ielu mākslas festivāls. Tēma: "Cīņa". Rīga, 2026.',
     images: ['/og-image.jpg'],
   },
