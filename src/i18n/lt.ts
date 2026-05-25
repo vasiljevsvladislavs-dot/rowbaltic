@@ -26,7 +26,7 @@ const lt: Dict = {
     marquee: 'ROW BALTICS 2026 ✦ GATVĖS MENAS ✦ KOVA ✦ RYGA ✦ SARKANDAUGAVA ✦',
   },
   about: {
-    num: '01',
+    num: '03',
     label: 'Apie festivalį',
     heading: ['GATVĖS', 'MENO', 'FESTIVALIS'],
     p1: 'Sveiki atvykę į Gatvės meno festivalį ROW BALTICS (Riga Open Wall) — vieną iš greičiausiai augančių gatvės meno renginių Latvijoje ir Baltijos šalyse.',
@@ -39,7 +39,7 @@ const lt: Dict = {
     ],
   },
   festival: {
-    num: '02',
+    num: '04',
     label: 'ROW BALTICS 2026',
     support: 'Šiais metais ROW BALTICS žengė žingsnį toliau ir vyksta padedant Rygos miesto savivaldybei, kaip dalis platesnės Gatvės meno mėnesio programos.',
     theme_sublabel: 'kūrybinis varžymasis',
@@ -50,7 +50,7 @@ const lt: Dict = {
     marquee: 'KOVA ✦ BATTLE ✦ ROW BALTICS 2026 ✦ RUGPJŪČIO 22 ✦ SARKANDAUGAVA ✦ RYGA ✦',
   },
   competition: {
-    num: '03',
+    num: '02',
     label: 'Piešimo konkursas',
     heading: ['NUOSTATAI', '2026'],
     p1: 'Gatvės meno festivalis ROW BALTICS 2026 kviečia menininkus dalyvauti piešimo konkurse ir tapti vienos ryškiausių urbanistinės kultūros platformų Baltijos šalyse dalimi.',
@@ -76,7 +76,7 @@ const lt: Dict = {
     copyright_text: 'Festivalio metu sukurti grafičiai ir gatvės meno kūriniai yra organizatorių nuosavybė. Tiek kūrinių autoriai, tiek organizatoriai išlaiko teisę naudoti kūrinių nuotraukas, vaizdo medžiagą ir kitą dokumentaciją viešinimo tikslais be papildomo suderinimo ar atlygio.',
   },
   registration: {
-    num: '04',
+    num: '01',
     label: 'Piešimo konkurso registracija',
     heading: 'REGISTRUOTIS PIEŠIMO KONKURSUI',
     p1: 'Užpildykite paraiškos formą ir tapkite ROW BALTICS 2026 dalimi. Registracija atvira iki 2026 m. birželio 22 d. 23:59.',

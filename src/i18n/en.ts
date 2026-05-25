@@ -26,7 +26,7 @@ const en: Dict = {
     marquee: 'ROW BALTICS 2026 ✦ STREET ART ✦ BATTLE ✦ RIGA ✦ SARKANDAUGAVA ✦',
   },
   about: {
-    num: '01',
+    num: '03',
     label: 'About the Festival',
     heading: ['STREET', 'ART', 'FESTIVAL'],
     p1: 'Welcome to the Street Art Festival ROW BALTICS (Riga Open Wall) — one of the fastest-growing street art events in Latvia and the Baltics.',
@@ -39,7 +39,7 @@ const en: Dict = {
     ],
   },
   festival: {
-    num: '02',
+    num: '04',
     label: 'ROW BALTICS 2026',
     support: 'This year ROW BALTICS takes a step further and takes place with the support of the Riga City Municipality as part of the wider Street Art Month programme.',
     theme_sublabel: 'creative contest',
@@ -50,7 +50,7 @@ const en: Dict = {
     marquee: 'BATTLE ✦ ROW BALTICS 2026 ✦ AUGUST 22 ✦ SARKANDAUGAVA ✦ RIGA ✦',
   },
   competition: {
-    num: '03',
+    num: '02',
     label: 'Drawing Competition',
     heading: ['RULES', '2026'],
     p1: 'The Street Art Festival ROW BALTICS 2026 invites artists to participate in the drawing competition and become part of one of the most vibrant urban culture platforms in the Baltics.',
@@ -76,7 +76,7 @@ const en: Dict = {
     copyright_text: 'Graffiti and street art works created within the festival are the property of the organisers. Both the authors and the organisers retain the right to use photographs, video materials and other documentation of the works for publicity purposes without further agreement or compensation.',
   },
   registration: {
-    num: '04',
+    num: '01',
     label: 'Drawing Competition Application',
     heading: 'APPLY FOR THE DRAWING COMPETITION',
     p1: 'Fill in the application form and become part of ROW BALTICS 2026. Applications are open until 22 June 2026 at 23:59.',

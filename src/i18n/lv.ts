@@ -26,7 +26,7 @@ const lv: Dict = {
     marquee: 'ROW BALTICS 2026 ✦ IELU MĀKSLA ✦ CĪŅA ✦ RĪGA ✦ SARKANDAUGAVA ✦',
   },
   about: {
-    num: '01',
+    num: '03',
     label: 'Par festivālu',
     heading: ['IELU', 'MĀKSLAS', 'FESTIVĀLS'],
     p1: 'Laipni lūgti Ielu mākslas festivālā ROW BALTICS (Riga Open Wall) — vienā no straujāk augošajiem ielu mākslas notikumiem Latvijā un Baltijā.',
@@ -39,7 +39,7 @@ const lv: Dict = {
     ],
   },
   festival: {
-    num: '02',
+    num: '04',
     label: 'ROW BALTICS 2026',
     support: 'Šogad ROW BALTICS sper soli tālāk un norisinās ar Rīgas valstspilsētas pašvaldības atbalstu kā daļa no plašās Ielu mākslas mēneša programmas.',
     theme_sublabel: 'radoša sacensība',
@@ -50,7 +50,7 @@ const lv: Dict = {
     marquee: 'CĪŅA ✦ BATTLE ✦ ROW BALTICS 2026 ✦ 22. AUGUSTS ✦ SARKANDAUGAVA ✦ RĪGA ✦',
   },
   competition: {
-    num: '03',
+    num: '02',
     label: 'Zīmēšanas konkurss',
     heading: ['NOLIKUMS', '2026'],
     p1: 'Ielu mākslas festivāls ROW BALTICS 2026 aicina māksliniekus piedalīties zīmēšanas konkursā un kļūt par daļu no vienas no spilgtākajām urbānās kultūras platformām Baltijā.',
@@ -76,7 +76,7 @@ const lv: Dict = {
     copyright_text: 'Festivāla ietvaros radītie grafiti un ielu mākslas darbi ir organizatoru īpašums. Gan darbu autori, gan organizatori patur tiesības izmantot darbu fotogrāfijas, video materiālus un citu dokumentāciju publicitātes vajadzībām bez papildu saskaņošanas vai atlīdzības.',
   },
   registration: {
-    num: '04',
+    num: '01',
     label: 'Pieteikšanās zīmēšanas konkursam',
     heading: 'PIETEIKTIES ZĪMĒŠANAS KONKURSAM',
     p1: 'Aizpildi pieteikuma veidlapu un kļūsti par daļu no ROW BALTICS 2026. Pieteikšanās ir atvērta līdz 2026. gada 22. jūnijam plkst. 23:59.',

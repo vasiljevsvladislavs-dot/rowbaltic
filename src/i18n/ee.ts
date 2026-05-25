@@ -26,7 +26,7 @@ const ee: Dict = {
     marquee: 'ROW BALTICS 2026 ✦ TÄNAVAKUNST ✦ LAHING ✦ RIIA ✦ SARKANDAUGAVA ✦',
   },
   about: {
-    num: '01',
+    num: '03',
     label: 'Festivalist',
     heading: ['TÄNAVA', 'KUNSTI', 'FESTIVAL'],
     p1: 'Tere tulemast tänavakunsti festivali ROW BALTICS (Riga Open Wall) — ühte kiiremini kasvavaid tänavakunsti üritusi Lätis ja Baltikumis.',
@@ -39,7 +39,7 @@ const ee: Dict = {
     ],
   },
   festival: {
-    num: '02',
+    num: '04',
     label: 'ROW BALTICS 2026',
     support: 'Sel aastal astub ROW BALTICS sammu edasi ning toimub Riia linna omavalitsuse toel osana laiemast tänavakunstikuu programmist.',
     theme_sublabel: 'loov võistlus',
@@ -50,7 +50,7 @@ const ee: Dict = {
     marquee: 'LAHING ✦ BATTLE ✦ ROW BALTICS 2026 ✦ 22. AUGUST ✦ SARKANDAUGAVA ✦ RIIA ✦',
   },
   competition: {
-    num: '03',
+    num: '02',
     label: 'Joonistuskonkurss',
     heading: ['TINGIMUSED', '2026'],
     p1: 'Tänavakunsti festival ROW BALTICS 2026 kutsub kunstnikke osalema joonistuskonkursil ja saama osaks ühest eredaimast linnakultuuri platvormist Baltikumis.',
@@ -76,7 +76,7 @@ const ee: Dict = {
     copyright_text: 'Festivali raames loodud grafiti ja tänavakunstiteosed on korraldajate omand. Nii teoste autorid kui ka korraldajad säilitavad õiguse kasutada teoste fotosid, videomaterjale ja muud dokumentatsiooni reklaamieesmärkidel ilma täiendava kooskõlastuse või tasuta.',
   },
   registration: {
-    num: '04',
+    num: '01',
     label: 'Joonistuskonkursi registreerimine',
     heading: 'REGISTREERU JOONISTUSKONKURSILE',
     p1: 'Täitke avalduse vorm ja saage ROW BALTICS 2026 osaks. Registreerimine on avatud kuni 22. juunini 2026 kell 23:59.',
