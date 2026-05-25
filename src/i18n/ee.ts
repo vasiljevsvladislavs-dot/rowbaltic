@@ -21,7 +21,7 @@ const ee: Dict = {
     deadline_label: 'Registreerimine',
     deadline_value: 'kuni 22. juunini',
     organize_label: 'Korraldab:',
-    organize_value: 'Dainis Rudens · Ansis · Mākslas birojs',
+    organize_value: 'Dainis Rudens · ansis · Mākslas birojs',
     register_cta: 'Registreeru joonistuskonkursile',
     marquee: 'ROW BALTIC 2026 ✦ TÄNAVAKUNST ✦ LAHING ✦ RIIA ✦ SARKANDAUGAVA ✦',
   },

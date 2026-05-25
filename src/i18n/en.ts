@@ -21,7 +21,7 @@ const en: Dict = {
     deadline_label: 'Applications',
     deadline_value: 'until June 22',
     organize_label: 'Organised by:',
-    organize_value: 'Dainis Rudens · Ansis · Mākslas birojs',
+    organize_value: 'Dainis Rudens · ansis · Mākslas birojs',
     register_cta: 'Apply for the Drawing Competition',
     marquee: 'ROW BALTIC 2026 ✦ STREET ART ✦ BATTLE ✦ RIGA ✦ SARKANDAUGAVA ✦',
   },

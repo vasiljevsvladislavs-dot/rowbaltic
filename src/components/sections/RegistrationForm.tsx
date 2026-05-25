@@ -94,7 +94,7 @@ export default function RegistrationForm({ dict, lang }: Props) {
           {/* Left: intro */}
           <div className="lg:col-span-4">
             <AnimateIn delay={100}>
-              <h2 className="font-display text-[clamp(2rem,4vw,4rem)] leading-tight text-cream mb-8">
+              <h2 className="font-display text-[clamp(1.4rem,3vw,3.2rem)] leading-tight text-cream mb-8">
                 {r.heading.split(' ').map((word, i, arr) =>
                   i === arr.length - 1
                     ? <span key={i} className="text-acid"> {word}</span>

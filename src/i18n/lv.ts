@@ -21,7 +21,7 @@ const lv: Dict = {
     deadline_label: 'Pieteikšanās',
     deadline_value: 'līdz 22. jūnijam',
     organize_label: 'Organizē:',
-    organize_value: 'Dainis Rudens · Ansis · Mākslas birojs',
+    organize_value: 'Dainis Rudens · ansis · Mākslas birojs',
     register_cta: 'Pieteikties zīmēšanas konkursam',
     marquee: 'ROW BALTIC 2026 ✦ IELU MĀKSLA ✦ CĪŅA ✦ RĪGA ✦ SARKANDAUGAVA ✦',
   },
