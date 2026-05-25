@@ -2,14 +2,23 @@ import { google } from 'googleapis'
 import { Readable } from 'stream'
 import { getGoogleAuth } from './googleAuth'
 
+/**
+ * Service accounts have no personal Drive storage quota.
+ * All files must be uploaded to a Shared Drive (supportsAllDrives: true).
+ * Set GOOGLE_DRIVE_PARENT_FOLDER_ID to a folder inside a Shared Drive
+ * where the service account has been added as a Member (Contributor or above).
+ */
+
 function getAuth() {
   return getGoogleAuth(['https://www.googleapis.com/auth/drive'])
 }
 
-/**
- * Creates an applicant folder inside ROW BALTIC Applicants/2026/
- * Folder name format: YYYY-MM-DD_HH-mm_applicant-name
- */
+/** Shared-Drive-compatible params appended to every Drive API call. */
+const SD = {
+  supportsAllDrives: true,
+  includeItemsFromAllDrives: true,
+} as const
+
 export async function createApplicantFolder(applicantName: string): Promise<string> {
   const auth = getAuth()
   const drive = google.drive({ version: 'v3', auth })
@@ -25,12 +34,11 @@ export async function createApplicantFolder(applicantName: string): Promise<stri
     .slice(0, 40)
   const folderName = `${datePart}_${timePart}_${safeName}`
 
-  // Ensure year subfolder exists inside parent
   const parentId = process.env.GOOGLE_DRIVE_PARENT_FOLDER_ID ?? ''
   const yearFolderId = await ensureSubfolder(drive, parentId, String(now.getFullYear()))
 
-  // Create applicant folder
   const res = await drive.files.create({
+    ...SD,
     requestBody: {
       name: folderName,
       mimeType: 'application/vnd.google-apps.folder',
@@ -43,6 +51,7 @@ export async function createApplicantFolder(applicantName: string): Promise<stri
 
   // Make folder viewable by anyone with the link
   await drive.permissions.create({
+    ...SD,
     fileId: folderId,
     requestBody: { role: 'reader', type: 'anyone' },
   })
@@ -50,10 +59,6 @@ export async function createApplicantFolder(applicantName: string): Promise<stri
   return folderId
 }
 
-/**
- * Uploads a single file buffer to the given Drive folder.
- * Returns a shareable link.
- */
 export async function uploadFileToDrive(
   folderId: string,
   fileName: string,
@@ -63,21 +68,20 @@ export async function uploadFileToDrive(
   const auth = getAuth()
   const drive = google.drive({ version: 'v3', auth })
 
-  const stream = Readable.from(buffer)
-
   const res = await drive.files.create({
+    ...SD,
     requestBody: {
       name: fileName,
       parents: [folderId],
     },
-    media: { mimeType, body: stream },
+    media: { mimeType, body: Readable.from(buffer) },
     fields: 'id, webViewLink',
   })
 
   const fileId = res.data.id!
 
-  // Make file viewable by anyone with the link
   await drive.permissions.create({
+    ...SD,
     fileId,
     requestBody: { role: 'reader', type: 'anyone' },
   })
@@ -85,10 +89,6 @@ export async function uploadFileToDrive(
   return res.data.webViewLink ?? `https://drive.google.com/file/d/${fileId}/view`
 }
 
-/**
- * Uploads multiple File objects (from FormData) to a new applicant folder.
- * Returns { folderId, fileLinks }
- */
 export async function uploadPortfolioFiles(
   applicantName: string,
   files: File[],
@@ -97,9 +97,13 @@ export async function uploadPortfolioFiles(
   const fileLinks: string[] = []
 
   for (const file of files) {
-    const arrayBuffer = await file.arrayBuffer()
-    const buffer = Buffer.from(arrayBuffer)
-    const link = await uploadFileToDrive(folderId, file.name, file.type || 'application/octet-stream', buffer)
+    const buffer = Buffer.from(await file.arrayBuffer())
+    const link = await uploadFileToDrive(
+      folderId,
+      file.name,
+      file.type || 'application/octet-stream',
+      buffer,
+    )
     fileLinks.push(link)
   }
 
@@ -114,19 +118,19 @@ async function ensureSubfolder(
   parentId: string,
   name: string,
 ): Promise<string> {
-  // Check if subfolder already exists
   const res = await drive.files.list({
+    ...SD,
     q: `'${parentId}' in parents and name='${name}' and mimeType='application/vnd.google-apps.folder' and trashed=false`,
     fields: 'files(id)',
     spaces: 'drive',
   })
 
-  if (res.data.files && res.data.files.length > 0) {
+  if (res.data.files?.length > 0) {
     return res.data.files[0].id as string
   }
 
-  // Create it
   const created = await drive.files.create({
+    ...SD,
     requestBody: {
       name,
       mimeType: 'application/vnd.google-apps.folder',
