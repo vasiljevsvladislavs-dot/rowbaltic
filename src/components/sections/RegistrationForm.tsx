@@ -105,16 +105,6 @@ export default function RegistrationForm({ dict, lang }: Props) {
             <AnimateIn delay={200}>
               <p className="text-ink-300 leading-relaxed mb-8">{r.p1}</p>
             </AnimateIn>
-            <AnimateIn delay={300}>
-              <div className="space-y-4 border-t border-ink-800 pt-8">
-                {r.info.map(({ label, value }) => (
-                  <div key={label} className="flex justify-between items-baseline">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-ink-500">{label}</span>
-                    <span className="font-mono text-xs text-ink-200">{value}</span>
-                  </div>
-                ))}
-              </div>
-            </AnimateIn>
           </div>
 
           {/* Right: form */}

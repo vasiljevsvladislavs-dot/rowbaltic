@@ -55,9 +55,13 @@ export default function HeroSection({ dict, lang }: Props) {
         <div
           className={`transition-all duration-700 ${loaded ? 'opacity-100' : 'opacity-0 -translate-x-4'}`}
         >
-          <span className={`font-display text-acid tracking-wider transition-all duration-300 ${scrolled ? 'text-lg' : 'text-2xl'}`}>
+          <a
+            href="#hero"
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+            className={`font-display text-acid tracking-wider transition-all duration-300 hover:opacity-80 ${scrolled ? 'text-lg' : 'text-2xl'}`}
+          >
             ROW BALTIC
-          </span>
+          </a>
         </div>
         <div
           className={`flex items-center gap-2 md:gap-4 transition-all duration-700 delay-200 ${loaded ? 'opacity-100' : 'opacity-0 translate-x-4'}`}

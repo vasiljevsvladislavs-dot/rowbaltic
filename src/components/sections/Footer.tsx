@@ -10,14 +10,6 @@ interface Props {
 
 export default function Footer({ dict, lang }: Props) {
   const f = dict.footer
-  const nav = dict.nav
-
-  const navLinks = [
-    { href: '#par-festivalu', label: nav.about },
-    { href: '#row-baltic-2026', label: nav.festival },
-    { href: '#konkurss', label: nav.competition },
-    { href: '#registracija', label: nav.register },
-  ]
 
   return (
     <footer className="border-t border-[#2a1a0a]" style={{ backgroundColor: '#18100a' }}>
@@ -58,27 +50,8 @@ export default function Footer({ dict, lang }: Props) {
             </div>
           </div>
 
-          {/* Nav */}
-          <div className="md:col-span-3">
-            <p className="font-mono text-[10px] uppercase tracking-widest text-ink-600 mb-6">
-              {f.nav_label}
-            </p>
-            <ul className="space-y-3">
-              {navLinks.map(({ href, label }) => (
-                <li key={href}>
-                  <a
-                    href={href}
-                    className="font-mono text-sm text-ink-300 hover:text-acid transition-colors"
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Info */}
-          <div className="md:col-span-4">
+          {/* Contact */}
+          <div className="md:col-span-7">
             <p className="font-mono text-[10px] uppercase tracking-widest text-ink-600 mb-6">
               {f.contact_label}
             </p>
@@ -93,14 +66,13 @@ export default function Footer({ dict, lang }: Props) {
                 </a>
               </div>
               <div>
-                <p className="font-mono text-[10px] text-ink-500 mb-1">{f.festival_label}</p>
-                <p className="font-mono text-sm text-ink-200">{f.festival_date}</p>
-                <p className="font-mono text-sm text-ink-400">{f.festival_place}</p>
-              </div>
-              <div>
-                <p className="font-mono text-[10px] text-ink-500 mb-1">{f.organizer_label}</p>
-                <p className="font-mono text-sm text-ink-200">{f.organizer_name}</p>
-                <p className="font-mono text-sm text-ink-400">{f.organizer_org}</p>
+                <p className="font-mono text-[10px] text-ink-500 mb-1">Tel.</p>
+                <a
+                  href="tel:+37129413906"
+                  className="font-mono text-sm text-ink-200 hover:text-acid transition-colors"
+                >
+                  +371 29413906
+                </a>
               </div>
             </div>
           </div>
