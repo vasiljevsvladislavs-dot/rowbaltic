@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { appendRegistrationRow } from '@/lib/googleSheets'
-import { uploadPortfolioFiles } from '@/lib/googleDrive'
-import { sendEmail } from '@/lib/email'
+import { sendEmail, type Attachment } from '@/lib/email'
 import {
   getParticipantConfirmationEmail,
   getAdminNotificationEmail,
@@ -32,27 +31,7 @@ function getString(fd: FormData, key: string): string {
   return (fd.get(key) as string | null)?.trim() ?? ''
 }
 
-// Log which env vars are configured (without revealing values)
-function logEnvStatus() {
-  const vars = [
-    'GOOGLE_SERVICE_ACCOUNT_EMAIL',
-    'GOOGLE_PRIVATE_KEY',
-    'GOOGLE_SHEETS_ID',
-    'GOOGLE_DRIVE_PARENT_FOLDER_ID',
-    'SMTP_HOST',
-    'SMTP_PORT',
-    'SMTP_USER',
-    'SMTP_PASS',
-  ]
-  const missing = vars.filter((v) => !process.env[v])
-  if (missing.length > 0) {
-    console.warn('[register] Missing env vars:', missing.join(', '))
-  }
-}
-
 export async function POST(req: NextRequest) {
-  logEnvStatus()
-
   // ── Parse FormData ────────────────────────────────────────────────────────
   let formData: FormData
   try {
@@ -62,7 +41,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Invalid form data' }, { status: 400 })
   }
 
-  // ── Honeypot — silent success for bots ────────────────────────────────────
+  // ── Honeypot ──────────────────────────────────────────────────────────────
   if (getString(formData, 'honeypot')) {
     return NextResponse.json({ ok: true })
   }
@@ -71,17 +50,17 @@ export async function POST(req: NextRequest) {
   const rawLang = getString(formData, 'language')
   const language: Lang = VALID_LANGS.includes(rawLang as Lang) ? (rawLang as Lang) : 'lv'
 
-  const name          = getString(formData, 'name')
-  const phone         = getString(formData, 'phone')
-  const email         = getString(formData, 'email')
-  const portfolioLink = getString(formData, 'portfolioLink')
-  const socialLink    = getString(formData, 'socialLink')
-  const platformSize  = getString(formData, 'platformSize')
-  const shirtSize     = getString(formData, 'shirtSize')
+  const name           = getString(formData, 'name')
+  const phone          = getString(formData, 'phone')
+  const email          = getString(formData, 'email')
+  const portfolioLink  = getString(formData, 'portfolioLink')
+  const socialLink     = getString(formData, 'socialLink')
+  const platformSize   = getString(formData, 'platformSize')
+  const shirtSize      = getString(formData, 'shirtSize')
   const isBalticArtist = getString(formData, 'isBalticArtist') === 'true'
-  const fullName      = getString(formData, 'fullName')
-  const personalCode  = getString(formData, 'personalCode')
-  const consent       = getString(formData, 'consent') === 'true'
+  const fullName       = getString(formData, 'fullName')
+  const personalCode   = getString(formData, 'personalCode')
+  const consent        = getString(formData, 'consent') === 'true'
 
   // ── Files ─────────────────────────────────────────────────────────────────
   const rawFiles = formData.getAll('portfolioFiles') as File[]
@@ -121,22 +100,20 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: errors.join('; ') }, { status: 422 })
   }
 
-  console.log(`[register] New submission: ${name} <${email}> lang=${language}`)
+  console.log(`[register] New submission: ${name} <${email}> lang=${language} files=${files.length}`)
 
-  // ── Upload files to Google Drive ──────────────────────────────────────────
-  let fileLinks: string[] = []
-  if (files.length > 0) {
-    if (!process.env.GOOGLE_DRIVE_PARENT_FOLDER_ID) {
-      console.warn('[register] GOOGLE_DRIVE_PARENT_FOLDER_ID not set — skipping Drive upload')
-    } else {
-      try {
-        const result = await uploadPortfolioFiles(name, files)
-        fileLinks = result.fileLinks
-        console.log(`[register] Drive upload OK — ${fileLinks.length} file(s) for ${name}`)
-      } catch (err) {
-        console.error('[register] Drive upload failed:', err)
-        // Non-fatal — continue without Drive links
-      }
+  // ── Convert uploaded files → email attachments ────────────────────────────
+  const attachments: Attachment[] = []
+  for (const file of files) {
+    try {
+      const buffer = Buffer.from(await file.arrayBuffer())
+      attachments.push({
+        filename: file.name,
+        content: buffer,
+        contentType: file.type || 'application/octet-stream',
+      })
+    } catch (err) {
+      console.error(`[register] Failed to read file "${file.name}":`, err)
     }
   }
 
@@ -144,7 +121,7 @@ export async function POST(req: NextRequest) {
   const timestamp = new Date().toISOString()
   let sheetsOk = false
   if (!process.env.GOOGLE_SHEETS_ID || !process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL) {
-    console.warn('[register] Google Sheets env vars missing — GOOGLE_SHEETS_ID or GOOGLE_SERVICE_ACCOUNT_EMAIL not set')
+    console.warn('[register] Sheets env vars missing')
   } else {
     try {
       await appendRegistrationRow({
@@ -160,7 +137,9 @@ export async function POST(req: NextRequest) {
         isBalticArtist: isBalticArtist ? 'Jā' : 'Nē',
         fullName,
         personalCode,
-        fileLinks: fileLinks.join('\n'),
+        fileLinks: attachments.length > 0
+          ? `${attachments.length} file(s) attached to admin email`
+          : '',
         consent: consent ? 'Jā' : 'Nē',
       })
       sheetsOk = true
@@ -173,28 +152,32 @@ export async function POST(req: NextRequest) {
   // ── Send emails ───────────────────────────────────────────────────────────
   let emailsOk = false
   if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-    console.warn('[register] SMTP env vars missing — SMTP_USER or SMTP_PASS not set, skipping email')
+    console.warn('[register] SMTP env vars missing')
   } else {
     const adminMail = getAdminNotificationEmail({
       timestamp, language, name, phone, email,
       portfolioLink, socialLink, platformSize, shirtSize,
-      isBalticArtist, fullName, personalCode, fileLinks, consent,
+      isBalticArtist, fullName, personalCode,
+      fileLinks: [],   // files are now attachments, not Drive links
+      consent,
     })
     const confirmMail = getParticipantConfirmationEmail(language, {
       name, email,
-      hasFiles: fileLinks.length > 0,
-      fileCount: fileLinks.length,
+      hasFiles: attachments.length > 0,
+      fileCount: attachments.length,
     })
 
     const [adminResult, confirmResult] = await Promise.allSettled([
-      sendEmail({ to: ADMIN_EMAIL, ...adminMail }),
+      // Admin gets the portfolio files as attachments
+      sendEmail({ to: ADMIN_EMAIL, ...adminMail, attachments }),
+      // Applicant gets a plain confirmation (no attachments)
       sendEmail({ to: email, ...confirmMail }),
     ])
 
     if (adminResult.status === 'rejected') {
       console.error('[register] Admin email failed:', adminResult.reason)
     } else {
-      console.log(`[register] Admin email sent to ${ADMIN_EMAIL}`)
+      console.log(`[register] Admin email sent to ${ADMIN_EMAIL} with ${attachments.length} attachment(s)`)
     }
 
     if (confirmResult.status === 'rejected') {
