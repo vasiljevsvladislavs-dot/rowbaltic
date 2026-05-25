@@ -59,10 +59,10 @@ export default function Footer({ dict, lang }: Props) {
               <div>
                 <p className="font-mono text-[10px] text-ink-500 mb-1">{f.email_label}</p>
                 <a
-                  href="mailto:info@rowbaltic.com"
+                  href="mailto:info@rowbaltics.com"
                   className="font-mono text-sm text-acid hover:underline"
                 >
-                  info@rowbaltic.com
+                  info@rowbaltics.com
                 </a>
               </div>
               <div>

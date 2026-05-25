@@ -33,7 +33,7 @@ export interface MailOptions {
 export async function sendEmail(opts: MailOptions): Promise<void> {
   const transporter = createTransport()
   await transporter.sendMail({
-    from: `"ROW BALTIC" <${process.env.SMTP_USER ?? 'info@rowbaltic.com'}>`,
+    from: `"ROW BALTIC" <${process.env.SMTP_USER ?? 'info@rowbaltics.com'}>`,
     to: opts.to,
     subject: opts.subject,
     text: opts.text,

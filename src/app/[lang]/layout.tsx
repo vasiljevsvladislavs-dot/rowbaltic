@@ -29,11 +29,11 @@ export async function generateMetadata({
     description: dict.meta.description,
     keywords: ['ROW BALTIC', 'street art', 'graffiti', 'festival', 'Riga', 'Latvia', '2026'],
     authors: [{ name: 'ROW BALTIC' }],
-    metadataBase: new URL('https://rowbaltic.com'),
+    metadataBase: new URL('https://rowbaltics.com'),
     openGraph: {
       title: dict.meta.title,
       description: dict.meta.description,
-      url: `https://rowbaltic.com/${lang}`,
+      url: `https://rowbaltics.com/${lang}`,
       siteName: 'ROW BALTIC',
       images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'ROW BALTIC 2026' }],
       locale: localeMap[lang],
@@ -47,7 +47,7 @@ export async function generateMetadata({
     },
     icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },
     alternates: {
-      languages: Object.fromEntries(LANGS.map((l) => [l, `https://rowbaltic.com/${l}`])),
+      languages: Object.fromEntries(LANGS.map((l) => [l, `https://rowbaltics.com/${l}`])),
     },
   }
 }

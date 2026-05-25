@@ -28,12 +28,12 @@ export const metadata: Metadata = {
     'ROW BALTIC (Riga Open Wall) — viens no straujāk augošajiem ielu mākslas notikumiem Latvijā un Baltijā. Festivāls 2026. gadā ar tēmu "Cīņa".',
   keywords: ['ROW BALTIC', 'ielu māksla', 'grafiti', 'festivāls', 'Rīga', 'Latvija', '2026'],
   authors: [{ name: 'ROW BALTIC' }],
-  metadataBase: new URL('https://rowbaltic.com'),
+  metadataBase: new URL('https://rowbaltics.com'),
   openGraph: {
     title: 'ROW BALTIC 2026 — Ielu Mākslas Festivāls',
     description:
       'Pieteikties zīmēšanas konkursam. Tēma: "Cīņa". 22. augusts, Sarkandaugava, Rīga.',
-    url: 'https://rowbaltic.com',
+    url: 'https://rowbaltics.com',
     siteName: 'ROW BALTIC',
     images: [
       {

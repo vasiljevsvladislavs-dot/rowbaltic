@@ -117,10 +117,10 @@ export default function CompetitionSection({ dict }: Props) {
                     {c.contact_label}
                   </p>
                   <a
-                    href="mailto:info@rowbaltic.com"
+                    href="mailto:info@rowbaltics.com"
                     className="font-mono text-sm text-acid hover:underline"
                   >
-                    info@rowbaltic.com
+                    info@rowbaltics.com
                   </a>
                 </div>
               </div>

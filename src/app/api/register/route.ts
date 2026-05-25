@@ -20,7 +20,7 @@ const ALLOWED_MIME_TYPES = new Set([
 
 const MAX_FILE_SIZE = 25 * 1024 * 1024 // 25 MB
 const MAX_FILES = 5
-const ADMIN_EMAIL = 'info@rowbaltic.com'
+const ADMIN_EMAIL = 'info@rowbaltics.com'
 const VALID_LANGS: Lang[] = ['lv', 'en', 'lt', 'ee']
 
 function isValidEmail(email: string): boolean {

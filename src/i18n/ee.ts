@@ -60,7 +60,7 @@ const ee: Dict = {
     wall_label: 'Tööruum',
     participants_label: 'Osalejad',
     rules: [
-      { num: '01', title: 'Registreerimine', text: 'Esitage kahe viimase aasta tööde portfolio ja sotsiaalmeedia profiil. Registreerimine toimub veebilehel rowbaltic.com kuni 22. juunini 2026 kell 23:59.' },
+      { num: '01', title: 'Registreerimine', text: 'Esitage kahe viimase aasta tööde portfolio ja sotsiaalmeedia profiil. Registreerimine toimub veebilehel rowbaltics.com kuni 22. juunini 2026 kell 23:59.' },
       { num: '02', title: 'Valik', text: 'Konkursile kinnitatakse 30 osalejat. Kinnitatud osalejate nimekiri avaldatakse 30. juunil 2026.' },
       { num: '03', title: 'Teostus', text: 'Tööd luuakse 22. augustil 2026 Sarkandaugavas, Zāģeru tänaval. Konkursi toimumisaeg: kell 10:00–17:00.' },
       { num: '04', title: 'Hääletus', text: 'Festivali lõpus osalevad kõik 30 osalejat vastastikuses hääletuses, määrates kolme parima töö autorid.' },
@@ -116,7 +116,7 @@ const ee: Dict = {
     success_title: 'Avaldus vastu võetud!',
     success_text: 'Täname! Teie avaldus on edukalt esitatud. Avaldame kinnitatud osalejate nimekirja 30. juunil 2026.',
     success_btn: 'Esita veel üks avaldus',
-    contact_label: 'Küsimused: info@rowbaltic.com',
+    contact_label: 'Küsimused: info@rowbaltics.com',
     error_label: 'Palun täitke kõik kohustuslikud väljad.',
   },
   footer: {
