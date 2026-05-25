@@ -9,6 +9,10 @@ interface PhotoCollageProps {
   images: PhotoCollageImage[]
   className?: string
   variant?: 'overlap' | 'grid' | 'featured' | 'masonry'
+  /** Number of columns for the masonry grid (default: 4) */
+  cols?: 2 | 3 | 4
+  /** CSS aspect-ratio for each cell, e.g. '1/1', '4/3' (default: '4/3') */
+  aspectRatio?: string
 }
 
 const ROTATIONS = [-3, 2, -1.5, 3, -2]
@@ -17,6 +21,8 @@ export default function PhotoCollage({
   images,
   className,
   variant = 'overlap',
+  cols = 4,
+  aspectRatio = '4/3',
 }: PhotoCollageProps) {
   const [hovered, setHovered] = useState<number | null>(null)
   const [lightbox, setLightbox] = useState<number | null>(null)
@@ -139,12 +145,18 @@ export default function PhotoCollage({
           </div>
         )}
 
-        {/* Uniform grid — 4 cols desktop, 3 cols tablet, 2 cols mobile */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1.5">
+        {/* Uniform grid — columns and aspect ratio controlled by props */}
+        <div className={cn(
+          'grid gap-1.5',
+          cols === 2 ? 'grid-cols-2' :
+          cols === 3 ? 'grid-cols-2 sm:grid-cols-3' :
+                       'grid-cols-2 sm:grid-cols-3 md:grid-cols-4'
+        )}>
           {images.map((img, i) => (
             <div
               key={i}
-              className="relative overflow-hidden group cursor-pointer aspect-[4/3]"
+              className="relative overflow-hidden group cursor-pointer"
+              style={{ aspectRatio }}
               onClick={() => setLightbox(i)}
             >
               <Image
@@ -152,7 +164,11 @@ export default function PhotoCollage({
                 alt={img.alt}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+                sizes={
+                  cols === 2 ? '50vw' :
+                  cols === 3 ? '(max-width: 640px) 50vw, 33vw' :
+                               '(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw'
+                }
               />
               <div className="absolute inset-0 bg-ink-900/30 group-hover:bg-ink-900/0 transition-colors duration-300" />
             </div>

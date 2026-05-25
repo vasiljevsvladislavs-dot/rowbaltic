@@ -4,10 +4,6 @@ import PhotoCollage from '@/components/ui/PhotoCollage'
 import type { Dict } from '@/i18n'
 
 const images = [
-  { src: '/collage2/photo-01.jpg', alt: 'ROW BALTIC festival' },
-  { src: '/collage2/photo-02.jpg', alt: 'Street art participants' },
-  { src: '/collage2/photo-03.jpg', alt: 'Graffiti work' },
-  { src: '/collage2/photo-04.jpg', alt: 'Festival atmosphere' },
   { src: '/collage2/photo-05.jpg', alt: 'ROW BALTIC 2025' },
   { src: '/collage2/photo-06.jpg', alt: 'Urban art Riga' },
   { src: '/collage2/photo-07.jpg', alt: 'Street art festival' },

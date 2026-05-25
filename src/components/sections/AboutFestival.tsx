@@ -3,11 +3,10 @@ import PhotoCollage from '@/components/ui/PhotoCollage'
 import type { Dict } from '@/i18n'
 
 const images = [
-  { src: '/collage/photo-1.jpg', alt: 'ROW BALTIC festival' },
-  { src: '/collage/photo-2.jpg', alt: 'Street art work' },
-  { src: '/collage/photo-3.jpg', alt: 'Graffiti art' },
-  { src: '/collage/photo-4.jpg', alt: 'Festival participants' },
-  { src: '/collage/photo-5.jpg', alt: 'Urban art in Riga' },
+  { src: '/collage2/photo-01.jpg', alt: 'ROW BALTIC festival' },
+  { src: '/collage2/photo-02.jpg', alt: 'Street art participants' },
+  { src: '/collage2/photo-03.jpg', alt: 'Graffiti work' },
+  { src: '/collage2/photo-04.jpg', alt: 'Festival atmosphere' },
 ]
 
 interface Props {
@@ -79,7 +78,7 @@ export default function AboutFestival({ dict }: Props) {
 
           {/* Right: photo collage */}
           <AnimateIn direction="left" delay={200} className="w-full">
-            <PhotoCollage images={images} variant="featured" />
+            <PhotoCollage images={images} variant="masonry" cols={2} aspectRatio="1/1" />
           </AnimateIn>
         </div>
       </div>
