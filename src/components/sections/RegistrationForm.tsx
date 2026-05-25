@@ -194,26 +194,15 @@ export default function RegistrationForm({ dict, lang }: Props) {
                 <input name="socialLink" type="url" required className="form-input" placeholder="https://instagram.com/..." />
               </div>
 
-              {/* Wall size + shirt */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="form-label">{r.f_wall_size} *</label>
-                  <select name="platformSize" required className="form-input">
-                    <option value="">{r.f_wall_default}</option>
-                    {r.wall_sizes.map((s) => (
-                      <option key={s} value={s}>{s}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="form-label">{r.f_shirt}</label>
-                  <select name="shirtSize" required className="form-input">
-                    <option value="">{r.f_shirt_default}</option>
-                    {SHIRT_SIZES.map((s) => (
-                      <option key={s} value={s}>{s}</option>
-                    ))}
-                  </select>
-                </div>
+              {/* Shirt size */}
+              <div>
+                <label className="form-label">{r.f_shirt}</label>
+                <select name="shirtSize" required className="form-input">
+                  <option value="">{r.f_shirt_default}</option>
+                  {SHIRT_SIZES.map((s) => (
+                    <option key={s} value={s}>{s}</option>
+                  ))}
+                </select>
               </div>
 
               {/* Baltic artist toggle */}

@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
   const email          = getString(formData, 'email')
   const portfolioLink  = getString(formData, 'portfolioLink')
   const socialLink     = getString(formData, 'socialLink')
-  const platformSize   = getString(formData, 'platformSize')
+  const platformSize   = ''
   const shirtSize      = getString(formData, 'shirtSize')
   const isBalticArtist = getString(formData, 'isBalticArtist') === 'true'
   const fullName       = getString(formData, 'fullName')
@@ -74,7 +74,6 @@ export async function POST(req: NextRequest) {
   if (!email)        errors.push('email is required')
   else if (!isValidEmail(email)) errors.push('invalid email format')
   if (!socialLink)   errors.push('socialLink is required')
-  if (!platformSize) errors.push('platformSize is required')
   if (!shirtSize)    errors.push('shirtSize is required')
   if (!consent)      errors.push('consent is required')
 
