@@ -52,7 +52,7 @@ export async function appendRegistrationRow(row: RegistrationRow): Promise<void>
 
   await sheets.spreadsheets.values.append({
     spreadsheetId,
-    range: 'Sheet1!A:N',
+    range: 'Sheet1!A1',
     valueInputOption: 'USER_ENTERED',
     requestBody: { values },
   })
