@@ -19,8 +19,8 @@ export default async function LangPage({
   return (
     <main>
       <HeroSection dict={dict} lang={lang} />
-      <RegistrationForm dict={dict} lang={lang} />
       <CompetitionSection dict={dict} />
+      <RegistrationForm dict={dict} lang={lang} />
       <AboutFestival dict={dict} />
       <FestivalSection dict={dict} />
       <Footer dict={dict} lang={lang} />
