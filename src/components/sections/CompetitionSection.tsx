@@ -23,8 +23,8 @@ export default function CompetitionSection({ dict }: Props) {
           </div>
         </AnimateIn>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          {/* Left */}
+        {/* Row 1: heading/texts/theme  |  rules */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-16 gap-y-0">
           <div className="lg:col-span-5">
             <AnimateIn delay={100}>
               <h2 className="font-display text-[clamp(3rem,7vw,6.5rem)] leading-none text-cream mb-8">
@@ -57,10 +57,34 @@ export default function CompetitionSection({ dict }: Props) {
                 </p>
               </div>
             </AnimateIn>
+          </div>
 
-            {/* Wall size */}
+          {/* Rules */}
+          <div className="lg:col-span-7 space-y-4 mt-10 lg:mt-0">
+            {c.rules.map((rule, i) => (
+              <AnimateIn key={rule.num} delay={100 + i * 80} direction="left">
+                <div className="group flex gap-6 border border-ink-800 p-6 hover:border-acid/40 hover:bg-acid/3 transition-all duration-300">
+                  <span className="font-display text-4xl text-acid/30 group-hover:text-acid/60 transition-colors pt-1 shrink-0">
+                    {rule.num}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-xl text-cream mb-2 group-hover:text-acid transition-colors">
+                      {rule.title}
+                    </h3>
+                    <p className="text-ink-300 text-sm leading-relaxed">{rule.text}</p>
+                  </div>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+        </div>
+
+        {/* Row 2: siena image  |  prizes */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-16 gap-y-0 mt-10">
+          {/* Wall size + image */}
+          <div className="lg:col-span-5">
             <AnimateIn delay={350}>
-              <div className="mt-6 border-t border-ink-800 pt-6">
+              <div className="border-t border-ink-800 pt-6">
                 <div className="flex items-center gap-6 mb-5">
                   <div>
                     <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-1">
@@ -90,51 +114,35 @@ export default function CompetitionSection({ dict }: Props) {
             </AnimateIn>
           </div>
 
-          {/* Right: rules + prizes */}
-          <div className="lg:col-span-7 space-y-4">
-            {/* Rules */}
-            {c.rules.map((rule, i) => (
-              <AnimateIn key={rule.num} delay={100 + i * 80} direction="left">
-                <div className="group flex gap-6 border border-ink-800 p-6 hover:border-acid/40 hover:bg-acid/3 transition-all duration-300">
-                  <span className="font-display text-4xl text-acid/30 group-hover:text-acid/60 transition-colors pt-1 shrink-0">
-                    {rule.num}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-xl text-cream mb-2 group-hover:text-acid transition-colors">
-                      {rule.title}
-                    </h3>
-                    <p className="text-ink-300 text-sm leading-relaxed">{rule.text}</p>
-                  </div>
-                </div>
-              </AnimateIn>
-            ))}
-
-            {/* Prizes */}
+          {/* Prizes */}
+          <div className="lg:col-span-7 mt-10 lg:mt-0">
             <AnimateIn delay={500} direction="left">
-              <div className="border border-ink-700 bg-ink-800 p-6 mt-6">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-ink-400 mb-6">
-                  {c.prizes_label}
-                </p>
-                <div className="space-y-4">
-                  {c.prizes.map(({ place, reward, color }) => (
-                    <div key={place} className="flex items-center gap-4">
-                      <span className={`font-display text-3xl w-10 ${color}`}>{place}</span>
-                      <div className="flex-1 h-px bg-ink-700" />
-                      <span className="font-mono text-sm text-ink-200">{reward}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 pt-6 border-t border-ink-700">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-2">
-                    {c.contact_label}
+              <div className="border-t border-ink-800 pt-6">
+                <div className="border border-ink-700 bg-ink-800 p-6">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink-400 mb-6">
+                    {c.prizes_label}
                   </p>
-                  <a
-                    href="mailto:info@rowbaltics.com"
-                    className="font-mono text-sm text-acid hover:underline"
-                  >
-                    info@rowbaltics.com
-                  </a>
+                  <div className="space-y-4">
+                    {c.prizes.map(({ place, reward, color }) => (
+                      <div key={place} className="flex items-center gap-4">
+                        <span className={`font-display text-3xl w-10 ${color}`}>{place}</span>
+                        <div className="flex-1 h-px bg-ink-700" />
+                        <span className="font-mono text-sm text-ink-200">{reward}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 pt-6 border-t border-ink-700">
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-2">
+                      {c.contact_label}
+                    </p>
+                    <a
+                      href="mailto:info@rowbaltics.com"
+                      className="font-mono text-sm text-acid hover:underline"
+                    >
+                      info@rowbaltics.com
+                    </a>
+                  </div>
                 </div>
               </div>
             </AnimateIn>
