@@ -23,80 +23,47 @@ export default function CompetitionSection({ dict }: Props) {
           </div>
         </AnimateIn>
 
-        {/* Row 1: heading/texts/theme  |  rules */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-16 gap-y-0">
-          <div className="lg:col-span-5">
+        {/*
+          Mobile order:  1 heading  →  2 wall+image  →  3 rules  →  4 prizes
+          Desktop grid:  [heading | rules] / [wall+image | prizes]
+        */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 lg:grid-rows-[auto_auto] gap-x-16">
+
+          {/* 1 — Heading / texts / theme  (desktop: col 1-5, row 1) */}
+          <div className="lg:col-start-1 lg:col-span-5 lg:row-start-1">
             <AnimateIn delay={100}>
               <h2 className="font-display text-[clamp(3rem,7vw,6.5rem)] leading-none text-cream mb-8">
                 {c.heading[0]}<br />
                 <span className="text-acid">{c.heading[1]}</span>
               </h2>
             </AnimateIn>
-
             <AnimateIn delay={200}>
-              <p className="text-ink-200 leading-relaxed mb-6">
-                {c.p1}
-              </p>
+              <p className="text-ink-200 leading-relaxed mb-6">{c.p1}</p>
             </AnimateIn>
-
             <AnimateIn delay={250}>
-              <p className="text-ink-300 leading-relaxed mb-10">
-                {c.p2}
-              </p>
+              <p className="text-ink-300 leading-relaxed mb-10">{c.p2}</p>
             </AnimateIn>
-
-            {/* Theme callout */}
             <AnimateIn delay={300}>
               <div className="border border-acid/30 bg-acid/5 p-6">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-acid mb-3">
-                  {c.theme_label}
-                </p>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-acid mb-3">{c.theme_label}</p>
                 <p className="font-display text-5xl text-cream mb-3">{dict.hero.theme_word}</p>
-                <p className="text-ink-300 text-sm leading-relaxed">
-                  {c.theme_desc}
-                </p>
+                <p className="text-ink-300 text-sm leading-relaxed">{c.theme_desc}</p>
               </div>
             </AnimateIn>
           </div>
 
-          {/* Rules */}
-          <div className="lg:col-span-7 space-y-4 mt-10 lg:mt-0">
-            {c.rules.map((rule, i) => (
-              <AnimateIn key={rule.num} delay={100 + i * 80} direction="left">
-                <div className="group flex gap-6 border border-ink-800 p-6 hover:border-acid/40 hover:bg-acid/3 transition-all duration-300">
-                  <span className="font-display text-4xl text-acid/30 group-hover:text-acid/60 transition-colors pt-1 shrink-0">
-                    {rule.num}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-xl text-cream mb-2 group-hover:text-acid transition-colors">
-                      {rule.title}
-                    </h3>
-                    <p className="text-ink-300 text-sm leading-relaxed">{rule.text}</p>
-                  </div>
-                </div>
-              </AnimateIn>
-            ))}
-          </div>
-        </div>
-
-        {/* Row 2: siena image  |  prizes */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-16 gap-y-0 mt-10">
-          {/* Wall size + image */}
-          <div className="lg:col-span-5">
+          {/* 2 — Wall size + siena  (desktop: col 1-5, row 2) */}
+          <div className="lg:col-start-1 lg:col-span-5 lg:row-start-2 mt-10 lg:mt-0">
             <AnimateIn delay={350}>
               <div className="border-t border-ink-800 pt-6">
                 <div className="flex items-center gap-6 mb-5">
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-1">
-                      {c.wall_label}
-                    </p>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-1">{c.wall_label}</p>
                     <p className="font-display text-3xl text-acid">2.8m × 4.1m</p>
                   </div>
                   <div className="w-px h-12 bg-ink-700" />
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-1">
-                      {c.participants_label}
-                    </p>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-1">{c.participants_label}</p>
                     <p className="font-display text-3xl text-cream">30</p>
                   </div>
                 </div>
@@ -114,14 +81,29 @@ export default function CompetitionSection({ dict }: Props) {
             </AnimateIn>
           </div>
 
-          {/* Prizes */}
-          <div className="lg:col-span-7 mt-10 lg:mt-0">
+          {/* 3 — Rules  (desktop: col 6-12, row 1) */}
+          <div className="lg:col-start-6 lg:col-span-7 lg:row-start-1 space-y-4 mt-10 lg:mt-0">
+            {c.rules.map((rule, i) => (
+              <AnimateIn key={rule.num} delay={100 + i * 80} direction="left">
+                <div className="group flex gap-6 border border-ink-800 p-6 hover:border-acid/40 hover:bg-acid/3 transition-all duration-300">
+                  <span className="font-display text-4xl text-acid/30 group-hover:text-acid/60 transition-colors pt-1 shrink-0">
+                    {rule.num}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-xl text-cream mb-2 group-hover:text-acid transition-colors">{rule.title}</h3>
+                    <p className="text-ink-300 text-sm leading-relaxed">{rule.text}</p>
+                  </div>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+
+          {/* 4 — Prizes  (desktop: col 6-12, row 2) */}
+          <div className="lg:col-start-6 lg:col-span-7 lg:row-start-2 mt-10 lg:mt-0">
             <AnimateIn delay={500} direction="left">
               <div className="border-t border-ink-800 pt-6">
                 <div className="border border-ink-700 bg-ink-800 p-6">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink-400 mb-6">
-                    {c.prizes_label}
-                  </p>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink-400 mb-6">{c.prizes_label}</p>
                   <div className="space-y-4">
                     {c.prizes.map(({ place, reward, color }) => (
                       <div key={place} className="flex items-center gap-4">
@@ -131,15 +113,9 @@ export default function CompetitionSection({ dict }: Props) {
                       </div>
                     ))}
                   </div>
-
                   <div className="mt-6 pt-6 border-t border-ink-700">
-                    <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-2">
-                      {c.contact_label}
-                    </p>
-                    <a
-                      href="mailto:info@rowbaltics.com"
-                      className="font-mono text-sm text-acid hover:underline"
-                    >
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-2">{c.contact_label}</p>
+                    <a href="mailto:info@rowbaltics.com" className="font-mono text-sm text-acid hover:underline">
                       info@rowbaltics.com
                     </a>
                   </div>
@@ -147,6 +123,7 @@ export default function CompetitionSection({ dict }: Props) {
               </div>
             </AnimateIn>
           </div>
+
         </div>
 
         {/* Copyright note */}
