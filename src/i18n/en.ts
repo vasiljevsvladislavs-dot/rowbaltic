@@ -60,8 +60,8 @@ const en: Dict = {
     wall_label: 'Work Area',
     participants_label: 'Participants',
     rules: [
-      { num: '01', title: 'Application', text: 'Submit a portfolio of works from the last two years and a social media profile. Applications are submitted at rowbaltics.com until 28 June 2026 at 23:59.' },
-      { num: '02', title: 'Selection', text: '30 participants will be confirmed for the competition. The list of confirmed participants will be published on 30 June 2026.' },
+      { num: '01', title: 'Selection', text: '30 participants will be confirmed for the competition. The list of confirmed participants will be published on 30 June 2026.' },
+      { num: '02', title: 'Application', text: 'Submit a portfolio of works from the last two years and a social media profile. Applications are submitted at rowbaltics.com until 28 June 2026 at 23:59.' },
       { num: '03', title: 'Execution', text: 'Works will be created on 22 August 2026 in Sarkandaugava, Zāģeru Street. Competition hours: 10:00–17:00.' },
       { num: '04', title: 'Voting', text: 'At the end of the festival, all 30 participants will take part in a mutual vote to determine the three best works.' },
     ],

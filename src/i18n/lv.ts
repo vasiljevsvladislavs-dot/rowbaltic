@@ -60,8 +60,8 @@ const lv: Dict = {
     wall_label: 'Darba laukums',
     participants_label: 'Dalībnieki',
     rules: [
-      { num: '01', title: 'Pieteikšanās', text: 'Iesniedziet portfolio ar pēdējo divu gadu darbiem un sociālo tīklu profilu. Pieteikšanās notiek mājaslapā rowbaltics.com līdz 2026. gada 28. jūnijam plkst. 23:59.' },
-      { num: '02', title: 'Atlase', text: 'Konkursam tiks apstiprināti 30 dalībnieki. Apstiprināto dalībnieku saraksts tiks publicēts 2026. gada 30. jūnijā.' },
+      { num: '01', title: 'Atlase', text: 'Konkursam tiks apstiprināti 30 dalībnieki. Apstiprināto dalībnieku saraksts tiks publicēts 2026. gada 30. jūnijā.' },
+      { num: '02', title: 'Pieteikšanās', text: 'Iesniedziet portfolio ar pēdējo divu gadu darbiem un sociālo tīklu profilu. Pieteikšanās notiek mājaslapā rowbaltics.com līdz 2026. gada 28. jūnijam plkst. 23:59.' },
       { num: '03', title: 'Realizācija', text: 'Darbu realizācija notiks 2026. gada 22. augustā Sarkandaugavā, Zāģeru ielā. Konkursa norises laiks: plkst. 10:00–17:00.' },
       { num: '04', title: 'Balsojums', text: 'Festivāla noslēgumā visi 30 dalībnieki piedalīsies savstarpējā balsojumā, nosakot trīs labāko darbu autorus.' },
     ],
