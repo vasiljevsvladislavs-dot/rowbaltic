@@ -15,9 +15,9 @@ export interface RegistrationRow {
   socialLink: string
   platformSize: string
   shirtSize: string
-  isBalticArtist: string
-  fullName: string
-  personalCode: string
+  needsAccommodation: string
+  night1: string
+  night2: string
   fileLinks: string
   consent: string
 }
@@ -42,9 +42,9 @@ export async function appendRegistrationRow(row: RegistrationRow): Promise<void>
       row.socialLink,
       row.platformSize,
       row.shirtSize,
-      row.isBalticArtist,
-      row.fullName,
-      row.personalCode,
+      row.needsAccommodation,
+      row.night1,
+      row.night2,
       row.fileLinks,
       row.consent,
     ],

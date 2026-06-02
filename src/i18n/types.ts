@@ -103,12 +103,10 @@ export interface Dict {
     f_wall_default: string
     f_shirt: string
     f_shirt_default: string
-    f_baltic_label: string
-    f_baltic_desc: string
-    f_fullname: string
-    f_fullname_ph: string
-    f_code: string
-    f_code_ph: string
+    f_accommodation_label: string
+    f_accommodation_desc: string
+    f_night1: string
+    f_night2: string
     f_consent: string
     f_submit: string
     f_submitting: string

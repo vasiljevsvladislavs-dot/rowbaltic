@@ -15,7 +15,7 @@ interface Props {
 
 export default function RegistrationForm({ dict, lang }: Props) {
   const r = dict.registration
-  const [isBaltic, setIsBaltic] = useState(false)
+  const [needsAccommodation, setNeedsAccommodation] = useState(false)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
@@ -50,7 +50,7 @@ export default function RegistrationForm({ dict, lang }: Props) {
       if (!res.ok) throw new Error(data.message || r.error_label)
       setStatus('success')
       form.reset()
-      setIsBaltic(false)
+      setNeedsAccommodation(false)
       setSelectedFiles([])
     } catch (err) {
       setStatus('error')
@@ -205,16 +205,16 @@ export default function RegistrationForm({ dict, lang }: Props) {
                 </select>
               </div>
 
-              {/* Baltic artist toggle */}
+              {/* Accommodation toggle */}
               <div className="border border-ink-700 p-5">
                 <label className="flex items-start gap-4 cursor-pointer group">
                   <div className="relative mt-0.5 shrink-0">
                     <input
-                      name="isBalticArtist"
+                      name="needsAccommodation"
                       type="checkbox"
                       value="true"
-                      checked={isBaltic}
-                      onChange={(e) => setIsBaltic(e.target.checked)}
+                      checked={needsAccommodation}
+                      onChange={(e) => setNeedsAccommodation(e.target.checked)}
                       className="sr-only peer"
                     />
                     <div className="w-5 h-5 border border-ink-600 peer-checked:bg-acid peer-checked:border-acid transition-all" />
@@ -226,22 +226,55 @@ export default function RegistrationForm({ dict, lang }: Props) {
                   </div>
                   <div>
                     <p className="font-mono text-xs uppercase tracking-widest text-cream group-hover:text-acid transition-colors">
-                      {r.f_baltic_label}
+                      {r.f_accommodation_label}
                     </p>
-                    <p className="text-ink-400 text-xs mt-1">{r.f_baltic_desc}</p>
+                    <p className="text-ink-400 text-xs mt-1">{r.f_accommodation_desc}</p>
                   </div>
                 </label>
 
-                {isBaltic && (
-                  <div className="mt-5 pt-5 border-t border-ink-700 grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="form-label">{r.f_fullname}</label>
-                      <input name="fullName" required={isBaltic} className="form-input" placeholder={r.f_fullname_ph} />
-                    </div>
-                    <div>
-                      <label className="form-label">{r.f_code}</label>
-                      <input name="personalCode" required={isBaltic} className="form-input" placeholder={r.f_code_ph} />
-                    </div>
+                {needsAccommodation && (
+                  <div className="mt-5 pt-5 border-t border-ink-700 space-y-3">
+                    {/* Night 1 */}
+                    <label className="flex items-center gap-3 cursor-pointer group">
+                      <div className="relative shrink-0">
+                        <input
+                          name="night1"
+                          type="checkbox"
+                          value="true"
+                          className="sr-only peer"
+                        />
+                        <div className="w-5 h-5 border border-ink-600 peer-checked:bg-acid peer-checked:border-acid transition-all" />
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 peer-checked:opacity-100">
+                          <svg className="w-3 h-3 text-ink-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      </div>
+                      <span className="font-mono text-xs text-ink-300 group-hover:text-cream transition-colors">
+                        {r.f_night1}
+                      </span>
+                    </label>
+
+                    {/* Night 2 */}
+                    <label className="flex items-center gap-3 cursor-pointer group">
+                      <div className="relative shrink-0">
+                        <input
+                          name="night2"
+                          type="checkbox"
+                          value="true"
+                          className="sr-only peer"
+                        />
+                        <div className="w-5 h-5 border border-ink-600 peer-checked:bg-acid peer-checked:border-acid transition-all" />
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 peer-checked:opacity-100">
+                          <svg className="w-3 h-3 text-ink-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      </div>
+                      <span className="font-mono text-xs text-ink-300 group-hover:text-cream transition-colors">
+                        {r.f_night2}
+                      </span>
+                    </label>
                   </div>
                 )}
               </div>

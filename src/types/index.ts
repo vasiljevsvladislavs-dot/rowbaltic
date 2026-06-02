@@ -6,9 +6,9 @@ export interface RegistrationFormData {
   socialUrl: string
   wallSize: string
   shirtSize: string
-  isBalticArtist: boolean
-  fullName?: string
-  personalCode?: string
+  needsAccommodation: boolean
+  night1?: boolean
+  night2?: boolean
   consent: boolean
   portfolioFile?: File
 }

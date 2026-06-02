@@ -17,9 +17,9 @@ export interface AdminData {
   socialLink: string
   platformSize: string
   shirtSize: string
-  isBalticArtist: boolean
-  fullName: string
-  personalCode: string
+  needsAccommodation: boolean
+  night1: boolean
+  night2: boolean
   fileLinks: string[]
   consent: boolean
 }
@@ -164,9 +164,9 @@ export function getAdminNotificationEmail(
     ['Social saite', data.socialLink || '—'],
     ['Platformas izmērs', data.platformSize],
     ['Krekla izmērs', data.shirtSize],
-    ['Baltijas mākslinieks', data.isBalticArtist ? 'Jā' : 'Nē'],
-    ['Vārds Uzvārds', data.fullName || '—'],
-    ['Personas kods', data.personalCode || '—'],
+    ['Nakšņošana nepieciešama', data.needsAccommodation ? 'Jā' : 'Nē'],
+    ['Nakts 21.→22. aug.', data.night1 ? 'Jā' : 'Nē'],
+    ['Nakts 22.→23. aug.', data.night2 ? 'Jā' : 'Nē'],
     ['Piekrišana', data.consent ? 'Jā' : 'Nē'],
   ]
 

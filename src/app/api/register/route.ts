@@ -57,10 +57,10 @@ export async function POST(req: NextRequest) {
   const socialLink     = getString(formData, 'socialLink')
   const platformSize   = ''
   const shirtSize      = getString(formData, 'shirtSize')
-  const isBalticArtist = getString(formData, 'isBalticArtist') === 'true'
-  const fullName       = getString(formData, 'fullName')
-  const personalCode   = getString(formData, 'personalCode')
-  const consent        = getString(formData, 'consent') === 'true'
+  const needsAccommodation = getString(formData, 'needsAccommodation') === 'true'
+  const night1             = getString(formData, 'night1') === 'true'
+  const night2             = getString(formData, 'night2') === 'true'
+  const consent            = getString(formData, 'consent') === 'true'
 
   // ── Files ─────────────────────────────────────────────────────────────────
   const rawFiles = formData.getAll('portfolioFiles') as File[]
@@ -79,11 +79,6 @@ export async function POST(req: NextRequest) {
 
   if (!portfolioLink && files.length === 0)
     errors.push('Provide a portfolio link or upload at least one file')
-
-  if (isBalticArtist) {
-    if (!fullName)     errors.push('fullName is required for Baltic artists')
-    if (!personalCode) errors.push('personalCode is required for Baltic artists')
-  }
 
   if (files.length > MAX_FILES)
     errors.push(`Maximum ${MAX_FILES} files allowed`)
@@ -133,9 +128,9 @@ export async function POST(req: NextRequest) {
         socialLink,
         platformSize,
         shirtSize,
-        isBalticArtist: isBalticArtist ? 'Jā' : 'Nē',
-        fullName,
-        personalCode,
+        needsAccommodation: needsAccommodation ? 'Jā' : 'Nē',
+        night1: night1 ? 'Jā' : 'Nē',
+        night2: night2 ? 'Jā' : 'Nē',
         fileLinks: attachments.length > 0
           ? `${attachments.length} file(s) attached to admin email`
           : '',
@@ -156,7 +151,7 @@ export async function POST(req: NextRequest) {
     const adminMail = getAdminNotificationEmail({
       timestamp, language, name, phone, email,
       portfolioLink, socialLink, platformSize, shirtSize,
-      isBalticArtist, fullName, personalCode,
+      needsAccommodation, night1, night2,
       fileLinks: [],   // files are now attachments, not Drive links
       consent,
     })
