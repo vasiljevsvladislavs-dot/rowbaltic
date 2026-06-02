@@ -19,7 +19,7 @@ const ee: Dict = {
     vieta_label: 'Koht',
     vieta_value: 'Sarkandaugava, Zāģeru tänav',
     deadline_label: 'Registreerimine',
-    deadline_value: 'kuni 22. juunini',
+    deadline_value: 'kuni 28. juunini',
     organize_label: 'Korraldab:',
     organize_value: 'Dainis Rudens · ansis · Mākslas birojs',
     register_cta: 'Registreeru joonistuskonkursile',
@@ -60,7 +60,7 @@ const ee: Dict = {
     wall_label: 'Tööruum',
     participants_label: 'Osalejad',
     rules: [
-      { num: '01', title: 'Registreerimine', text: 'Esitage kahe viimase aasta tööde portfolio ja sotsiaalmeedia profiil. Registreerimine toimub veebilehel rowbaltics.com kuni 22. juunini 2026 kell 23:59.' },
+      { num: '01', title: 'Registreerimine', text: 'Esitage kahe viimase aasta tööde portfolio ja sotsiaalmeedia profiil. Registreerimine toimub veebilehel rowbaltics.com kuni 28. juunini 2026 kell 23:59.' },
       { num: '02', title: 'Valik', text: 'Konkursile kinnitatakse 30 osalejat. Kinnitatud osalejate nimekiri avaldatakse 30. juunil 2026.' },
       { num: '03', title: 'Teostus', text: 'Tööd luuakse 22. augustil 2026 Sarkandaugavas, Zāģeru tänaval. Konkursi toimumisaeg: kell 10:00–17:00.' },
       { num: '04', title: 'Hääletus', text: 'Festivali lõpus osalevad kõik 30 osalejat vastastikuses hääletuses, määrates kolme parima töö autorid.' },
@@ -79,7 +79,7 @@ const ee: Dict = {
     num: '01',
     label: 'Joonistuskonkursi registreerimine',
     heading: 'REGISTREERU JOONISTUSKONKURSILE',
-    p1: 'Täitke avalduse vorm ja saage ROW BALTICS 2026 osaks. Registreerimine on avatud kuni 22. juunini 2026 kell 23:59.',
+    p1: 'Täitke avalduse vorm ja saage ROW BALTICS 2026 osaks. Registreerimine on avatud kuni 28. juunini 2026 kell 23:59.',
     info: [
       { label: 'Kuupäev', value: '22. august 2026' },
       { label: 'Koht', value: 'Zāģeru tänav, Sarkandaugava' },

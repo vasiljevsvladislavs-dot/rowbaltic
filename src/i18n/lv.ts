@@ -19,7 +19,7 @@ const lv: Dict = {
     vieta_label: 'Vieta',
     vieta_value: 'Sarkandaugava, Zāģeru iela',
     deadline_label: 'Pieteikšanās',
-    deadline_value: 'līdz 22. jūnijam',
+    deadline_value: 'līdz 28. jūnijam',
     organize_label: 'Organizē:',
     organize_value: 'Dainis Rudens · ansis · Mākslas birojs',
     register_cta: 'Pieteikties zīmēšanas konkursam',
@@ -60,7 +60,7 @@ const lv: Dict = {
     wall_label: 'Darba laukums',
     participants_label: 'Dalībnieki',
     rules: [
-      { num: '01', title: 'Pieteikšanās', text: 'Iesniedziet portfolio ar pēdējo divu gadu darbiem un sociālo tīklu profilu. Pieteikšanās notiek mājaslapā rowbaltics.com līdz 2026. gada 22. jūnijam plkst. 23:59.' },
+      { num: '01', title: 'Pieteikšanās', text: 'Iesniedziet portfolio ar pēdējo divu gadu darbiem un sociālo tīklu profilu. Pieteikšanās notiek mājaslapā rowbaltics.com līdz 2026. gada 28. jūnijam plkst. 23:59.' },
       { num: '02', title: 'Atlase', text: 'Konkursam tiks apstiprināti 30 dalībnieki. Apstiprināto dalībnieku saraksts tiks publicēts 2026. gada 30. jūnijā.' },
       { num: '03', title: 'Realizācija', text: 'Darbu realizācija notiks 2026. gada 22. augustā Sarkandaugavā, Zāģeru ielā. Konkursa norises laiks: plkst. 10:00–17:00.' },
       { num: '04', title: 'Balsojums', text: 'Festivāla noslēgumā visi 30 dalībnieki piedalīsies savstarpējā balsojumā, nosakot trīs labāko darbu autorus.' },
@@ -79,7 +79,7 @@ const lv: Dict = {
     num: '01',
     label: 'Pieteikšanās zīmēšanas konkursam',
     heading: 'PIETEIKTIES ZĪMĒŠANAS KONKURSAM',
-    p1: 'Aizpildi pieteikuma veidlapu un kļūsti par daļu no ROW BALTICS 2026. Pieteikšanās ir atvērta līdz 2026. gada 22. jūnijam plkst. 23:59.',
+    p1: 'Aizpildi pieteikuma veidlapu un kļūsti par daļu no ROW BALTICS 2026. Pieteikšanās ir atvērta līdz 2026. gada 28. jūnijam plkst. 23:59.',
     info: [
       { label: 'Datums', value: '22. augusts, 2026' },
       { label: 'Vieta', value: 'Zāģeru iela, Sarkandaugava' },
