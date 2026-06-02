@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import AnimateIn from '@/components/ui/AnimateIn'
 import type { Dict } from '@/i18n'
 
@@ -59,19 +60,31 @@ export default function CompetitionSection({ dict }: Props) {
 
             {/* Wall size */}
             <AnimateIn delay={350}>
-              <div className="mt-6 flex items-center gap-6 border-t border-ink-800 pt-6">
-                <div>
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-1">
-                    {c.wall_label}
-                  </p>
-                  <p className="font-display text-3xl text-acid">2.7m × 4m</p>
+              <div className="mt-6 border-t border-ink-800 pt-6">
+                <div className="flex items-center gap-6 mb-5">
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-1">
+                      {c.wall_label}
+                    </p>
+                    <p className="font-display text-3xl text-acid">2.8m × 4.1m</p>
+                  </div>
+                  <div className="w-px h-12 bg-ink-700" />
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-1">
+                      {c.participants_label}
+                    </p>
+                    <p className="font-display text-3xl text-cream">30</p>
+                  </div>
                 </div>
-                <div className="w-px h-12 bg-ink-700" />
-                <div>
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-1">
-                    {c.participants_label}
-                  </p>
-                  <p className="font-display text-3xl text-cream">30</p>
+                <div className="relative w-full overflow-hidden border border-ink-800">
+                  <Image
+                    src="/siena.jpeg"
+                    alt="Siena — ROW BALTIC 2026"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto object-cover"
+                    priority={false}
+                  />
                 </div>
               </div>
             </AnimateIn>

@@ -15,7 +15,6 @@ export interface AdminData {
   email: string
   portfolioLink: string
   socialLink: string
-  platformSize: string
   shirtSize: string
   needsAccommodation: boolean
   night1: boolean
@@ -162,7 +161,6 @@ export function getAdminNotificationEmail(
     ['E-pasts', data.email],
     ['Portfolio saite', data.portfolioLink || '—'],
     ['Social saite', data.socialLink || '—'],
-    ['Platformas izmērs', data.platformSize],
     ['Krekla izmērs', data.shirtSize],
     ['Nakšņošana nepieciešama', data.needsAccommodation ? 'Jā' : 'Nē'],
     ['Nakts 21.→22. aug.', data.night1 ? 'Jā' : 'Nē'],

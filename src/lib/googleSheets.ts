@@ -13,7 +13,6 @@ export interface RegistrationRow {
   email: string
   portfolioLink: string
   socialLink: string
-  platformSize: string
   shirtSize: string
   needsAccommodation: string
   night1: string
@@ -40,7 +39,6 @@ export async function appendRegistrationRow(row: RegistrationRow): Promise<void>
       row.email,
       row.portfolioLink,
       row.socialLink,
-      row.platformSize,
       row.shirtSize,
       row.needsAccommodation,
       row.night1,

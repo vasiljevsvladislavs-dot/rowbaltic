@@ -55,7 +55,6 @@ export async function POST(req: NextRequest) {
   const email          = getString(formData, 'email')
   const portfolioLink  = getString(formData, 'portfolioLink')
   const socialLink     = getString(formData, 'socialLink')
-  const platformSize   = ''
   const shirtSize      = getString(formData, 'shirtSize')
   const needsAccommodation = getString(formData, 'needsAccommodation') === 'true'
   const night1             = getString(formData, 'night1') === 'true'
@@ -126,7 +125,6 @@ export async function POST(req: NextRequest) {
         email,
         portfolioLink,
         socialLink,
-        platformSize,
         shirtSize,
         needsAccommodation: needsAccommodation ? 'Jā' : 'Nē',
         night1: night1 ? 'Jā' : 'Nē',
@@ -150,7 +148,7 @@ export async function POST(req: NextRequest) {
   } else {
     const adminMail = getAdminNotificationEmail({
       timestamp, language, name, phone, email,
-      portfolioLink, socialLink, platformSize, shirtSize,
+      portfolioLink, socialLink, shirtSize,
       needsAccommodation, night1, night2,
       fileLinks: [],   // files are now attachments, not Drive links
       consent,
