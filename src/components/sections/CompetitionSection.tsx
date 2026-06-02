@@ -80,9 +80,9 @@ export default function CompetitionSection({ dict }: Props) {
                   <Image
                     src="/siena.jpeg"
                     alt="Siena — ROW BALTIC 2026"
-                    width={800}
-                    height={600}
-                    className="w-full h-auto object-cover"
+                    width={1536}
+                    height={2048}
+                    className="w-full h-auto lg:max-h-[480px] object-cover object-center"
                     priority={false}
                   />
                 </div>
