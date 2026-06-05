@@ -34,7 +34,7 @@ export default function HeroSection({ dict, lang }: Props) {
     >
 
       {/* Right side visual — fills entire right portion */}
-      <div className="absolute right-0 top-0 bottom-0 hidden lg:block w-[62%] pointer-events-none select-none">
+      <div className="absolute right-0 top-0 bottom-0 hidden lg:block w-[59%] pointer-events-none select-none">
         <Image
           src="/ROW26-modular_HH.webp"
           alt="ROW BALTICS 2026"
@@ -103,7 +103,7 @@ export default function HeroSection({ dict, lang }: Props) {
 
         {/* Tag + CTA below title */}
         <div
-          className={`mt-6 flex flex-col gap-4 transition-all duration-700 delay-400 ${
+          className={`mt-6 flex flex-col items-start gap-4 transition-all duration-700 delay-400 ${
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
