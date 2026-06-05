@@ -46,7 +46,7 @@ export default function HeroSection({ dict, lang }: Props) {
       </div>
 
       {/* Nav — sticky */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-300 bg-white border-b border-gray-200 ${
+      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-300 bg-ink-900 border-b border-ink-800 ${
         scrolled
           ? 'px-6 md:px-12 py-3'
           : 'px-6 md:px-12 pt-6 pb-4'
@@ -154,7 +154,7 @@ export default function HeroSection({ dict, lang }: Props) {
           loaded ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="border-t border-ink-700 px-6 md:px-12 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div className="bg-ink-900 border-t border-ink-700 px-6 md:px-12 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <div className="flex items-center gap-6">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-0.5">{h.vieta_label}</p>
