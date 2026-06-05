@@ -31,7 +31,7 @@ export default function HeroSection({ dict, lang }: Props) {
     <section
       id="hero"
       className="relative h-screen max-h-screen flex flex-col justify-between overflow-hidden"
-      style={{ background: 'linear-gradient(to right, #0f0f0f 50%, #ffffff 50%)' }}
+      style={{ background: 'linear-gradient(to right, #0f0f0f 40%, #ffffff 40%)' }}
     >
 
       {/* Right side visual */}
