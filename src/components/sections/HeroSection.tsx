@@ -41,7 +41,7 @@ export default function HeroSection({ dict, lang }: Props) {
           alt="ROW BALTICS 2026"
           width={1200}
           height={1200}
-          className="w-[68%] h-auto object-contain -translate-x-[25%]"
+          className="w-[68%] h-auto object-contain -translate-x-[15%]"
           priority
         />
       </div>
