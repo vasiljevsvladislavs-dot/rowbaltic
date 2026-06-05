@@ -60,10 +60,10 @@ export default function HeroSection({ dict, lang }: Props) {
       </div>
 
       {/* Nav — sticky */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-300 ${
+      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-300 bg-white border-b border-gray-200 ${
         scrolled
-          ? 'bg-ink-900/95 backdrop-blur-sm border-b border-ink-800 px-6 md:px-12 py-3'
-          : 'px-6 md:px-12 pt-6 pb-0'
+          ? 'px-6 md:px-12 py-3'
+          : 'px-6 md:px-12 pt-6 pb-4'
       }`}>
         <div
           className={`transition-all duration-700 ${loaded ? 'opacity-100' : 'opacity-0 -translate-x-4'}`}
