@@ -48,13 +48,13 @@ export default function HeroSection({ dict, lang }: Props) {
       <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-rust/10 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Right side visual */}
-      <div className="absolute right-0 top-0 bottom-0 hidden lg:flex items-center justify-end w-[52%] pointer-events-none select-none">
+      <div className="absolute right-0 top-0 bottom-0 hidden lg:flex items-center justify-center w-[52%] pointer-events-none select-none">
         <Image
           src="/ROW_1200x1200_2.png"
           alt="ROW BALTICS 2026"
           width={1200}
           height={1200}
-          className="w-full h-auto max-h-screen object-contain object-right"
+          className="w-[50%] h-auto object-contain"
           priority
         />
       </div>
