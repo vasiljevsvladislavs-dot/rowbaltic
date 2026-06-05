@@ -65,16 +65,6 @@ export default function HeroSection({ dict, lang }: Props) {
           className={`flex items-center gap-2 md:gap-4 transition-all duration-700 delay-200 ${loaded ? 'opacity-100' : 'opacity-0 translate-x-4'}`}
         >
           <LanguageSwitcher currentLang={lang} />
-          {/* Mobile: icon-only button; Desktop: full text */}
-          <a
-            href="#registracija"
-            className={`font-mono font-bold uppercase tracking-wider bg-acid text-ink-900 hover:bg-acid-dark transition-all duration-300 whitespace-nowrap ${
-              scrolled ? 'text-[8px] px-2 py-1.5 md:text-[9px] md:px-3 md:py-2' : 'text-[8px] px-2 py-1.5 md:text-[10px] md:px-5 md:py-2.5'
-            }`}
-          >
-            <span className="md:hidden">→</span>
-            <span className="hidden md:inline">{h.register_cta}</span>
-          </a>
         </div>
       </nav>
 
