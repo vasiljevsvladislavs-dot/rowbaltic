@@ -84,14 +84,14 @@ export default function HeroSection({ dict, lang }: Props) {
 
           {/* Giant title */}
           <h1
-            className={`font-display text-[clamp(3.5rem,12vw,15rem)] leading-none text-ink-900 transition-all duration-1000 delay-100 ${
+            className={`font-display text-[clamp(3.5rem,12vw,15rem)] leading-[0.9] m-0 text-ink-900 transition-all duration-1000 delay-100 ${
               loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
             }`}
           >
             ROW
           </h1>
           <h1
-            className={`font-display text-[clamp(3.5rem,12vw,15rem)] leading-none text-acid transition-all duration-1000 delay-200 ${
+            className={`font-display text-[clamp(3.5rem,12vw,15rem)] leading-[0.9] m-0 text-acid transition-all duration-1000 delay-200 ${
               loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
             }`}
           >
