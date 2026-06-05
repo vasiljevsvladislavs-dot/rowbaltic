@@ -85,7 +85,7 @@ export default function HeroSection({ dict, lang }: Props) {
           {/* Giant title */}
           <div>
             <h1
-              style={{ margin: 0, padding: 0, lineHeight: 0.88 }}
+              style={{ margin: 0, padding: 0, lineHeight: 0.88, marginLeft: '-10px' }}
               className={`font-display text-[clamp(3.5rem,12vw,15rem)] text-ink-900 transition-all duration-1000 delay-100 ${
                 loaded ? 'opacity-100' : 'opacity-0'
               }`}
@@ -93,7 +93,7 @@ export default function HeroSection({ dict, lang }: Props) {
               ROW
             </h1>
             <h1
-              style={{ margin: 0, padding: 0, lineHeight: 0.88 }}
+              style={{ margin: 0, padding: 0, lineHeight: 0.88, marginLeft: '-10px' }}
               className={`font-display text-[clamp(3.5rem,12vw,15rem)] text-acid transition-all duration-1000 delay-200 ${
                 loaded ? 'opacity-100' : 'opacity-0'
               }`}
