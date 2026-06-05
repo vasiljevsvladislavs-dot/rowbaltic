@@ -102,23 +102,22 @@ export default function HeroSection({ dict, lang }: Props) {
             </h1>
           </div>
 
-          {/* Tag + CTA — same left edge as title */}
+          {/* Tag + CTA — block-level so left edge matches h1 exactly */}
           <div
             className={`mt-6 transition-all duration-700 delay-400 ${
               loaded ? 'opacity-100' : 'opacity-0'
             }`}
+            style={{ marginLeft: 0, paddingLeft: 0 }}
           >
-            <span className="inline-block font-mono text-xs uppercase tracking-[0.3em] text-acid border border-acid px-3 py-1.5 mb-3">
+            <div className="w-fit font-mono text-xs uppercase tracking-[0.3em] text-acid border border-acid px-3 py-1.5 mb-3">
               {h.tag}
-            </span>
-            <div>
-              <a
-                href="#registracija"
-                className="inline-block font-mono font-bold text-[10px] uppercase tracking-widest bg-acid text-ink-900 hover:bg-acid-dark transition-all duration-300 px-5 py-2.5"
-              >
-                {h.register_cta}
-              </a>
             </div>
+            <a
+              href="#registracija"
+              className="w-fit block font-mono font-bold text-[10px] uppercase tracking-widest bg-acid text-ink-900 hover:bg-acid-dark transition-all duration-300 px-5 py-2.5"
+            >
+              {h.register_cta}
+            </a>
           </div>
 
         </div>
