@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import MarqueeBar from '@/components/ui/MarqueeBar'
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 import type { Dict, Lang } from '@/i18n'
@@ -45,6 +46,18 @@ export default function HeroSection({ dict, lang }: Props) {
       {/* Spray paint splatter accent */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-acid/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-rust/10 rounded-full blur-[100px] pointer-events-none" />
+
+      {/* Right side visual */}
+      <div className="absolute right-0 top-0 bottom-0 hidden lg:flex items-center justify-end w-[52%] pointer-events-none select-none">
+        <Image
+          src="/ROW_1200x1200_2.png"
+          alt="ROW BALTICS 2026"
+          width={1200}
+          height={1200}
+          className="w-full h-auto max-h-screen object-contain object-right"
+          priority
+        />
+      </div>
 
       {/* Nav — sticky */}
       <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-300 ${
@@ -130,6 +143,22 @@ export default function HeroSection({ dict, lang }: Props) {
           <span className="font-mono text-xs uppercase tracking-widest text-ink-300">
             {h.festival_label}
           </span>
+        </div>
+
+        {/* Mobile image — shown below subtitle, hidden on desktop */}
+        <div
+          className={`lg:hidden mt-6 transition-all duration-700 delay-600 ${
+            loaded ? 'opacity-100' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          <Image
+            src="/ROW_1200x1200_2.png"
+            alt="ROW BALTICS 2026"
+            width={1200}
+            height={1200}
+            className="w-full max-w-sm mx-auto h-auto object-contain"
+            priority
+          />
         </div>
       </div>
 
