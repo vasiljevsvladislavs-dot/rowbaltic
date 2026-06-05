@@ -80,14 +80,6 @@ export default function HeroSection({ dict, lang }: Props) {
 
       {/* Main hero content */}
       <div className="relative z-10 flex-1 flex flex-col justify-center px-6 md:px-12 py-4 pt-20">
-        {/* Year tag */}
-        <div
-          className={`transition-all duration-700 delay-300 ${loaded ? 'opacity-100' : 'opacity-0 translate-y-4'}`}
-        >
-          <span className="inline-block font-mono text-xs uppercase tracking-[0.3em] text-acid border border-acid/40 px-3 py-1.5 mb-5">
-            {h.tag}
-          </span>
-        </div>
 
         {/* Giant title */}
         <div className="overflow-hidden">
@@ -108,26 +100,22 @@ export default function HeroSection({ dict, lang }: Props) {
             BALTICS
           </h1>
         </div>
-        <div className="overflow-hidden -mt-2 md:-mt-3">
-          <h2
-            className={`font-display text-[clamp(2.5rem,8vw,8rem)] leading-none text-gray-200 transition-all duration-1000 delay-300 ${
-              loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
-            }`}
-          >
-            2026
-          </h2>
-        </div>
 
-        {/* Subtitle row */}
+        {/* Tag + CTA below title */}
         <div
-          className={`mt-6 flex items-center gap-3 transition-all duration-700 delay-500 ${
-            loaded ? 'opacity-100' : 'opacity-0 translate-y-4'
+          className={`mt-6 flex flex-col gap-4 transition-all duration-700 delay-400 ${
+            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          <div className="w-8 h-px bg-acid" />
-          <span className="font-mono text-xs uppercase tracking-widest text-gray-400">
-            {h.festival_label}
+          <span className="inline-block font-mono text-xs uppercase tracking-[0.3em] text-ink-900 border border-ink-900/40 px-3 py-1.5 w-fit">
+            {h.tag}
           </span>
+          <a
+            href="#registracija"
+            className="inline-block font-mono font-bold text-[10px] uppercase tracking-widest bg-acid text-ink-900 hover:bg-acid-dark transition-all duration-300 px-5 py-2.5 w-fit"
+          >
+            {h.register_cta}
+          </a>
         </div>
 
         {/* Mobile image — shown below subtitle, hidden on desktop */}
