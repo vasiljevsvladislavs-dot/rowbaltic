@@ -37,10 +37,10 @@ export default function HeroSection({ dict, lang }: Props) {
       {/* Right side visual */}
       <div className="absolute right-0 top-0 bottom-0 hidden lg:flex items-center justify-center w-[52%] pointer-events-none select-none">
         <Image
-          src="/ROW_1200x1200_2.png"
+          src="/ROW26-modular_HH.webp"
           alt="ROW BALTICS 2026"
-          width={1200}
-          height={1200}
+          width={2400}
+          height={1642}
           className="w-[68%] h-auto object-contain -translate-x-[15%]"
           priority
         />
