@@ -79,43 +79,42 @@ export default function HeroSection({ dict, lang }: Props) {
       </nav>
 
       {/* Main hero content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center px-6 md:px-12 py-4 pt-20">
+      <div className="relative z-10 flex-1 flex flex-col justify-center pt-20">
+        <div className="px-6 md:px-12 flex flex-col items-start">
 
-        {/* Giant title */}
-        <div className="overflow-hidden">
+          {/* Giant title */}
           <h1
-            className={`font-display text-[clamp(4.5rem,15vw,15rem)] leading-none text-ink-900 transition-all duration-1000 delay-100 ${
+            className={`font-display text-[clamp(3.5rem,12vw,15rem)] leading-none text-ink-900 transition-all duration-1000 delay-100 ${
               loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
             }`}
           >
             ROW
           </h1>
-        </div>
-        <div className="overflow-hidden -mt-3 md:-mt-6">
           <h1
-            className={`font-display text-[clamp(4.5rem,15vw,15rem)] leading-none text-acid transition-all duration-1000 delay-200 ${
+            className={`font-display text-[clamp(3.5rem,12vw,15rem)] leading-none text-acid transition-all duration-1000 delay-200 ${
               loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
             }`}
           >
             BALTICS
           </h1>
-        </div>
 
-        {/* Tag + CTA below title */}
-        <div
-          className={`mt-6 flex flex-col items-start gap-4 transition-all duration-700 delay-400 ${
-            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-        >
-          <span className="inline-block font-mono text-xs uppercase tracking-[0.3em] text-acid border border-acid px-3 py-1.5 w-fit">
-            {h.tag}
-          </span>
-          <a
-            href="#registracija"
-            className="inline-block font-mono font-bold text-[10px] uppercase tracking-widest bg-acid text-ink-900 hover:bg-acid-dark transition-all duration-300 px-5 py-2.5 w-fit"
+          {/* Tag + CTA below title */}
+          <div
+            className={`mt-6 flex flex-col items-start gap-3 transition-all duration-700 delay-400 ${
+              loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
           >
-            {h.register_cta}
-          </a>
+            <span className="font-mono text-xs uppercase tracking-[0.3em] text-acid border border-acid px-3 py-1.5">
+              {h.tag}
+            </span>
+            <a
+              href="#registracija"
+              className="font-mono font-bold text-[10px] uppercase tracking-widest bg-acid text-ink-900 hover:bg-acid-dark transition-all duration-300 px-5 py-2.5"
+            >
+              {h.register_cta}
+            </a>
+          </div>
+
         </div>
 
         {/* Mobile image — shown below subtitle, hidden on desktop */}
