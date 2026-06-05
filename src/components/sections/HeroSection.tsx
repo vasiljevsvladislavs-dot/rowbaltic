@@ -30,22 +30,8 @@ export default function HeroSection({ dict, lang }: Props) {
   return (
     <section
       id="hero"
-      className="relative h-screen max-h-screen flex flex-col justify-between bg-ink-900 overflow-hidden"
+      className="relative h-screen max-h-screen flex flex-col justify-between bg-white overflow-hidden"
     >
-      {/* Background texture layers */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              'repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(200,255,0,0.15) 40px, rgba(200,255,0,0.15) 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(200,255,0,0.15) 40px, rgba(200,255,0,0.15) 41px)',
-          }}
-        />
-      </div>
-
-      {/* Spray paint splatter accent */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-acid/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-rust/10 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Right side visual */}
       <div className="absolute right-0 top-0 bottom-0 hidden lg:flex items-center justify-center w-[52%] pointer-events-none select-none">
@@ -107,7 +93,7 @@ export default function HeroSection({ dict, lang }: Props) {
         {/* Giant title */}
         <div className="overflow-hidden">
           <h1
-            className={`font-display text-[clamp(4.5rem,15vw,15rem)] leading-none text-cream transition-all duration-1000 delay-100 ${
+            className={`font-display text-[clamp(4.5rem,15vw,15rem)] leading-none text-ink-900 transition-all duration-1000 delay-100 ${
               loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
             }`}
           >
@@ -125,7 +111,7 @@ export default function HeroSection({ dict, lang }: Props) {
         </div>
         <div className="overflow-hidden -mt-2 md:-mt-3">
           <h2
-            className={`font-display text-[clamp(2.5rem,8vw,8rem)] leading-none text-cream/30 transition-all duration-1000 delay-300 ${
+            className={`font-display text-[clamp(2.5rem,8vw,8rem)] leading-none text-gray-200 transition-all duration-1000 delay-300 ${
               loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
             }`}
           >
@@ -140,7 +126,7 @@ export default function HeroSection({ dict, lang }: Props) {
           }`}
         >
           <div className="w-8 h-px bg-acid" />
-          <span className="font-mono text-xs uppercase tracking-widest text-ink-300">
+          <span className="font-mono text-xs uppercase tracking-widest text-gray-400">
             {h.festival_label}
           </span>
         </div>
