@@ -34,7 +34,7 @@ export default function HeroSection({ dict, lang }: Props) {
     >
 
       {/* Right side visual — fills entire right portion */}
-      <div className="absolute right-0 top-0 bottom-0 hidden lg:block w-[65%] pointer-events-none select-none">
+      <div className="absolute right-0 top-0 bottom-0 hidden lg:block w-[62%] pointer-events-none select-none">
         <Image
           src="/ROW26-modular_HH.webp"
           alt="ROW BALTICS 2026"
@@ -107,7 +107,7 @@ export default function HeroSection({ dict, lang }: Props) {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          <span className="inline-block font-mono text-xs uppercase tracking-[0.3em] text-ink-900 border border-ink-900/40 px-3 py-1.5 w-fit">
+          <span className="inline-block font-mono text-xs uppercase tracking-[0.3em] text-acid border border-acid px-3 py-1.5 w-fit">
             {h.tag}
           </span>
           <a
