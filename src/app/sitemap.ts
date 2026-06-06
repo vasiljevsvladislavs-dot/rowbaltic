@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE}/${lang}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: lang === 'lv' ? 1 : 0.8,
+    priority: lang === 'en' ? 1 : 0.8,
   }))
 
   const privacy = LANGS.map((lang) => ({

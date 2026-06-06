@@ -47,9 +47,50 @@ export async function generateMetadata({
     },
     icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },
     alternates: {
-      languages: Object.fromEntries(LANGS.map((l) => [l, `https://rowbaltics.com/${l}`])),
+      canonical: `https://rowbaltics.com/${lang}`,
+      languages: {
+        'x-default': 'https://rowbaltics.com/en',
+        ...Object.fromEntries(LANGS.map((l) => [l === 'ee' ? 'et' : l, `https://rowbaltics.com/${l}`])),
+      },
     },
   }
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: 'ROW BALTICS 2026',
+  description: 'Street art festival and drawing competition. Theme: Battle.',
+  startDate: '2026-08-22T10:00:00+03:00',
+  endDate: '2026-08-22T17:00:00+03:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'Place',
+    name: 'Sarkandaugava',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Zāģeru iela',
+      addressLocality: 'Rīga',
+      addressCountry: 'LV',
+    },
+  },
+  organizer: {
+    '@type': 'Organization',
+    name: 'ROW BALTICS',
+    url: 'https://rowbaltics.com',
+    email: 'info@rowbaltics.com',
+  },
+  image: 'https://rowbaltics.com/og-image.jpg',
+  url: 'https://rowbaltics.com/en',
+  offers: {
+    '@type': 'Offer',
+    name: 'Apply for Drawing Competition',
+    url: 'https://rowbaltics.com/en#registracija',
+    availability: 'https://schema.org/InStock',
+    validFrom: '2026-06-01',
+    validThrough: '2026-06-28',
+  },
 }
 
 export default async function LangLayout({
@@ -60,5 +101,13 @@ export default async function LangLayout({
   params: Promise<{ lang: string }>
 }) {
   const { lang } = await params
-  return <div lang={lang}>{children}</div>
+  return (
+    <div lang={lang}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+    </div>
+  )
 }

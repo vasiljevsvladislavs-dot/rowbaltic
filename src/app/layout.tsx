@@ -23,34 +23,37 @@ const spaceMono = Space_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'ROW BALTICS 2026 — Ielu Mākslas Festivāls',
+  title: 'ROW BALTICS 2026 — Street Art Festival',
   description:
-    'ROW BALTICS (Riga Open Wall) — viens no straujāk augošajiem ielu mākslas notikumiem Latvijā un Baltijā. Festivāls 2026. gadā ar tēmu "Cīņa".',
-  keywords: ['ROW BALTICS', 'ielu māksla', 'grafiti', 'festivāls', 'Rīga', 'Latvija', '2026'],
+    'ROW BALTICS — one of the fastest-growing street art events in the Baltics. Apply for the drawing competition. Theme: Battle. 22 August, Sarkandaugava, Riga.',
+  keywords: ['ROW BALTICS', 'street art', 'graffiti', 'festival', 'Riga', 'Latvia', '2026', 'battle'],
   authors: [{ name: 'ROW BALTICS' }],
   metadataBase: new URL('https://rowbaltics.com'),
   openGraph: {
-    title: 'ROW BALTICS 2026 — Ielu Mākslas Festivāls',
+    title: 'ROW BALTICS 2026 — Street Art Festival',
     description:
-      'Pieteikties zīmēšanas konkursam. Tēma: "Cīņa". 22. augusts, Sarkandaugava, Rīga.',
-    url: 'https://rowbaltics.com',
+      'Apply for the drawing competition. Theme: Battle. 22 August, Sarkandaugava, Riga.',
+    url: 'https://rowbaltics.com/en',
     siteName: 'ROW BALTICS',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'ROW BALTICS 2026',
-      },
-    ],
-    locale: 'lv_LV',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'ROW BALTICS 2026' }],
+    locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ROW BALTICS 2026',
-    description: 'Ielu mākslas festivāls. Tēma: "Cīņa". Rīga, 2026.',
+    title: 'ROW BALTICS 2026 — Street Art Festival',
+    description: 'Street art festival. Theme: Battle. Riga, 22 August 2026.',
     images: ['/og-image.jpg'],
+  },
+  alternates: {
+    canonical: 'https://rowbaltics.com/en',
+    languages: {
+      'x-default': 'https://rowbaltics.com/en',
+      en: 'https://rowbaltics.com/en',
+      lv: 'https://rowbaltics.com/lv',
+      lt: 'https://rowbaltics.com/lt',
+      et: 'https://rowbaltics.com/ee',
+    },
   },
   icons: {
     icon: '/favicon.ico',
@@ -64,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="lv" className={`${bebasNeue.variable} ${inter.variable} ${spaceMono.variable}`}>
+    <html lang="en" className={`${bebasNeue.variable} ${inter.variable} ${spaceMono.variable}`}>
       <body className="grain">
         {children}
       </body>
