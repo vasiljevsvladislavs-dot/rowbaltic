@@ -50,7 +50,7 @@ const lt: Dict = {
     marquee: 'KOVA ✦ BATTLE ✦ ROW BALTICS 2026 ✦ RUGPJŪČIO 22 ✦ SARKANDAUGAVA ✦ RYGA ✦',
   },
   competition: {
-    num: '02',
+    num: '01',
     label: 'Piešimo konkursas',
     heading: ['NUOSTATAI', '2026'],
     p1: 'Gatvės meno festivalis ROW BALTICS 2026 kviečia menininkus dalyvauti piešimo konkurse ir tapti vienos ryškiausių urbanistinės kultūros platformų Baltijos šalyse dalimi.',
@@ -76,7 +76,7 @@ const lt: Dict = {
     copyright_text: 'Festivalio metu sukurti grafičiai ir gatvės meno kūriniai yra organizatorių nuosavybė. Tiek kūrinių autoriai, tiek organizatoriai išlaiko teisę naudoti kūrinių nuotraukas, vaizdo medžiagą ir kitą dokumentaciją viešinimo tikslais be papildomo suderinimo ar atlygio.',
   },
   registration: {
-    num: '01',
+    num: '02',
     label: 'Piešimo konkurso registracija',
     heading: 'REGISTRUOTIS PIEŠIMO KONKURSUI',
     p1: 'Užpildykite paraiškos formą ir tapkite ROW BALTICS 2026 dalimi. Registracija atvira iki 2026 m. birželio 28 d. 23:59.',

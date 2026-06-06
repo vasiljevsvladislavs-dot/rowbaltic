@@ -50,7 +50,7 @@ const lv: Dict = {
     marquee: 'CĪŅA ✦ BATTLE ✦ ROW BALTICS 2026 ✦ 22. AUGUSTS ✦ SARKANDAUGAVA ✦ RĪGA ✦',
   },
   competition: {
-    num: '02',
+    num: '01',
     label: 'Zīmēšanas konkurss',
     heading: ['NOLIKUMS', '2026'],
     p1: 'Ielu mākslas festivāls ROW BALTICS 2026 aicina māksliniekus piedalīties zīmēšanas konkursā un kļūt par daļu no vienas no spilgtākajām urbānās kultūras platformām Baltijā.',
@@ -76,7 +76,7 @@ const lv: Dict = {
     copyright_text: 'Festivāla ietvaros radītie grafiti un ielu mākslas darbi ir organizatoru īpašums. Gan darbu autori, gan organizatori patur tiesības izmantot darbu fotogrāfijas, video materiālus un citu dokumentāciju publicitātes vajadzībām bez papildu saskaņošanas vai atlīdzības.',
   },
   registration: {
-    num: '01',
+    num: '02',
     label: 'Pieteikšanās zīmēšanas konkursam',
     heading: 'PIETEIKTIES ZĪMĒŠANAS KONKURSAM',
     p1: 'Aizpildi pieteikuma veidlapu un kļūsti par daļu no ROW BALTICS 2026. Pieteikšanās ir atvērta līdz 2026. gada 28. jūnijam plkst. 23:59.',
