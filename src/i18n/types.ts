@@ -108,6 +108,9 @@ export interface Dict {
     f_night1: string
     f_night2: string
     f_consent: string
+    f_consent_rules_link: string
+    f_gdpr: string
+    f_gdpr_link: string
     f_submit: string
     f_submitting: string
     wall_sizes: [string, string, string]

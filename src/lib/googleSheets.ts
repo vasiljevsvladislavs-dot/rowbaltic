@@ -18,7 +18,12 @@ export interface RegistrationRow {
   night1: string
   night2: string
   fileLinks: string
-  consent: string
+  rulesConsent: string
+  gdprConsent: string
+  consentTimestamp: string
+  privacyPolicyVersion: string
+  formLanguage: string
+  submittedAt: string
 }
 
 /**
@@ -44,7 +49,12 @@ export async function appendRegistrationRow(row: RegistrationRow): Promise<void>
       row.night1,
       row.night2,
       row.fileLinks,
-      row.consent,
+      row.rulesConsent,
+      row.gdprConsent,
+      row.consentTimestamp,
+      row.privacyPolicyVersion,
+      row.formLanguage,
+      row.submittedAt,
     ],
   ]
 

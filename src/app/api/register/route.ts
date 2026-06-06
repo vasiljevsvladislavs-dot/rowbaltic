@@ -60,6 +60,7 @@ export async function POST(req: NextRequest) {
   const night1             = getString(formData, 'night1') === 'true'
   const night2             = getString(formData, 'night2') === 'true'
   const consent            = getString(formData, 'consent') === 'true'
+  const gdprConsent        = getString(formData, 'gdprConsent') === 'true'
 
   // ── Files ─────────────────────────────────────────────────────────────────
   const rawFiles = formData.getAll('portfolioFiles') as File[]
@@ -75,6 +76,7 @@ export async function POST(req: NextRequest) {
   if (!socialLink)   errors.push('socialLink is required')
   if (!shirtSize)    errors.push('shirtSize is required')
   if (!consent)      errors.push('consent is required')
+  if (!gdprConsent)  errors.push('GDPR consent is required')
 
   if (!portfolioLink && files.length === 0)
     errors.push('Provide a portfolio link or upload at least one file')
@@ -112,6 +114,8 @@ export async function POST(req: NextRequest) {
 
   // ── Save to Google Sheets ─────────────────────────────────────────────────
   const timestamp = new Date().toISOString()
+  const consentTimestamp = timestamp
+  const privacyPolicyVersion = 'v1.0'
   let sheetsOk = false
   if (!process.env.GOOGLE_SHEETS_ID || !process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL) {
     console.warn('[register] Sheets env vars missing')
@@ -132,7 +136,12 @@ export async function POST(req: NextRequest) {
         fileLinks: attachments.length > 0
           ? `${attachments.length} file(s) attached to admin email`
           : '',
-        consent: consent ? 'Jā' : 'Nē',
+        rulesConsent: consent ? 'Jā' : 'Nē',
+        gdprConsent: gdprConsent ? 'Jā' : 'Nē',
+        consentTimestamp,
+        privacyPolicyVersion,
+        formLanguage: language,
+        submittedAt: timestamp,
       })
       sheetsOk = true
       console.log(`[register] Sheets row appended for ${name}`)
@@ -150,8 +159,9 @@ export async function POST(req: NextRequest) {
       timestamp, language, name, phone, email,
       portfolioLink, socialLink, shirtSize,
       needsAccommodation, night1, night2,
-      fileLinks: [],   // files are now attachments, not Drive links
-      consent,
+      fileLinks: [],
+      consent, gdprConsent,
+      consentTimestamp, privacyPolicyVersion,
     })
     const confirmMail = getParticipantConfirmationEmail(language, {
       name, email,

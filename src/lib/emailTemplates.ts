@@ -21,6 +21,9 @@ export interface AdminData {
   night2: boolean
   fileLinks: string[]
   consent: boolean
+  gdprConsent: boolean
+  consentTimestamp: string
+  privacyPolicyVersion: string
 }
 
 // ─── Participant confirmation ─────────────────────────────────────────────────
@@ -165,7 +168,10 @@ export function getAdminNotificationEmail(
     ['Nakšņošana nepieciešama', data.needsAccommodation ? 'Jā' : 'Nē'],
     ['Nakts 21.→22. aug.', data.night1 ? 'Jā' : 'Nē'],
     ['Nakts 22.→23. aug.', data.night2 ? 'Jā' : 'Nē'],
-    ['Piekrišana', data.consent ? 'Jā' : 'Nē'],
+    ['Piekrišana nolikumam', data.consent ? 'Jā ✓' : 'Nē ✗'],
+    ['GDPR piekrišana', data.gdprConsent ? 'Jā ✓' : 'Nē ✗'],
+    ['Piekrišanas laiks', data.consentTimestamp],
+    ['Privātuma politikas versija', data.privacyPolicyVersion],
   ]
 
   const textRows = fields.map(([k, v]) => `${k}: ${v}`).join('\n')
