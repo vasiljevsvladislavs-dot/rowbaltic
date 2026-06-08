@@ -68,8 +68,8 @@ const ee: Dict = {
     prizes_label: 'Auhinnad',
     prizes: [
       { place: '1.', reward: '100 värvipurki', color: 'text-acid' },
-      { place: '2.', reward: '50 värvipurki', color: 'text-cream/70' },
-      { place: '3.', reward: '25 värvipurki', color: 'text-rust' },
+      { place: '2.', reward: '50 värvipurki', color: 'text-acid' },
+      { place: '3.', reward: '25 värvipurki', color: 'text-acid' },
     ],
     contact_label: 'Kontakt',
     copyright_label: 'Autoriõigus',

@@ -68,8 +68,8 @@ const lv: Dict = {
     prizes_label: 'Balvas',
     prizes: [
       { place: '1.', reward: '100 krāsu baloniņi', color: 'text-acid' },
-      { place: '2.', reward: '50 krāsu baloniņi', color: 'text-cream/70' },
-      { place: '3.', reward: '25 krāsu baloniņi', color: 'text-rust' },
+      { place: '2.', reward: '50 krāsu baloniņi', color: 'text-acid' },
+      { place: '3.', reward: '25 krāsu baloniņi', color: 'text-acid' },
     ],
     contact_label: 'Kontakti',
     copyright_label: 'Autortiesības',

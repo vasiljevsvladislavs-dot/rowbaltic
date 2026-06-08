@@ -68,8 +68,8 @@ const en: Dict = {
     prizes_label: 'Prizes',
     prizes: [
       { place: '1st', reward: '100 paint cans', color: 'text-acid' },
-      { place: '2nd', reward: '50 paint cans', color: 'text-cream/70' },
-      { place: '3rd', reward: '25 paint cans', color: 'text-rust' },
+      { place: '2nd', reward: '50 paint cans', color: 'text-acid' },
+      { place: '3rd', reward: '25 paint cans', color: 'text-acid' },
     ],
     contact_label: 'Contact',
     copyright_label: 'Copyright',

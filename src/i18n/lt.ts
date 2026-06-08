@@ -68,8 +68,8 @@ const lt: Dict = {
     prizes_label: 'Prizai',
     prizes: [
       { place: '1.', reward: '100 dažų balionėlių', color: 'text-acid' },
-      { place: '2.', reward: '50 dažų balionėlių', color: 'text-cream/70' },
-      { place: '3.', reward: '25 dažų balionėliai', color: 'text-rust' },
+      { place: '2.', reward: '50 dažų balionėlių', color: 'text-acid' },
+      { place: '3.', reward: '25 dažų balionėliai', color: 'text-acid' },
     ],
     contact_label: 'Kontaktai',
     copyright_label: 'Autorių teisės',
