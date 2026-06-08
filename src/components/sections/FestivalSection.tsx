@@ -75,11 +75,6 @@ export default function FestivalSection({ dict }: Props) {
         </div>
       </div>
 
-      <MarqueeBar
-        text={f.marquee}
-        className="border-b border-gray-200"
-      />
-
       {/* Photo collage strip */}
       <div className="section-pad px-6 md:px-12 max-w-7xl mx-auto">
         <AnimateIn>
