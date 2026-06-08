@@ -1,6 +1,7 @@
 import type { Dict, Lang } from '@/i18n'
 import { languages } from '@/i18n'
 import Link from 'next/link'
+import MarqueeBar from '@/components/ui/MarqueeBar'
 
 interface Props {
   dict: Dict
@@ -12,6 +13,7 @@ export default function Footer({ dict, lang }: Props) {
 
   return (
     <footer className="bg-white border-t border-gray-200">
+      <MarqueeBar text="ROW BALTICS · RĪGA OPEN WALL · IELU MĀKSLA · 2026 · " className="border-b border-gray-200" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">

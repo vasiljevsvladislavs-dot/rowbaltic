@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import AnimateIn from '@/components/ui/AnimateIn'
+import MarqueeBar from '@/components/ui/MarqueeBar'
 import type { Dict } from '@/i18n'
 
 interface Props {
@@ -10,7 +11,9 @@ export default function CompetitionSection({ dict }: Props) {
   const c = dict.competition
 
   return (
-    <section id="konkurss" className="section-pad bg-white border-t border-gray-200">
+    <section id="konkurss" className="bg-white border-t border-gray-200">
+      <MarqueeBar text="ROW BALTICS · RĪGA OPEN WALL · IELU MĀKSLA · 2026 · " className="border-b border-gray-200" />
+      <div className="section-pad">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header */}
         <AnimateIn>
@@ -44,7 +47,7 @@ export default function CompetitionSection({ dict }: Props) {
               <p className="text-gray-600 leading-relaxed mb-10">{c.p2}</p>
             </AnimateIn>
             <AnimateIn delay={300}>
-              <div className="border border-acid/30 bg-acid/5 p-6">
+              <div className="border border-acid/30 bg-white p-6">
                 <p className="font-mono text-[10px] uppercase tracking-widest text-acid mb-3">{c.theme_label}</p>
                 <p className="font-display text-5xl text-ink-900 mb-3">{dict.hero.theme_word}</p>
                 <p className="text-gray-600 text-sm leading-relaxed">{c.theme_desc}</p>
@@ -137,6 +140,7 @@ export default function CompetitionSection({ dict }: Props) {
             </p>
           </div>
         </AnimateIn>
+      </div>
       </div>
     </section>
   )
