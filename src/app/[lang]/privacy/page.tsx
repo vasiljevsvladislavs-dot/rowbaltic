@@ -191,7 +191,7 @@ export default async function PrivacyPage({ params }: Props) {
   const t = content[lang] ?? content.lv
 
   return (
-    <main className="min-h-screen bg-ink-900 text-cream">
+    <main className="min-h-screen bg-white text-ink-900">
       <div className="max-w-3xl mx-auto px-6 md:px-12 py-16">
         {/* Back link */}
         <Link
@@ -202,22 +202,22 @@ export default async function PrivacyPage({ params }: Props) {
         </Link>
 
         {/* Title */}
-        <h1 className="font-display text-5xl md:text-6xl text-cream mb-4">{t.title}</h1>
-        <p className="font-mono text-xs text-ink-500 mb-12">{t.updated}</p>
+        <h1 className="font-display text-5xl md:text-6xl text-ink-900 mb-4">{t.title}</h1>
+        <p className="font-mono text-xs text-gray-400 mb-12">{t.updated}</p>
 
         {/* Sections */}
         <div className="space-y-10">
           {t.sections.map((section) => (
-            <div key={section.heading} className="border-t border-ink-800 pt-8">
+            <div key={section.heading} className="border-t border-gray-200 pt-8">
               <h2 className="font-display text-xl text-acid mb-3">{section.heading}</h2>
-              <p className="text-ink-300 leading-relaxed text-sm">{section.body}</p>
+              <p className="text-gray-600 leading-relaxed text-sm">{section.body}</p>
             </div>
           ))}
         </div>
 
         {/* Contact footer */}
-        <div className="mt-16 pt-8 border-t border-ink-800">
-          <p className="font-mono text-xs text-ink-500">
+        <div className="mt-16 pt-8 border-t border-gray-200">
+          <p className="font-mono text-xs text-gray-400">
             © 2026 ROW BALTICS ·{' '}
             <a href="mailto:info@rowbaltics.com" className="text-acid hover:underline">
               info@rowbaltics.com

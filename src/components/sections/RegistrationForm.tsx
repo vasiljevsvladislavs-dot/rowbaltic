@@ -60,12 +60,12 @@ export default function RegistrationForm({ dict, lang }: Props) {
 
   if (status === 'success') {
     return (
-      <section id="registracija" className="section-pad bg-ink-900 border-t border-ink-800">
+      <section id="registracija" className="section-pad bg-white border-t border-gray-200">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <div className="border border-acid/30 bg-acid/5 p-16">
             <div className="font-display text-7xl text-acid mb-6">✓</div>
-            <h3 className="font-display text-4xl text-cream mb-4">{r.success_title}</h3>
-            <p className="text-ink-300 font-mono text-sm">{r.success_text}</p>
+            <h3 className="font-display text-4xl text-ink-900 mb-4">{r.success_title}</h3>
+            <p className="text-gray-600 font-mono text-sm">{r.success_text}</p>
             <button
               onClick={() => setStatus('idle')}
               className="mt-8 font-mono text-xs uppercase tracking-widest text-acid border border-acid/40 px-6 py-3 hover:bg-acid hover:text-ink-900 transition-all"
@@ -79,14 +79,14 @@ export default function RegistrationForm({ dict, lang }: Props) {
   }
 
   return (
-    <section id="registracija" className="section-pad bg-ink-900 border-t border-ink-800">
+    <section id="registracija" className="section-pad bg-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header */}
         <AnimateIn>
           <div className="flex items-center gap-4 mb-6">
             <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-acid">{r.num}</span>
             <div className="w-12 h-px bg-acid" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-ink-400">{r.label}</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-gray-500">{r.label}</span>
           </div>
         </AnimateIn>
 
@@ -94,7 +94,7 @@ export default function RegistrationForm({ dict, lang }: Props) {
           {/* Left: intro */}
           <div className="lg:col-span-4">
             <AnimateIn delay={100}>
-              <h2 className="font-display text-[clamp(1.4rem,3vw,3.2rem)] leading-tight text-cream mb-8">
+              <h2 className="font-display text-[clamp(1.4rem,3vw,3.2rem)] leading-tight text-ink-900 mb-8">
                 {r.heading.split(' ').map((word, i, arr) =>
                   i === arr.length - 1
                     ? <span key={i} className="text-acid"> {word}</span>
@@ -103,7 +103,7 @@ export default function RegistrationForm({ dict, lang }: Props) {
               </h2>
             </AnimateIn>
             <AnimateIn delay={200}>
-              <p className="text-ink-300 leading-relaxed mb-8">{r.p1}</p>
+              <p className="text-gray-600 leading-relaxed mb-8">{r.p1}</p>
             </AnimateIn>
           </div>
 
@@ -140,15 +140,15 @@ export default function RegistrationForm({ dict, lang }: Props) {
               </div>
 
               {/* Portfolio upload */}
-              <div className="border border-ink-700 p-5 space-y-3">
+              <div className="border border-gray-200 p-5 space-y-3">
                 <div>
                   <label className="form-label mb-1">{r.f_file}</label>
-                  <p className="font-mono text-[10px] text-ink-500 mb-3">{r.f_file_hint}</p>
+                  <p className="font-mono text-[10px] text-gray-400 mb-3">{r.f_file_hint}</p>
 
                   <button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
-                    className="font-mono text-xs uppercase tracking-widest border border-ink-600 px-5 py-2.5 text-ink-300 hover:border-acid hover:text-acid transition-all duration-200"
+                    className="font-mono text-xs uppercase tracking-widest border border-ink-600 px-5 py-2.5 text-gray-600 hover:border-acid hover:text-acid transition-all duration-200"
                   >
                     {selectedFiles.length > 0
                       ? r.f_file_selected.replace('{n}', String(selectedFiles.length))
@@ -169,8 +169,8 @@ export default function RegistrationForm({ dict, lang }: Props) {
                     <ul className="mt-3 space-y-1">
                       {selectedFiles.map((f, i) => (
                         <li key={i} className="flex items-center justify-between">
-                          <span className="font-mono text-[11px] text-ink-300 truncate max-w-xs">{f.name}</span>
-                          <span className="font-mono text-[10px] text-ink-500 ml-3 shrink-0">
+                          <span className="font-mono text-[11px] text-gray-600 truncate max-w-xs">{f.name}</span>
+                          <span className="font-mono text-[10px] text-gray-400 ml-3 shrink-0">
                             {(f.size / 1024 / 1024).toFixed(1)} MB
                           </span>
                         </li>
@@ -181,8 +181,8 @@ export default function RegistrationForm({ dict, lang }: Props) {
 
                 {/* Portfolio link — alternative */}
                 <div>
-                  <label className="font-mono text-[10px] uppercase tracking-widest text-ink-500 block mb-1.5">
-                    {r.f_portfolio_url} <span className="normal-case text-ink-600">— {r.f_file_or}</span>
+                  <label className="font-mono text-[10px] uppercase tracking-widest text-gray-400 block mb-1.5">
+                    {r.f_portfolio_url} <span className="normal-case text-gray-400">— {r.f_file_or}</span>
                   </label>
                   <input name="portfolioLink" type="url" className="form-input" placeholder="https://..." />
                 </div>
@@ -206,7 +206,7 @@ export default function RegistrationForm({ dict, lang }: Props) {
               </div>
 
               {/* Accommodation toggle */}
-              <div className="border border-ink-700 p-5">
+              <div className="border border-gray-200 p-5">
                 <label className="flex items-start gap-4 cursor-pointer group">
                   <div className="relative mt-0.5 shrink-0">
                     <input
@@ -225,15 +225,15 @@ export default function RegistrationForm({ dict, lang }: Props) {
                     </div>
                   </div>
                   <div>
-                    <p className="font-mono text-xs uppercase tracking-widest text-cream group-hover:text-acid transition-colors">
+                    <p className="font-mono text-xs uppercase tracking-widest text-ink-900 group-hover:text-acid transition-colors">
                       {r.f_accommodation_label}
                     </p>
-                    <p className="text-ink-400 text-xs mt-1">{r.f_accommodation_desc}</p>
+                    <p className="text-gray-500 text-xs mt-1">{r.f_accommodation_desc}</p>
                   </div>
                 </label>
 
                 {needsAccommodation && (
-                  <div className="mt-5 pt-5 border-t border-ink-700 space-y-3">
+                  <div className="mt-5 pt-5 border-t border-gray-200 space-y-3">
                     {/* Night 1 */}
                     <label className="flex items-center gap-3 cursor-pointer group">
                       <div className="relative shrink-0">
@@ -250,7 +250,7 @@ export default function RegistrationForm({ dict, lang }: Props) {
                           </svg>
                         </div>
                       </div>
-                      <span className="font-mono text-xs text-ink-300 group-hover:text-cream transition-colors">
+                      <span className="font-mono text-xs text-gray-600 group-hover:text-ink-900 transition-colors">
                         {r.f_night1}
                       </span>
                     </label>
@@ -271,7 +271,7 @@ export default function RegistrationForm({ dict, lang }: Props) {
                           </svg>
                         </div>
                       </div>
-                      <span className="font-mono text-xs text-ink-300 group-hover:text-cream transition-colors">
+                      <span className="font-mono text-xs text-gray-600 group-hover:text-ink-900 transition-colors">
                         {r.f_night2}
                       </span>
                     </label>
@@ -291,7 +291,7 @@ export default function RegistrationForm({ dict, lang }: Props) {
                       </svg>
                     </div>
                   </div>
-                  <p className="text-ink-400 text-xs leading-relaxed group-hover:text-ink-300 transition-colors">
+                  <p className="text-gray-500 text-xs leading-relaxed group-hover:text-gray-600 transition-colors">
                     {r.f_consent}{' '}
                     <a
                       href={`/${lang}/rules`}
@@ -318,7 +318,7 @@ export default function RegistrationForm({ dict, lang }: Props) {
                       </svg>
                     </div>
                   </div>
-                  <p className="text-ink-400 text-xs leading-relaxed group-hover:text-ink-300 transition-colors">
+                  <p className="text-gray-500 text-xs leading-relaxed group-hover:text-gray-600 transition-colors">
                     {r.f_gdpr}{' '}
                     <a
                       href={`/${lang}/privacy`}
@@ -352,7 +352,7 @@ export default function RegistrationForm({ dict, lang }: Props) {
                 {status === 'loading' ? r.f_submitting : r.f_submit}
               </button>
 
-              <p className="text-ink-600 text-xs font-mono text-center">{r.contact_label}</p>
+              <p className="text-gray-400 text-xs font-mono text-center">{r.contact_label}</p>
             </form>
           </AnimateIn>
         </div>

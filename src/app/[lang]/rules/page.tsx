@@ -387,7 +387,7 @@ export default async function RulesPage({ params }: Props) {
   const t = content[lang] ?? content.lv
 
   return (
-    <main className="min-h-screen bg-ink-900 text-cream">
+    <main className="min-h-screen bg-white text-ink-900">
       <div className="max-w-3xl mx-auto px-6 md:px-12 py-16">
         {/* Back link */}
         <Link
@@ -398,17 +398,17 @@ export default async function RulesPage({ params }: Props) {
         </Link>
 
         {/* Title */}
-        <h1 className="font-display text-5xl md:text-6xl text-cream mb-2">{t.title}</h1>
-        <p className="font-mono text-xs text-ink-500 mb-12">{t.subtitle}</p>
+        <h1 className="font-display text-5xl md:text-6xl text-ink-900 mb-2">{t.title}</h1>
+        <p className="font-mono text-xs text-gray-400 mb-12">{t.subtitle}</p>
 
         {/* Sections */}
         <div className="space-y-10">
           {t.sections.map((section) => (
-            <div key={section.heading} className="border-t border-ink-800 pt-8">
+            <div key={section.heading} className="border-t border-gray-200 pt-8">
               <h2 className="font-display text-xl text-acid mb-4">{section.heading}</h2>
               <ul className="space-y-2">
                 {section.items.map((item, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-ink-300 leading-relaxed">
+                  <li key={i} className="flex gap-3 text-sm text-gray-600 leading-relaxed">
                     <span className="text-acid shrink-0">—</span>
                     <span>{item}</span>
                   </li>
@@ -419,7 +419,7 @@ export default async function RulesPage({ params }: Props) {
         </div>
 
         {/* Prizes */}
-        <div className="mt-12 border-t border-ink-800 pt-8">
+        <div className="mt-12 border-t border-gray-200 pt-8">
           <h2 className="font-display text-xl text-acid mb-6">{t.prizes_title}</h2>
           <div className="space-y-3">
             {t.prizes.map((p) => (
@@ -433,9 +433,9 @@ export default async function RulesPage({ params }: Props) {
         </div>
 
         {/* Contact */}
-        <div className="mt-12 pt-8 border-t border-ink-800">
+        <div className="mt-12 pt-8 border-t border-gray-200">
           <h2 className="font-display text-xl text-acid mb-3">{t.contact_title}</h2>
-          <p className="text-ink-300 text-sm">
+          <p className="text-gray-600 text-sm">
             {t.contact_body.split('info@rowbaltics.com')[0]}
             <a href="mailto:info@rowbaltics.com" className="text-acid hover:underline">
               info@rowbaltics.com
@@ -444,8 +444,8 @@ export default async function RulesPage({ params }: Props) {
         </div>
 
         {/* Footer */}
-        <div className="mt-16 pt-8 border-t border-ink-800">
-          <p className="font-mono text-xs text-ink-500">
+        <div className="mt-16 pt-8 border-t border-gray-200">
+          <p className="font-mono text-xs text-gray-400">
             © 2026 ROW BALTICS ·{' '}
             <Link href={`/${lang}/privacy`} className="text-acid hover:underline">
               {lang === 'lv' ? 'Privātuma politika' : lang === 'lt' ? 'Privatumo politika' : lang === 'ee' ? 'Privaatsuspoliitika' : 'Privacy Policy'}

@@ -147,7 +147,7 @@ export default function HeroSection({ dict, lang }: Props) {
             <div className="w-px h-8 bg-ink-700" />
             <div>
               <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-0.5">{h.organize_label}</p>
-              <p className="font-mono text-xs text-ink-200">{h.organize_value}</p>
+              <p className="font-mono text-xs text-gray-700">{h.organize_value}</p>
             </div>
           </div>
         </div>
