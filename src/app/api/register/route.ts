@@ -31,6 +31,13 @@ function getString(fd: FormData, key: string): string {
   return (fd.get(key) as string | null)?.trim() ?? ''
 }
 
+const portfolioRequiredMsg: Record<Lang, string> = {
+  lv: 'Lūdzu, pievienojiet vismaz vienu no: portfolio faili, portfolio saite vai Instagram/Facebook saite',
+  en: 'Please provide at least one of: portfolio files, portfolio link, or Instagram/Facebook link',
+  lt: 'Prašome pateikti bent vieną iš: portfolio failai, portfolio nuoroda arba Instagram/Facebook nuoroda',
+  ee: 'Palun esitage vähemalt üks järgmistest: portfoolio failid, portfoolio link või Instagram/Facebooki link',
+}
+
 export async function POST(req: NextRequest) {
   // ── Parse FormData ────────────────────────────────────────────────────────
   let formData: FormData
@@ -78,7 +85,7 @@ export async function POST(req: NextRequest) {
   if (!gdprConsent)  errors.push('GDPR consent is required')
 
   if (!portfolioLink && !socialLink && files.length === 0)
-    errors.push('Provide at least one: portfolio files, portfolio link, or social link')
+    errors.push(portfolioRequiredMsg[language])
 
   if (files.length > MAX_FILES)
     errors.push(`Maximum ${MAX_FILES} files allowed`)
