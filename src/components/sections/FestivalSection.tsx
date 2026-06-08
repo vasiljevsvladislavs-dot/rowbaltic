@@ -24,12 +24,7 @@ export default function FestivalSection({ dict }: Props) {
   return (
     <section id="row-baltic-2026" className="bg-white border-t border-gray-200">
       {/* Big theme banner */}
-      <div className="bg-gray-50 border-y border-gray-200 py-16 md:py-24 px-6 md:px-12 overflow-hidden relative">
-        <div className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: 'radial-gradient(circle at 20% 50%, #ff4400 0%, transparent 50%), radial-gradient(circle at 80% 50%, #c8ff00 0%, transparent 50%)',
-          }}
-        />
+      <div className="bg-white border-y border-gray-200 py-16 md:py-24 px-6 md:px-12 overflow-hidden relative">
         <div className="max-w-7xl mx-auto relative z-10">
           <AnimateIn>
             <div className="flex items-center gap-4 mb-8">
