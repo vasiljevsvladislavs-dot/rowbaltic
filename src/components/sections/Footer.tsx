@@ -1,4 +1,3 @@
-import MarqueeBar from '@/components/ui/MarqueeBar'
 import type { Dict, Lang } from '@/i18n'
 import { languages } from '@/i18n'
 import Link from 'next/link'
@@ -13,10 +12,6 @@ export default function Footer({ dict, lang }: Props) {
 
   return (
     <footer className="bg-white border-t border-gray-200">
-      <MarqueeBar
-        text="ROW BALTICS ✦ RIGA OPEN WALL ✦ IELU MĀKSLA ✦ 2026 ✦"
-        className="opacity-40"
-      />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
