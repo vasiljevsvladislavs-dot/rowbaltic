@@ -35,7 +35,7 @@ export default function HeroSection({ dict, lang }: Props) {
       {/* Right side visual — fills entire right portion */}
       <div
         className="absolute right-0 top-0 bottom-0 hidden lg:block w-[59%] pointer-events-none select-none"
-        style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '59%' }}
+        style={{ position: 'absolute', right: -10, top: 0, bottom: 0, width: '59%' }}
       >
         <Image
           src="/ROW26-modular_HH.webp"

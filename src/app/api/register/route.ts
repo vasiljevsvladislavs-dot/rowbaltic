@@ -73,13 +73,12 @@ export async function POST(req: NextRequest) {
   if (!phone)        errors.push('phone is required')
   if (!email)        errors.push('email is required')
   else if (!isValidEmail(email)) errors.push('invalid email format')
-  if (!socialLink)   errors.push('socialLink is required')
   if (!shirtSize)    errors.push('shirtSize is required')
   if (!consent)      errors.push('consent is required')
   if (!gdprConsent)  errors.push('GDPR consent is required')
 
-  if (!portfolioLink && files.length === 0)
-    errors.push('Provide a portfolio link or upload at least one file')
+  if (!portfolioLink && !socialLink && files.length === 0)
+    errors.push('Provide at least one: portfolio files, portfolio link, or social link')
 
   if (files.length > MAX_FILES)
     errors.push(`Maximum ${MAX_FILES} files allowed`)

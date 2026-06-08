@@ -139,12 +139,16 @@ export default function RegistrationForm({ dict, lang }: Props) {
                 <input name="email" type="email" required className="form-input" placeholder={r.f_email_ph} />
               </div>
 
-              {/* Portfolio upload */}
-              <div className="border border-gray-200 p-5 space-y-3">
-                <div>
+              {/* Portfolio + Social — one of three required */}
+              <div className="border border-gray-200">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-gray-400 px-5 pt-4 pb-3">
+                  Portfolio <span className="normal-case text-gray-300">— {r.f_file_or}</span>
+                </p>
+
+                {/* Section 1: File upload */}
+                <div className="px-5 pb-5 border-t border-gray-100 pt-4">
                   <label className="form-label mb-1">{r.f_file}</label>
                   <p className="font-mono text-[10px] text-gray-400 mb-3">{r.f_file_hint}</p>
-
                   <button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
@@ -154,7 +158,6 @@ export default function RegistrationForm({ dict, lang }: Props) {
                       ? r.f_file_selected.replace('{n}', String(selectedFiles.length))
                       : r.f_file}
                   </button>
-
                   <input
                     ref={fileInputRef}
                     type="file"
@@ -163,8 +166,6 @@ export default function RegistrationForm({ dict, lang }: Props) {
                     onChange={handleFileChange}
                     className="hidden"
                   />
-
-                  {/* File list */}
                   {selectedFiles.length > 0 && (
                     <ul className="mt-3 space-y-1">
                       {selectedFiles.map((f, i) => (
@@ -179,19 +180,21 @@ export default function RegistrationForm({ dict, lang }: Props) {
                   )}
                 </div>
 
-                {/* Portfolio link — alternative */}
-                <div>
-                  <label className="font-mono text-[10px] uppercase tracking-widest text-gray-400 block mb-1.5">
-                    {r.f_portfolio_url} <span className="normal-case text-gray-400">— {r.f_file_or}</span>
+                {/* Section 2: Portfolio link */}
+                <div className="px-5 pb-5 border-t border-gray-200 pt-4">
+                  <label className="font-mono text-[10px] uppercase tracking-widest text-gray-500 block mb-1.5">
+                    {r.f_portfolio_url}
                   </label>
                   <input name="portfolioLink" type="url" className="form-input" placeholder="https://..." />
                 </div>
-              </div>
 
-              {/* Social link */}
-              <div>
-                <label className="form-label">{r.f_social_url} *</label>
-                <input name="socialLink" type="url" required className="form-input" placeholder="https://instagram.com/..." />
+                {/* Section 3: Instagram / Facebook */}
+                <div className="px-5 pb-5 border-t border-gray-200 pt-4">
+                  <label className="font-mono text-[10px] uppercase tracking-widest text-gray-500 block mb-1.5">
+                    {r.f_social_url}
+                  </label>
+                  <input name="socialLink" type="url" className="form-input" placeholder="https://instagram.com/..." />
+                </div>
               </div>
 
               {/* Shirt size */}
