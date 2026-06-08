@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import MarqueeBar from '@/components/ui/MarqueeBar'
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 import type { Dict, Lang } from '@/i18n'
 
@@ -138,22 +137,20 @@ export default function HeroSection({ dict, lang }: Props) {
           loaded ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="bg-ink-900 border-t border-ink-700 px-6 md:px-12 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div className="bg-white border-t border-gray-200 px-6 md:px-12 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <div className="flex items-center gap-6">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-0.5">{h.vieta_label}</p>
-              <p className="font-mono text-xs text-cream">{h.vieta_value}</p>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">{h.vieta_label}</p>
+              <p className="font-mono text-xs text-ink-900">{h.vieta_value}</p>
             </div>
-            <div className="w-px h-8 bg-ink-700" />
+            <div className="w-px h-8 bg-gray-200" />
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-0.5">{h.organize_label}</p>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">{h.organize_label}</p>
               <p className="font-mono text-xs text-gray-700">{h.organize_value}</p>
             </div>
           </div>
         </div>
       </div>
-
-      <MarqueeBar text={h.marquee} className="relative z-10" />
     </section>
   )
 }
