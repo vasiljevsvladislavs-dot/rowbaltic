@@ -151,7 +151,7 @@ export default function HeroSection({ dict, lang }: Props) {
             <div className="w-px h-8 bg-gray-200 self-center hidden md:block" />
             <div className="hidden md:block max-w-sm">
               <p className="font-mono text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">{h.atbalsta_label}</p>
-              <p className="font-mono text-[10px] text-gray-500 leading-relaxed">{h.atbalsta_value}</p>
+              <p className="font-mono text-xs text-gray-500">{h.atbalsta_value}</p>
             </div>
           </div>
         </div>
