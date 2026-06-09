@@ -185,7 +185,7 @@ export default function RegistrationForm({ dict, lang }: Props) {
                   <label className="font-mono text-[10px] uppercase tracking-widest text-gray-500 block mb-1.5">
                     {r.f_portfolio_url}
                   </label>
-                  <input name="portfolioLink" type="url" className="form-input" placeholder="https://..." />
+                  <input name="portfolioLink" type="text" className="form-input" placeholder="https://..." />
                 </div>
 
                 {/* Section 3: Instagram / Facebook */}
@@ -193,7 +193,7 @@ export default function RegistrationForm({ dict, lang }: Props) {
                   <label className="font-mono text-[10px] uppercase tracking-widest text-gray-500 block mb-1.5">
                     {r.f_social_url}
                   </label>
-                  <input name="socialLink" type="url" className="form-input" placeholder="https://instagram.com/..." />
+                  <input name="socialLink" type="text" className="form-input" placeholder="https://instagram.com/..." />
                 </div>
               </div>
 
