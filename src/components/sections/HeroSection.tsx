@@ -138,20 +138,20 @@ export default function HeroSection({ dict, lang }: Props) {
         }`}
       >
         <div className="bg-white border-t border-gray-200 px-6 md:px-12 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-          <div className="flex items-start gap-6 flex-wrap">
-            <div>
+          <div className="flex items-start gap-6 flex-nowrap overflow-hidden">
+            <div className="shrink-0">
               <p className="font-mono text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">{h.vieta_label}</p>
-              <p className="font-mono text-xs text-ink-900">{h.vieta_value}</p>
+              <p className="font-mono text-xs text-ink-900 whitespace-nowrap">{h.vieta_value}</p>
             </div>
-            <div className="w-px h-8 bg-gray-200 self-center" />
-            <div>
+            <div className="w-px h-8 bg-gray-200 self-center shrink-0" />
+            <div className="shrink-0">
               <p className="font-mono text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">{h.organize_label}</p>
-              <p className="font-mono text-xs text-gray-700">{h.organize_value}</p>
+              <p className="font-mono text-xs text-gray-700 whitespace-nowrap">{h.organize_value}</p>
             </div>
-            <div className="w-px h-8 bg-gray-200 self-center hidden md:block" />
-            <div className="hidden md:block max-w-sm">
+            <div className="w-px h-8 bg-gray-200 self-center shrink-0 hidden md:block" />
+            <div className="hidden md:block min-w-0">
               <p className="font-mono text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">{h.atbalsta_label}</p>
-              <p className="font-mono text-xs text-gray-500">{h.atbalsta_value}</p>
+              <p className="font-mono text-xs text-gray-500 whitespace-nowrap overflow-hidden text-ellipsis">{h.atbalsta_value}</p>
             </div>
           </div>
         </div>
