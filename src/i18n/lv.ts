@@ -22,6 +22,8 @@ const lv: Dict = {
     deadline_value: 'līdz 28. jūnijam',
     organize_label: 'Organizē:',
     organize_value: 'Dainis Rudens · ansis · Mākslas birojs',
+    atbalsta_label: 'Atbalsta:',
+    atbalsta_value: 'ROW BALTICS 2026 norisinās Rīgas Ielu mākslas mēneša ietvaros, un to atbalsta Rīgas valstspilsētas pašvaldība.',
     register_cta: 'Pieteikties zīmēšanas konkursam',
     marquee: 'ROW BALTICS 2026 ✦ IELU MĀKSLA ✦ CĪŅA ✦ RĪGA ✦ SARKANDAUGAVA ✦',
   },

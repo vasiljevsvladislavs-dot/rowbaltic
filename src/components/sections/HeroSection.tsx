@@ -138,15 +138,20 @@ export default function HeroSection({ dict, lang }: Props) {
         }`}
       >
         <div className="bg-white border-t border-gray-200 px-6 md:px-12 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-          <div className="flex items-center gap-6">
+          <div className="flex items-start gap-6 flex-wrap">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">{h.vieta_label}</p>
               <p className="font-mono text-xs text-ink-900">{h.vieta_value}</p>
             </div>
-            <div className="w-px h-8 bg-gray-200" />
+            <div className="w-px h-8 bg-gray-200 self-center" />
             <div>
               <p className="font-mono text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">{h.organize_label}</p>
               <p className="font-mono text-xs text-gray-700">{h.organize_value}</p>
+            </div>
+            <div className="w-px h-8 bg-gray-200 self-center hidden md:block" />
+            <div className="hidden md:block max-w-sm">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">{h.atbalsta_label}</p>
+              <p className="font-mono text-[10px] text-gray-500 leading-relaxed">{h.atbalsta_value}</p>
             </div>
           </div>
         </div>

@@ -22,6 +22,8 @@ const ee: Dict = {
     deadline_value: 'kuni 28. juunini',
     organize_label: 'Korraldab:',
     organize_value: 'Dainis Rudens · ansis · Mākslas birojs',
+    atbalsta_label: 'Toetab:',
+    atbalsta_value: 'ROW BALTICS 2026 toimub Riia tänavakunsti kuu raames, mida toetab Riia linn.',
     register_cta: 'Registreeru joonistuskonkursile',
     marquee: 'ROW BALTICS 2026 ✦ TÄNAVAKUNST ✦ LAHING ✦ RIIA ✦ SARKANDAUGAVA ✦',
   },

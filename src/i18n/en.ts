@@ -22,6 +22,8 @@ const en: Dict = {
     deadline_value: 'until June 28',
     organize_label: 'Organised by:',
     organize_value: 'Dainis Rudens · ansis · Mākslas birojs',
+    atbalsta_label: 'Supported by:',
+    atbalsta_value: 'ROW BALTICS 2026 takes place within Riga Street Art Month, supported by Riga City Council.',
     register_cta: 'Apply for the Drawing Competition',
     marquee: 'ROW BALTICS 2026 ✦ STREET ART ✦ BATTLE ✦ RIGA ✦ SARKANDAUGAVA ✦',
   },

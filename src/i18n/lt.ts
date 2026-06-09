@@ -22,6 +22,8 @@ const lt: Dict = {
     deadline_value: 'iki birželio 28 d.',
     organize_label: 'Organizuoja:',
     organize_value: 'Dainis Rudens · ansis · Mākslas birojs',
+    atbalsta_label: 'Remia:',
+    atbalsta_value: 'ROW BALTICS 2026 vyksta Rygos gatvių meno mėnesio rėmuose, kurį remia Rygos miesto savivaldybė.',
     register_cta: 'Registruotis piešimo konkursui',
     marquee: 'ROW BALTICS 2026 ✦ GATVĖS MENAS ✦ KOVA ✦ RYGA ✦ SARKANDAUGAVA ✦',
   },

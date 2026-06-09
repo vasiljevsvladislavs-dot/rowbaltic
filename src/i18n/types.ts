@@ -22,6 +22,8 @@ export interface Dict {
     deadline_value: string
     organize_label: string
     organize_value: string
+    atbalsta_label: string
+    atbalsta_value: string
     register_cta: string
     marquee: string
   }
