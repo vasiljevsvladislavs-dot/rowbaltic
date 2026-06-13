@@ -98,7 +98,7 @@ const lt: Dict = {
     f_portfolio_url: 'Portfolio nuoroda',
     f_social_url: 'Instagram / Facebook nuoroda',
     f_file: 'Portfolio failai (PDF, JPG, PNG, WEBP, ZIP)',
-    f_file_hint: 'Maks. 5 failai · 25 MB kiekvienas',
+    f_file_hint: 'Maks. 5 failai · iš viso iki 4 MB',
     f_file_selected: 'Pasirinkta {n} failas(-ai)',
     f_file_or: 'arba įveskite nuorodą žemiau',
     f_wall_size: 'Pageidaujamas sienos dydis',
@@ -121,6 +121,7 @@ const lt: Dict = {
     success_btn: 'Pateikti dar vieną paraišką',
     contact_label: 'Klausimai: info@rowbaltics.com',
     error_label: 'Prašome užpildyti visus privalomus laukus.',
+    error_size: 'Failai per dideli. Prašome naudoti portfolio nuorodą.',
   },
   footer: {
     tagline: 'Riga Open Wall — gatvės meno festivalis, paverčiantis miesto aplinką atvira meno galerija.',

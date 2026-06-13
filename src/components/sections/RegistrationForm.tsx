@@ -32,6 +32,14 @@ export default function RegistrationForm({ dict, lang }: Props) {
     setStatus('loading')
     setErrorMsg('')
 
+    // Check total file size before uploading (Vercel limit ~4MB)
+    const totalSize = selectedFiles.reduce((acc, f) => acc + f.size, 0)
+    if (totalSize > 4 * 1024 * 1024) {
+      setStatus('error')
+      setErrorMsg(r.error_size)
+      return
+    }
+
     const form = e.currentTarget
     const fd = new FormData(form)
 
@@ -46,8 +54,19 @@ export default function RegistrationForm({ dict, lang }: Props) {
 
     try {
       const res = await fetch('/api/register', { method: 'POST', body: fd })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.message || r.error_label)
+
+      let data: { message?: string } = {}
+      try {
+        data = await res.json()
+      } catch {
+        // non-JSON response (e.g. 413 from Vercel)
+      }
+
+      if (!res.ok) {
+        if (res.status === 413) throw new Error(r.error_size || 'Faili ir pārāk lieli. Lūdzu, izmantojiet saiti uz portfolio.')
+        throw new Error(data.message || r.error_label)
+      }
+
       setStatus('success')
       form.reset()
       setNeedsAccommodation(false)

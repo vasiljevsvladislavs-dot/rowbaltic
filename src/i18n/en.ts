@@ -98,7 +98,7 @@ const en: Dict = {
     f_portfolio_url: 'Portfolio link',
     f_social_url: 'Instagram / Facebook link',
     f_file: 'Portfolio files (PDF, JPG, PNG, WEBP, ZIP)',
-    f_file_hint: 'Max 5 files · 25 MB each',
+    f_file_hint: 'Max 5 files · 4 MB total',
     f_file_selected: '{n} file(s) selected',
     f_file_or: 'or enter a link below',
     f_wall_size: 'Preferred wall size',
@@ -121,6 +121,7 @@ const en: Dict = {
     success_btn: 'Submit another application',
     contact_label: 'Questions: info@rowbaltics.com',
     error_label: 'Please fill in all required fields.',
+    error_size: 'Files are too large. Please use a portfolio link instead.',
   },
   footer: {
     tagline: 'Riga Open Wall — a street art festival that transforms the urban environment into an open art gallery.',

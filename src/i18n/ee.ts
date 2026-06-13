@@ -98,7 +98,7 @@ const ee: Dict = {
     f_portfolio_url: 'Portfolio link',
     f_social_url: 'Instagram / Facebook link',
     f_file: 'Portfolio failid (PDF, JPG, PNG, WEBP, ZIP)',
-    f_file_hint: 'Maks. 5 faili · 25 MB kumbki',
+    f_file_hint: 'Maks. 5 faili · kokku kuni 4 MB',
     f_file_selected: 'Valitud {n} fail(i)',
     f_file_or: 'või sisestage link allpool',
     f_wall_size: 'Eelistatud seina suurus',
@@ -121,6 +121,7 @@ const ee: Dict = {
     success_btn: 'Esita veel üks avaldus',
     contact_label: 'Küsimused: info@rowbaltics.com',
     error_label: 'Palun täitke kõik kohustuslikud väljad.',
+    error_size: 'Failid on liiga suured. Palun kasutage portfoolio linki.',
   },
   footer: {
     tagline: 'Riga Open Wall — tänavakunsti festival, mis muudab linnakeskkonna avatud kunstigaleriiks.',
