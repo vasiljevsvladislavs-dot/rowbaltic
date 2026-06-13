@@ -121,6 +121,7 @@ export interface Dict {
     success_btn: string
     contact_label: string
     error_label: string
+    error_size: string
   }
   footer: {
     tagline: string
