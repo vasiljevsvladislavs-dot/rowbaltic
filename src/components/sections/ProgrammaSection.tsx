@@ -237,21 +237,31 @@ export default function ProgrammaSection({ dict }: Props) {
         {/* Stage programme */}
         <AnimateIn>
           <div className="mt-16 pt-12 border-t border-gray-200">
-            <div className="flex items-center gap-4 mb-8">
-              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-rust">{p.stage_time}</span>
-              <div className="w-8 h-px bg-rust" />
+            <div className="flex items-center gap-4 mb-6">
+              <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-rust">{p.stage_time}</span>
+              <div className="w-12 h-px bg-rust" />
               <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-gray-500">{p.stage_label}</span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-1">
-              {STAGE_ITEMS.map((item, i) => (
-                <div key={i} className="flex gap-4 py-2 border-b border-gray-100">
-                  <span className="font-mono text-[10px] text-gray-400 w-28 shrink-0 pt-0.5">{item.time}</span>
-                  <span className="font-mono text-xs text-ink-900">{item.title}</span>
-                </div>
-              ))}
-            </div>
+            <h2 className="font-display text-[clamp(2.5rem,8vw,6rem)] leading-none text-ink-900 mb-12">
+              {p.stage_label.toUpperCase()}
+            </h2>
           </div>
         </AnimateIn>
+
+        <div className="space-y-0 divide-y divide-gray-100">
+          {STAGE_ITEMS.map((item, i) => (
+            <AnimateIn key={i} delay={i * 30}>
+              <div className="py-5 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+                <div className="md:col-span-3">
+                  <span className="font-mono text-xs text-acid">{item.time}</span>
+                </div>
+                <div className="md:col-span-9">
+                  <p className="font-mono text-sm text-ink-900">{item.title}</p>
+                </div>
+              </div>
+            </AnimateIn>
+          ))}
+        </div>
 
         {/* Accessibility */}
         <AnimateIn>
