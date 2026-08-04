@@ -3,8 +3,9 @@ import { getDictionary } from '@/i18n'
 import HeroSection from '@/components/sections/HeroSection'
 import AboutFestival from '@/components/sections/AboutFestival'
 import FestivalSection from '@/components/sections/FestivalSection'
+import ProgrammaSection from '@/components/sections/ProgrammaSection'
 import CompetitionSection from '@/components/sections/CompetitionSection'
-import RegistrationForm from '@/components/sections/RegistrationForm'
+import PrevFestivalsSection from '@/components/sections/PrevFestivalsSection'
 import Footer from '@/components/sections/Footer'
 
 export default async function LangPage({
@@ -19,10 +20,11 @@ export default async function LangPage({
   return (
     <main>
       <HeroSection dict={dict} lang={lang} />
-      <CompetitionSection dict={dict} />
-      <RegistrationForm dict={dict} lang={lang} />
       <AboutFestival dict={dict} />
       <FestivalSection dict={dict} />
+      <ProgrammaSection dict={dict} />
+      <CompetitionSection dict={dict} />
+      <PrevFestivalsSection dict={dict} />
       <Footer dict={dict} lang={lang} />
     </main>
   )

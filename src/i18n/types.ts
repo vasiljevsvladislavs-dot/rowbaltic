@@ -77,6 +77,54 @@ export interface Dict {
     copyright_label: string
     copyright_text: string
   }
+  programma: {
+    num: string
+    label: string
+    heading: string
+    art_time: string
+    art_title: string
+    art_desc: string
+    workshops_time: string
+    workshops_title: string
+    art_tent_label: string
+    collab_wall_time: string
+    collab_wall_title: string
+    portraits_time: string
+    portraits_title: string
+    portraits_desc: string
+    stencil_time: string
+    stencil_title: string
+    stencil_desc: string
+    letters_time: string
+    letters_title: string
+    letters_desc: string
+    music_tent_label: string
+    beat_kitchen_time: string
+    beat_kitchen_title: string
+    beat_kitchen_desc: string
+    brewery_time: string
+    brewery_title: string
+    brewery_desc: string
+    bmx_time: string
+    bmx_title: string
+    tour_time: string
+    tour_title: string
+    tour_desc: string
+    beatbattle_time: string
+    beatbattle_title: string
+    beatbattle_desc: string
+    breakdance_time: string
+    breakdance_title: string
+    awards_time: string
+    awards_title: string
+    awards_cat1: string
+    awards_cat2: string
+    awards_cat3: string
+    awards_cat4: string
+    stage_label: string
+    stage_time: string
+    accessibility: string
+  }
   registration: {
     num: string
     label: string

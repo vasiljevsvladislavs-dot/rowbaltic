@@ -105,7 +105,7 @@ export default function HeroSection({ dict, lang }: Props) {
               {h.tag}
             </div>
             <a
-              href="#registracija"
+              href="#programma"
               className="w-fit block font-mono font-bold text-[10px] uppercase tracking-widest bg-acid text-ink-900 hover:bg-acid-dark transition-all duration-300 px-5 py-2.5"
             >
               {h.register_cta}
