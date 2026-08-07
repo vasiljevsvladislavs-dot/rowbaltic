@@ -28,22 +28,22 @@ const BREAKDANCE_ITEMS = [
 const STAGE_ITEMS = [
   { time: '10:00–10:30', title: 'ROW BALTICS 2026 atklāšana' },
   { time: '10:30–11:30', title: 'DJ Suns & DJ Kaķis' },
-  { time: '11:30–12:00', title: 'March' },
+  { time: '11:30–12:00', title: 'Rīta kafija ar Wiesturz' },
   { time: '12:00–12:30', title: 'Ūga' },
-  { time: '12:30–13:00', title: 'Wiesturz' },
+  { time: '12:30–13:00', title: 'March' },
   { time: '13:00–13:30', title: 'goča' },
-  { time: '13:30–14:00', title: 'f6lex' },
-  { time: '14:00–15:00', title: "ansis & DEFSET: ROW BEATBATTLE '26 R1" },
-  { time: '15:00–15:30', title: 'VIŅA' },
-  { time: '15:30–16:00', title: "ansis & DEFSET: ROW BEATBATTLE '26 R2" },
-  { time: '16:00–16:30', title: 'Rokas (LT)' },
-  { time: '16:30–17:00', title: "ansis & DEFSET: ROW BEATBATTLE '26 R3" },
+  { time: '13:30–14:00', title: 'VIŅA' },
+  { time: '14:00–15:00', title: "ansis & DEFSET piedāvā: ROW BEATBATTLE '26 ROUND 1" },
+  { time: '15:00–15:30', title: 'Rokas (LT)' },
+  { time: '15:30–16:00', title: "ansis & DEFSET piedāvā: ROW BEATBATTLE '26 ROUND 2" },
+  { time: '16:00–16:30', title: 'f6lex' },
+  { time: '16:30–17:00', title: "ansis & DEFSET piedāvā: ROW BEATBATTLE '26 ROUND 3" },
   { time: '17:00–17:30', title: 'Breika sacensību fināls' },
   { time: '17:30–18:00', title: 'xantikvariāts' },
-  { time: '18:00–19:00', title: 'ROW BALTICS 2026 apbalvošana' },
-  { time: '19:00–19:40', title: 'slepenais viesis 1' },
-  { time: '20:15–20:45', title: 'slepenais viesis 2' },
-  { time: '21:45–22:00', title: 'BASECK (ASV) x KODEK' },
+  { time: '18:00–18:40', title: 'ROW BALTICS 2026 apbalvošana', desc: 'Ielu māksla · bītu cīņas · BMX un skeitbords · breakdance' },
+  { time: '19:00–19:40', title: 'Roberts Gobziņš x NiklāvZ' },
+  { time: '20:00–20:30', title: 'slepenais viesis' },
+  { time: '20:30–22:00', title: 'BASECK (ASV) x KODEK' },
 ]
 
 export default function ProgrammaSection({ dict }: Props) {
@@ -257,6 +257,7 @@ export default function ProgrammaSection({ dict }: Props) {
                 </div>
                 <div className="md:col-span-9">
                   <p className="font-mono text-sm text-ink-900">{item.title}</p>
+                  {item.desc && <p className="font-mono text-[10px] uppercase tracking-widest text-gray-400 mt-1">{item.desc}</p>}
                 </div>
               </div>
             </AnimateIn>
