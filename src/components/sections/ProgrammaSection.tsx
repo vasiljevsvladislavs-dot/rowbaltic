@@ -40,10 +40,10 @@ const STAGE_ITEMS = [
   { time: '16:30–17:00', title: "ansis & DEFSET piedāvā: ROW BEATBATTLE '26 ROUND 3" },
   { time: '17:00–17:30', title: 'Breika sacensību fināls' },
   { time: '17:30–18:00', title: 'xantikvariāts' },
-  { time: '18:00–18:40', title: 'ROW BALTICS 2026 apbalvošana', desc: 'Ielu māksla · bītu cīņas · BMX un skeitbords · breakdance' },
+  { time: '18:00–19:00', title: 'ROW BALTICS 2026 apbalvošana', desc: 'Ielu māksla · bītu cīņas · BMX un skeitbords · breakdance' },
   { time: '19:00–19:40', title: 'Roberts Gobziņš x NiklāvZ' },
-  { time: '20:00–20:30', title: 'slepenais viesis' },
-  { time: '20:30–22:00', title: 'BASECK (ASV) x KODEK' },
+  { time: '20:15–20:45', title: 'slepenais viesis' },
+  { time: '21:00–22:00', title: 'BASECK (ASV) x KODEK' },
 ]
 
 export default function ProgrammaSection({ dict }: Props) {
