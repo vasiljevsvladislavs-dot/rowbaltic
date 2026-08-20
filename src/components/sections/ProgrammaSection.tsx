@@ -264,11 +264,43 @@ export default function ProgrammaSection({ dict }: Props) {
           ))}
         </div>
 
-        {/* Accessibility */}
+        {/* Accessibility & Transport */}
         <AnimateIn>
-          <p className="mt-12 font-mono text-[10px] uppercase tracking-widest text-gray-400 leading-relaxed max-w-2xl">
-            {p.accessibility}
-          </p>
+          <div className="mt-16 pt-12 border-t border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-rust mb-4">Nokļūšana</p>
+              <div className="space-y-2">
+                {[
+                  { stop: 'Aldaris · 3 min', lines: 'Bus 49 · Tramvajs 5, 8' },
+                  { stop: 'Dauderi · 2 min', lines: 'Vilciens Rīga–Skulte' },
+                  { stop: 'Viestura pr. · 10 min', lines: 'Bus 2, 11, 24, 58' },
+                ].map((t, i) => (
+                  <div key={i} className="flex gap-4">
+                    <span className="font-mono text-[10px] text-acid w-36 shrink-0">{t.stop}</span>
+                    <span className="font-mono text-[10px] text-gray-500">{t.lines}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-rust mb-4">Piekļūstamība</p>
+              <ul className="space-y-1.5">
+                {[
+                  'Teritorija piekļūstama ratiņkrēslā',
+                  'Platforma ar pandusu pie galvenās skatuves',
+                  'Pielāgotas labierīcības',
+                  'Titri latviešu valodā uz ekrāna visas dienas garumā',
+                  'Zīmju valodas tulks: ekskursija 13:00, darbnīca 15:00, slepenais viesis 20:15',
+                  'Suņi-asistenti atļauti',
+                ].map((item, i) => (
+                  <li key={i} className="font-mono text-[10px] text-gray-600 flex gap-2">
+                    <span className="text-rust shrink-0">—</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </AnimateIn>
       </div>
     </section>
