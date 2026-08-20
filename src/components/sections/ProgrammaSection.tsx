@@ -271,20 +271,20 @@ export default function ProgrammaSection({ dict }: Props) {
               <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-rust mb-4">Nokļūšana</p>
               <div className="space-y-2">
                 {[
-                  { stop: 'Aldaris · 3 min', lines: 'Bus 49 · Tramvajs 5, 8' },
-                  { stop: 'Dauderi · 2 min', lines: 'Vilciens Rīga–Skulte' },
-                  { stop: 'Viestura pr. · 10 min', lines: 'Bus 2, 11, 24, 58' },
+                  { stop: 'Aldaris · 3 min', lines: 'ar autobusu nr. 49 · tramvaju nr. 5, 8' },
+                  { stop: 'Dauderi · 2 min', lines: 'ar vilcienu Rīga–Skulte' },
+                  { stop: 'Viestura pr. · 10 min', lines: 'ar autobusu nr. 2, 11, 24, 58' },
                 ].map((t, i) => (
-                  <div key={i} className="flex gap-4">
-                    <span className="font-mono text-[10px] text-acid w-36 shrink-0">{t.stop}</span>
-                    <span className="font-mono text-[10px] text-gray-500">{t.lines}</span>
+                  <div key={i} className="py-3 border-b border-gray-100">
+                    <span className="font-mono text-sm font-bold text-ink-900 block">{t.stop}</span>
+                    <span className="font-mono text-xs text-gray-500">{t.lines}</span>
                   </div>
                 ))}
               </div>
             </div>
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-rust mb-4">Piekļūstamība</p>
-              <ul className="space-y-1.5">
+              <ul className="space-y-0 divide-y divide-gray-100">
                 {[
                   'Teritorija piekļūstama ratiņkrēslā',
                   'Platforma ar pandusu pie galvenās skatuves',
@@ -293,7 +293,7 @@ export default function ProgrammaSection({ dict }: Props) {
                   'Zīmju valodas tulks: ekskursija 13:00, darbnīca 15:00, slepenais viesis 20:15',
                   'Suņi-asistenti atļauti',
                 ].map((item, i) => (
-                  <li key={i} className="font-mono text-[10px] text-gray-600 flex gap-2">
+                  <li key={i} className="font-mono text-sm text-ink-900 py-3 flex gap-3">
                     <span className="text-rust shrink-0">—</span>
                     {item}
                   </li>
