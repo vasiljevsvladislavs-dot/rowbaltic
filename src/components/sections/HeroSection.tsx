@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 import type { Dict, Lang } from '@/i18n'
 
 interface Props {
@@ -12,18 +11,11 @@ interface Props {
 
 export default function HeroSection({ dict, lang }: Props) {
   const [loaded, setLoaded] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const h = dict.hero
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 100)
     return () => clearTimeout(t)
-  }, [])
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
@@ -46,32 +38,8 @@ export default function HeroSection({ dict, lang }: Props) {
         />
       </div>
 
-      {/* Nav — sticky */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-300 bg-ink-900 border-b border-ink-800 ${
-        scrolled
-          ? 'px-6 md:px-12 py-3'
-          : 'px-6 md:px-12 pt-6 pb-4'
-      }`}>
-        <div
-          className={`transition-all duration-700 ${loaded ? 'opacity-100' : 'opacity-0 -translate-x-4'}`}
-        >
-          <a
-            href="#hero"
-            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-            className={`font-display text-acid tracking-wider transition-all duration-300 hover:opacity-80 ${scrolled ? 'text-lg' : 'text-2xl'}`}
-          >
-            ROW BALTICS
-          </a>
-        </div>
-        <div
-          className={`flex items-center gap-2 md:gap-4 transition-all duration-700 delay-200 ${loaded ? 'opacity-100' : 'opacity-0 translate-x-4'}`}
-        >
-          <LanguageSwitcher currentLang={lang} />
-        </div>
-      </nav>
-
       {/* Main hero content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center pt-20">
+      <div className="relative z-10 flex-1 flex flex-col justify-center pt-8">
         <div className="px-6 md:px-12">
 
           {/* Giant title */}
@@ -94,12 +62,11 @@ export default function HeroSection({ dict, lang }: Props) {
             </h1>
           </div>
 
-          {/* Tag + CTA — block-level so left edge matches h1 exactly */}
+          {/* Tag + CTA */}
           <div
             className={`mt-6 transition-all duration-700 delay-400 ${
               loaded ? 'opacity-100' : 'opacity-0'
             }`}
-            style={{ marginLeft: 0, paddingLeft: 0 }}
           >
             <div className="w-fit font-mono text-xs uppercase tracking-[0.3em] text-acid border border-acid px-3 py-1.5 mb-3">
               {h.tag}
@@ -114,7 +81,7 @@ export default function HeroSection({ dict, lang }: Props) {
 
         </div>
 
-        {/* Mobile image — shown below subtitle, hidden on desktop */}
+        {/* Mobile image */}
         <div
           className={`lg:hidden mt-6 transition-all duration-700 delay-600 ${
             loaded ? 'opacity-100' : 'opacity-0 translate-y-4'
