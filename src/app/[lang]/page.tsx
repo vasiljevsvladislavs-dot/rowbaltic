@@ -30,7 +30,7 @@ export default async function LangPage({
             href="#programma"
             className="shrink-0 font-mono font-bold text-[10px] uppercase tracking-widest bg-ink-900 text-acid px-5 py-2.5 hover:opacity-80 transition-opacity"
           >
-            Programma →
+            {dict.hero.register_cta} →
           </a>
         </div>
         <div className="shrink-0">
