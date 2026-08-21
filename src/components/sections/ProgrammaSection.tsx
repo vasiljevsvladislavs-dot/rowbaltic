@@ -6,25 +6,6 @@ interface Props {
   dict: Dict
 }
 
-const BMX_ITEMS = [
-  { time: '12:00–13:00', title: 'BMX STREET iesildīšanās #1' },
-  { time: '13:00–14:00', title: 'BMX STREET sacensības' },
-  { time: '14:00–15:00', title: 'BMX STREET iesildīšanās #2' },
-  { time: '15:00–16:30', title: 'BMX STREET sacensības' },
-  { time: '16:30–18:30', title: 'Madara Apse — labākā trika sacensības' },
-]
-
-const BREAKDANCE_ITEMS = [
-  { time: '14:30–14:50', title: 'Iesildīšanās' },
-  { time: '14:50–16:05', title: 'Atlases' },
-  { time: '16:05–16:25', title: 'Top 8 cīņas' },
-  { time: '16:25–16:35', title: 'Top 4 cīņas' },
-  { time: '17:00–17:10', title: 'Žūrijas paraugdemonstrējumi' },
-  { time: '17:10–17:20', title: 'Cīņa par 3. vietu' },
-  { time: '17:20–17:30', title: 'Fināls' },
-  { time: '18:00', title: 'Apbalvošana' },
-]
-
 const STAGE_ITEMS = [
   { time: '12:00', title: 'ROW BALTICS 2026 atklāšana' },
   { time: '12:00–12:30', title: 'Zelma' },
@@ -155,7 +136,7 @@ export default function ProgrammaSection({ dict }: Props) {
               <div className="md:col-span-9">
                 <h3 className="font-mono font-bold text-sm uppercase tracking-widest text-ink-900 mb-4">{p.bmx_title}</h3>
                 <div className="space-y-1 pl-4 border-l border-gray-200">
-                  {BMX_ITEMS.map((item, i) => (
+                  {p.bmx_items.map((item, i) => (
                     <div key={i} className="flex gap-4">
                       <span className="font-mono text-[10px] text-gray-400 w-28 shrink-0">{item.time}</span>
                       <span className="text-sm text-gray-600">{item.title}</span>
@@ -201,7 +182,7 @@ export default function ProgrammaSection({ dict }: Props) {
               <div className="md:col-span-9">
                 <h3 className="font-mono font-bold text-sm uppercase tracking-widest text-ink-900 mb-4">{p.breakdance_title}</h3>
                 <div className="space-y-1 pl-4 border-l border-gray-200">
-                  {BREAKDANCE_ITEMS.map((item, i) => (
+                  {p.breakdance_items.map((item, i) => (
                     <div key={i} className="flex gap-4">
                       <span className="font-mono text-[10px] text-gray-400 w-28 shrink-0">{item.time}</span>
                       <span className="text-sm text-gray-600">{item.title}</span>

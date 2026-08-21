@@ -108,6 +108,7 @@ export interface Dict {
     brewery_desc: string
     bmx_time: string
     bmx_title: string
+    bmx_items: { time: string; title: string }[]
     tour_time: string
     tour_title: string
     tour_desc: string
@@ -116,6 +117,7 @@ export interface Dict {
     beatbattle_desc: string
     breakdance_time: string
     breakdance_title: string
+    breakdance_items: { time: string; title: string }[]
     awards_time: string
     awards_title: string
     awards_cat1: string
