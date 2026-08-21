@@ -11,10 +11,10 @@ export function getDictionary(lang: Lang): Dict {
 }
 
 export const languages: { code: Lang; label: string }[] = [
-  { code: 'lv', label: 'LV' },
-  { code: 'en', label: 'EN' },
-  { code: 'lt', label: 'LT' },
-  { code: 'ee', label: 'EE' },
+  { code: 'lv', label: 'Latviešu' },
+  { code: 'en', label: 'English' },
+  { code: 'lt', label: 'Lietuvių' },
+  { code: 'ee', label: 'Eesti' },
 ]
 
 export type { Lang, Dict }

@@ -34,7 +34,7 @@ export default async function LangPage({
           </a>
         </div>
         <div className="shrink-0">
-          <LanguageSwitcher currentLang={lang} />
+          <LanguageSwitcher currentLang={lang} variant="light" />
         </div>
       </div>
       <HeroSection dict={dict} lang={lang} />
