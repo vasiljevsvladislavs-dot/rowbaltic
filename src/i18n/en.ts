@@ -12,6 +12,7 @@ const en: Dict = {
     register: 'Register',
   },
   hero: {
+    announcement: 'Event moved to Sunday · 23 August · 12:00–22:00',
     tag: 'Riga · August 23 · 2026',
     festival_label: 'Street Art Festival',
     theme_word: 'BATTLE',

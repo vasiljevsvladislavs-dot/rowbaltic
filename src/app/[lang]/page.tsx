@@ -24,7 +24,7 @@ export default async function LangPage({
       <div className="bg-acid text-ink-900 px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <p className="font-display text-[clamp(1.2rem,3vw,2rem)] leading-none uppercase text-center sm:text-left">
-            Pasākums pārcelts uz svētdienu · 23. augustu · 12:00–22:00
+            {dict.hero.announcement}
           </p>
           <a
             href="#programma"

@@ -12,6 +12,7 @@ const lt: Dict = {
     register: 'Registracija',
   },
   hero: {
+    announcement: 'Renginys perkeltas į sekmadienį · Rugpjūčio 23 · 12:00–22:00',
     tag: 'Ryga · Rugpjūčio 23 · 2026',
     festival_label: 'Gatvės Meno Festivalis',
     theme_word: 'KOVA',

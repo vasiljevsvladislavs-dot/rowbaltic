@@ -12,6 +12,7 @@ export interface Dict {
     register: string
   }
   hero: {
+    announcement: string
     tag: string
     festival_label: string
     theme_word: string

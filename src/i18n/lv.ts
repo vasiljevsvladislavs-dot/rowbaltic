@@ -12,6 +12,7 @@ const lv: Dict = {
     register: 'Reģistrācija',
   },
   hero: {
+    announcement: 'Pasākums pārcelts uz svētdienu · 23. augustu · 12:00–22:00',
     tag: 'Rīga · 23. augusts · 2026',
     festival_label: 'Ielu Mākslas Festivāls',
     theme_word: 'CĪŅA',

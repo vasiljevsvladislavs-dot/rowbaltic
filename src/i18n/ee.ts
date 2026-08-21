@@ -12,6 +12,7 @@ const ee: Dict = {
     register: 'Registreerimine',
   },
   hero: {
+    announcement: 'Üritus on lükatud edasi pühapäevale · 23. august · 12:00–22:00',
     tag: 'Riia · 23. august · 2026',
     festival_label: 'Tänavakunsti Festival',
     theme_word: 'LAHING',
