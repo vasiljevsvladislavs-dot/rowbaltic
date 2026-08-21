@@ -26,23 +26,21 @@ const BREAKDANCE_ITEMS = [
 ]
 
 const STAGE_ITEMS = [
-  { time: '10:00–10:30', title: 'ROW BALTICS 2026 atklāšana' },
-  { time: '10:30–11:30', title: 'DJ Suns & DJ Kaķis' },
-  { time: '11:30–12:00', title: 'Rīta kafija ar Wiesturz' },
-  { time: '12:00–12:30', title: 'Ūga' },
+  { time: '12:00', title: 'ROW BALTICS 2026 atklāšana' },
+  { time: '12:00–12:30', title: 'Zelma' },
   { time: '12:30–13:00', title: 'March' },
-  { time: '13:00–13:30', title: 'goča' },
-  { time: '13:30–14:00', title: 'VIŅA' },
-  { time: '14:00–15:00', title: "ansis & DEFSET piedāvā: ROW BEATBATTLE '26 ROUND 1" },
-  { time: '15:00–15:30', title: 'Rokas (LT)' },
-  { time: '15:30–16:00', title: "ansis & DEFSET piedāvā: ROW BEATBATTLE '26 ROUND 2" },
-  { time: '16:00–16:30', title: 'f6lex' },
-  { time: '16:30–17:00', title: "ansis & DEFSET piedāvā: ROW BEATBATTLE '26 ROUND 3" },
-  { time: '17:00–17:30', title: 'Breika sacensību fināls' },
+  { time: '13:00–13:30', title: 'Wiesturz' },
+  { time: '13:30–14:00', title: 'goča' },
+  { time: '14:00–14:30', title: 'Ūga' },
+  { time: '14:30–15:10', title: 'Roberts Gobziņš x NiklāvZ' },
+  { time: '15:30–16:30', title: "ansis & DEFSET piedāvā: ROW BEATBATTLE '26 ROUND 1" },
+  { time: '16:30–17:00', title: 'Rokas (LT)' },
+  { time: '17:00–17:30', title: "ansis & DEFSET piedāvā: ROW BEATBATTLE '26 ROUND 2" },
   { time: '17:30–18:00', title: 'xantikvariāts' },
-  { time: '18:00–19:00', title: 'ROW BALTICS 2026 apbalvošana', desc: 'Ielu māksla · bītu cīņas · BMX un skeitbords · breakdance' },
-  { time: '19:00–19:40', title: 'Roberts Gobziņš x NiklāvZ' },
-  { time: '20:15–20:45', title: 'slepenais viesis' },
+  { time: '18:00–19:00', title: "ansis & DEFSET piedāvā: ROW BEATBATTLE '26 ROUND 3" },
+  { time: '19:00–19:30', title: 'f6lex' },
+  { time: '19:30–20:30', title: 'ROW BALTICS 2026 apbalvošana', desc: 'Ielu māksla · bītu cīņas · BMX un skeitbords · breakdance' },
+  { time: '20:30–21:00', title: 'slepenais viesis' },
   { time: '21:00–22:00', title: 'BASECK (ASV) x KODEK' },
 ]
 
@@ -51,15 +49,6 @@ export default function ProgrammaSection({ dict }: Props) {
 
   return (
     <section id="programma" className="bg-white border-t border-gray-200">
-      {/* Announcement banner */}
-      <div className="bg-ink-900 px-6 md:px-12 py-12 md:py-16 text-center">
-        <p className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-none text-acid">PASĀKUMS</p>
-        <p className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-none text-cream">PĀRCELTS</p>
-        <p className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-none text-acid">UZ SVĒTDIENU</p>
-        <p className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-none text-cream">23. AUGUSTU</p>
-        <p className="font-display text-[clamp(2rem,6vw,5rem)] leading-none text-cream mt-4">12.00 – 22.00</p>
-      </div>
-
       <MarqueeBar
         text="ROW BALTICS · RĪGA OPEN WALL · IELU MĀKSLA · 2026 · "
         className="border-b border-gray-200"
@@ -299,7 +288,7 @@ export default function ProgrammaSection({ dict }: Props) {
                   'Platforma ar pandusu pie galvenās skatuves',
                   'Pielāgotas labierīcības',
                   'Titri latviešu valodā uz ekrāna visas dienas garumā',
-                  'Zīmju valodas tulks: ekskursija 13:00, darbnīca 15:00, slepenais viesis 20:15',
+                  'Zīmju valodas tulks: ekskursija 15:00, slepenais viesis 20:30',
                   'Suņi-asistenti atļauti',
                 ].map((item, i) => (
                   <li key={i} className="font-mono text-sm text-ink-900 py-3 flex gap-3">
