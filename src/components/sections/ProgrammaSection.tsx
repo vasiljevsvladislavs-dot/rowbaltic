@@ -51,6 +51,15 @@ export default function ProgrammaSection({ dict }: Props) {
 
   return (
     <section id="programma" className="bg-white border-t border-gray-200">
+      {/* Announcement banner */}
+      <div className="bg-ink-900 px-6 md:px-12 py-12 md:py-16 text-center">
+        <p className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-none text-acid">PASĀKUMS</p>
+        <p className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-none text-cream">PĀRCELTS</p>
+        <p className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-none text-acid">UZ SVĒTDIENU</p>
+        <p className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-none text-cream">23. AUGUSTU</p>
+        <p className="font-display text-[clamp(2rem,6vw,5rem)] leading-none text-cream mt-4">12.00 – 22.00</p>
+      </div>
+
       <MarqueeBar
         text="ROW BALTICS · RĪGA OPEN WALL · IELU MĀKSLA · 2026 · "
         className="border-b border-gray-200"

@@ -12,7 +12,7 @@ const en: Dict = {
     register: 'Register',
   },
   hero: {
-    tag: 'Riga · August 22 · 2026',
+    tag: 'Riga · August 23 · 2026',
     festival_label: 'Street Art Festival',
     theme_word: 'BATTLE',
     theme_label: '— Festival Theme',
@@ -131,7 +131,7 @@ const en: Dict = {
     heading: 'APPLY FOR THE DRAWING COMPETITION',
     p1: 'Fill in the application form and become part of ROW BALTICS 2026. Applications are open until 30 June 2026 at 23:59.',
     info: [
-      { label: 'Date', value: 'August 22, 2026' },
+      { label: 'Date', value: 'August 23, 2026' },
       { label: 'Location', value: 'Zāģeru Street, Sarkandaugava' },
       { label: 'Time', value: '10:00 – 17:00' },
       { label: 'Participants', value: '30 artists' },
@@ -177,7 +177,7 @@ const en: Dict = {
     contact_label: 'Contact',
     email_label: 'Email',
     festival_label: 'Festival',
-    festival_date: 'August 22, 2026',
+    festival_date: 'August 23, 2026',
     festival_place: 'Sarkandaugava, Riga',
     organizer_label: 'Organiser',
     organizer_name: 'Dainis Rudens',
