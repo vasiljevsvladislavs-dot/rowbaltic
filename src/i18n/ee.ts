@@ -142,6 +142,21 @@ const ee: Dict = {
     stage_label: 'Lavaprogram',
     stage_time: '12.00–22.00',
     accessibility: 'Üritusel tagatakse ligipääsetavus liikumispuudega inimestele. Teatud programmi osad kohandatakse kurtidele ja vaegkuuljatele külastajatele.',
+    transport_label: 'Kohale jõudmine',
+    transport_items: [
+      { stop: 'Aldaris · 3 min', lines: 'bussiga nr. 49 · trammiga nr. 5, 8' },
+      { stop: 'Dauderi · 2 min', lines: 'rongiga Rīga–Skulte' },
+      { stop: 'Viestura pr. · 10 min', lines: 'bussiga nr. 2, 11, 24, 58' },
+    ],
+    accessibility_label: 'Ligipääsetavus',
+    accessibility_items: [
+      'Territoorium ligipääsetav ratastooliga',
+      'Platvorm pandusega peamise lava juures',
+      'Kohandatud tualetid',
+      'Subtiitrid läti keeles ekraanil terve päeva',
+      'Viipekeele tõlk: ekskursioon 15:00, salapärane külaline 20:30',
+      'Abikoerad lubatud',
+    ],
   },
   registration: {
     num: '02',

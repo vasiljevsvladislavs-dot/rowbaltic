@@ -142,6 +142,21 @@ const lv: Dict = {
     stage_label: 'Skatuves programma',
     stage_time: '12.00–22.00',
     accessibility: 'Pasākumā tiks nodrošināta piekļūstamība cilvēkiem ar kustību traucējumiem. Atsevišķas programmas daļas būs pielāgotas nedzirdīgiem un vājdzirdīgiem apmeklētājiem.',
+    transport_label: 'Nokļūšana',
+    transport_items: [
+      { stop: 'Aldaris · 3 min', lines: 'ar autobusu nr. 49 · tramvaju nr. 5, 8' },
+      { stop: 'Dauderi · 2 min', lines: 'ar vilcienu Rīga–Skulte' },
+      { stop: 'Viestura pr. · 10 min', lines: 'ar autobusu nr. 2, 11, 24, 58' },
+    ],
+    accessibility_label: 'Piekļūstamība',
+    accessibility_items: [
+      'Teritorija piekļūstama ratiņkrēslā',
+      'Platforma ar pandusu pie galvenās skatuves',
+      'Pielāgotas labierīcības',
+      'Titri latviešu valodā uz ekrāna visas dienas garumā',
+      'Zīmju valodas tulks: ekskursija 15:00, slepenais viesis 20:30',
+      'Suņi-asistenti atļauti',
+    ],
   },
   registration: {
     num: '02',

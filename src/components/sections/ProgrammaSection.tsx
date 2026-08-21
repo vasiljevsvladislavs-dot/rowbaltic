@@ -247,13 +247,9 @@ export default function ProgrammaSection({ dict }: Props) {
         <AnimateIn>
           <div className="mt-16 pt-12 border-t border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-rust mb-4">Nokļūšana</p>
-              <div className="space-y-2">
-                {[
-                  { stop: 'Aldaris · 3 min', lines: 'ar autobusu nr. 49 · tramvaju nr. 5, 8' },
-                  { stop: 'Dauderi · 2 min', lines: 'ar vilcienu Rīga–Skulte' },
-                  { stop: 'Viestura pr. · 10 min', lines: 'ar autobusu nr. 2, 11, 24, 58' },
-                ].map((t, i) => (
+              <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-rust mb-4">{p.transport_label}</p>
+              <div className="space-y-0">
+                {p.transport_items.map((t, i) => (
                   <div key={i} className="py-3 border-b border-gray-100">
                     <span className="font-mono text-sm font-bold text-ink-900 block">{t.stop}</span>
                     <span className="font-mono text-xs text-gray-500">{t.lines}</span>
@@ -262,16 +258,9 @@ export default function ProgrammaSection({ dict }: Props) {
               </div>
             </div>
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-rust mb-4">Piekļūstamība</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-rust mb-4">{p.accessibility_label}</p>
               <ul className="space-y-0 divide-y divide-gray-100">
-                {[
-                  'Teritorija piekļūstama ratiņkrēslā',
-                  'Platforma ar pandusu pie galvenās skatuves',
-                  'Pielāgotas labierīcības',
-                  'Titri latviešu valodā uz ekrāna visas dienas garumā',
-                  'Zīmju valodas tulks: ekskursija 15:00, slepenais viesis 20:30',
-                  'Suņi-asistenti atļauti',
-                ].map((item, i) => (
+                {p.accessibility_items.map((item, i) => (
                   <li key={i} className="font-mono text-sm text-ink-900 py-3 flex gap-3">
                     <span className="text-rust shrink-0">—</span>
                     {item}

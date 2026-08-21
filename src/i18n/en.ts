@@ -142,6 +142,21 @@ const en: Dict = {
     stage_label: 'Stage programme',
     stage_time: '12:00–22:00',
     accessibility: 'The event will be accessible to people with mobility impairments. Selected programme parts will be adapted for deaf and hard-of-hearing visitors.',
+    transport_label: 'Getting here',
+    transport_items: [
+      { stop: 'Aldaris · 3 min', lines: 'by bus no. 49 · tram no. 5, 8' },
+      { stop: 'Dauderi · 2 min', lines: 'by train Rīga–Skulte' },
+      { stop: 'Viestura pr. · 10 min', lines: 'by bus no. 2, 11, 24, 58' },
+    ],
+    accessibility_label: 'Accessibility',
+    accessibility_items: [
+      'Territory accessible by wheelchair',
+      'Platform with ramp at the main stage',
+      'Adapted restrooms',
+      'Subtitles in Latvian on screen all day',
+      'Sign language interpreter: tour 15:00, secret guest 20:30',
+      'Assistance dogs allowed',
+    ],
   },
   registration: {
     num: '02',

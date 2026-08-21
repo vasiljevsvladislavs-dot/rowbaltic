@@ -127,6 +127,10 @@ export interface Dict {
     stage_label: string
     stage_time: string
     accessibility: string
+    transport_label: string
+    transport_items: { stop: string; lines: string }[]
+    accessibility_label: string
+    accessibility_items: string[]
   }
   registration: {
     num: string

@@ -142,6 +142,21 @@ const lt: Dict = {
     stage_label: 'Scenos programa',
     stage_time: '12.00–22.00',
     accessibility: 'Renginyje bus užtikrintas prieinamumas žmonėms su judėjimo negalia. Atskiros programos dalys bus pritaikytos kurtiesiems ir neprigirdintiesiems lankytojams.',
+    transport_label: 'Kaip atvykti',
+    transport_items: [
+      { stop: 'Aldaris · 3 min', lines: 'autobusu nr. 49 · tramvajumi nr. 5, 8' },
+      { stop: 'Dauderi · 2 min', lines: 'traukiniu Rīga–Skulte' },
+      { stop: 'Viestura pr. · 10 min', lines: 'autobusu nr. 2, 11, 24, 58' },
+    ],
+    accessibility_label: 'Prieinamumas',
+    accessibility_items: [
+      'Teritorija prieinama neįgaliojo vežimėliui',
+      'Platforma su pandusas prie pagrindinės scenos',
+      'Pritaikyti tualetai',
+      'Titrai latvių kalba ekrane visą dieną',
+      'Gestų kalbos vertėjas: ekskursija 15:00, slaptasis svečias 20:30',
+      'Pagalbiniai šunys leidžiami',
+    ],
   },
   registration: {
     num: '02',
