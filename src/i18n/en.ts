@@ -27,6 +27,7 @@ const en: Dict = {
     atbalsta_value: 'ROW BALTICS 2026 takes place within Riga Street Art Month, supported by Riga City Council.',
     register_cta: 'Programme',
     game_cta: 'Street art game',
+    game_play: 'Play now →',
     marquee: 'ROW BALTICS 2026 ✦ STREET ART ✦ BATTLE ✦ RIGA ✦ SARKANDAUGAVA ✦',
   },
   about: {

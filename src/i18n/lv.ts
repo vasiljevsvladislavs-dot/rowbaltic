@@ -27,6 +27,7 @@ const lv: Dict = {
     atbalsta_value: 'ROW BALTICS 2026 norisinās Rīgas Ielu mākslas mēneša ietvaros, un to atbalsta Rīgas valstspilsētas pašvaldība.',
     register_cta: 'Programma',
     game_cta: 'Ielu mākslas spēle',
+    game_play: 'Spēlēt →',
     marquee: 'ROW BALTICS 2026 ✦ IELU MĀKSLA ✦ CĪŅA ✦ RĪGA ✦ SARKANDAUGAVA ✦',
   },
   about: {

@@ -27,6 +27,7 @@ export interface Dict {
     atbalsta_value: string
     register_cta: string
     game_cta: string
+    game_play: string
     marquee: string
   }
   about: {
