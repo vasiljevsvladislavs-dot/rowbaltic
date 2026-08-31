@@ -26,6 +26,7 @@ const ee: Dict = {
     atbalsta_label: 'Toetab:',
     atbalsta_value: 'ROW BALTICS 2026 toimub Riia tänavakunsti kuu raames, mida toetab Riia linn.',
     register_cta: 'Programm',
+    game_cta: 'Tänavakunsti mäng',
     marquee: 'ROW BALTICS 2026 ✦ TÄNAVAKUNST ✦ LAHING ✦ RIIA ✦ SARKANDAUGAVA ✦',
   },
   about: {

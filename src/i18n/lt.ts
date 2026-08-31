@@ -26,6 +26,7 @@ const lt: Dict = {
     atbalsta_label: 'Remia:',
     atbalsta_value: 'ROW BALTICS 2026 vyksta Rygos gatvių meno mėnesio rėmuose, kurį remia Rygos miesto savivaldybė.',
     register_cta: 'Programa',
+    game_cta: 'Gatvės meno žaidimas',
     marquee: 'ROW BALTICS 2026 ✦ GATVĖS MENAS ✦ KOVA ✦ RYGA ✦ SARKANDAUGAVA ✦',
   },
   about: {

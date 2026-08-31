@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import type { Dict, Lang } from '@/i18n'
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 
 interface Props {
   dict: Dict
@@ -71,12 +72,22 @@ export default function HeroSection({ dict, lang }: Props) {
             <div className="w-fit font-mono text-xs uppercase tracking-[0.3em] text-acid border border-acid px-3 py-1.5 mb-3">
               {h.tag}
             </div>
-            <a
-              href="#programma"
-              className="w-fit block font-mono font-bold text-[10px] uppercase tracking-widest bg-acid text-ink-900 hover:bg-acid-dark transition-all duration-300 px-5 py-2.5"
-            >
-              {h.register_cta}
-            </a>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="#programma"
+                className="font-mono font-bold text-[10px] uppercase tracking-widest bg-acid text-ink-900 hover:bg-acid-dark transition-all duration-300 px-5 py-2.5"
+              >
+                {h.register_cta}
+              </a>
+              <a
+                href="https://spele.rowbaltics.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono font-bold text-[10px] uppercase tracking-widest border border-ink-900 text-ink-900 hover:bg-ink-900 hover:text-white transition-all duration-300 px-5 py-2.5"
+              >
+                {h.game_cta} ↗
+              </a>
+            </div>
           </div>
 
         </div>
@@ -120,6 +131,9 @@ export default function HeroSection({ dict, lang }: Props) {
               <p className="font-mono text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">{h.atbalsta_label}</p>
               <p className="font-mono text-xs text-gray-500">{h.atbalsta_value}</p>
             </div>
+          </div>
+          <div className="shrink-0">
+            <LanguageSwitcher currentLang={lang} variant="dark" />
           </div>
         </div>
       </div>
